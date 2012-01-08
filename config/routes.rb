@@ -8,6 +8,10 @@ Diaspora::Application.routes.draw do
   # Posting and Reading
 
   resources :reshares
+  
+  resources :impress, :only => [:index]
+
+  resources :finances, :only => [:index]
 
   resources :aspects do
     put :toggle_contact_visibility
