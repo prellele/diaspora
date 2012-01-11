@@ -27,10 +27,6 @@ gem 'twitter', '2.0.2'
 gem 'messagebus_ruby_api', '1.0.1'
 
 group :production do # we don't install these on travis to speed up test runs
-  # chef
-  gem 'chef', '~> 0.10.4', :require => false
-  gem 'ohai', '~> 0.6.10', :require => false
-
   # reporting
   gem 'hoptoad_notifier'
   gem 'newrelic_rpm'
@@ -65,7 +61,7 @@ gem 'jammit', '0.6.5'
 
 # JSON and API
 
-gem 'json', '1.5.2'
+gem 'json'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 gem 'acts_as_api'
 
