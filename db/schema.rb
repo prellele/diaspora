@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217042006) do
+ActiveRecord::Schema.define(:version => 20120114191018) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -313,7 +313,6 @@ ActiveRecord::Schema.define(:version => 20111217042006) do
     t.string   "root_guid",             :limit => 30
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
-    t.integer  "photos_count",                        :default => 0
     t.integer  "reshares_count",                      :default => 0
   end
 
