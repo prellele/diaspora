@@ -31,6 +31,7 @@ gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
   gem 'rack-ssl', :require => 'rack/ssl'
+  gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
 end
@@ -153,4 +154,7 @@ group :development do
 
   # speed up development requests (already pulled into rails 3.2)
   gem 'active_reload'
+
+  # for tracing AR object instantiation and memory usage per request
+  gem 'oink'
 end
