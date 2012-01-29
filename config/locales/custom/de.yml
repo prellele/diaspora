@@ -1,0 +1,39 @@
+de:
+  application:
+    donate:
+      donatehere: "Mehr Informationen über die Finanzen und wie man helfen kann"
+      donate_information: "Die Finanzen"
+      site_information: "Mit dieser Seite möchte ich Transparenz im Bereich der Finanzen dieses Pods schaffen."
+      transact: "Wenn du Dich entschieden hast Despora finanziell zu unterstützen, gibt es für Dich folgende Möglichkeiten: Überweisung und Flattr. Hierbei handelt es sich nicht um Spenden, sondern um finanzielle Zuwendungen."
+      transaction: "Überweisung: "
+      account_holder: "Kontoinhaber: "
+      ban: "Kontonummer: "
+      bank_code: "Bankleitzahl: "
+      decide: "Als %{strong_purpose} einfach die Entscheidung, ob Du namentlich erwähnt werden möchtest oder nicht. Wenn ja unter Welchem?"
+      strong_purpose: "Verwendungszweck"
+      example: "Beispiel: 'Ja, Lennart Prelle'" 
+      no_data: "Wenn Du keine Angaben machst, wird es Anonymisiert."
+      monthly_revenues: "monatliche Einnahmen"
+      one_time_revenues: "einmalige Einnahmen"
+      today: "heute"
+      period: "Zeitraum"
+      revenues: "Einnahmen"
+      expenses: "Ausgaben"
+      anonymous: "Anonym"
+      date: "Datum"
+      name: "Name"
+      value: "Betrag in Euro"
+  home: 
+    show:
+      licence: "Lizenz"
+      content: "Diese(s) Werk bzw. Inhalt von Lennart Prelle steht unter dieser"
+      definition: "Definition"
+      definition_explanation: "Diaspora (auch: Diaspora*) ist ein Open-Source-Webserver, mit dem ein verteiltes soziales Netzwerk aufgebaut werden soll, das eine Alternative zu zentralisierten Diensten wie Facebook oder StudiVZ bietet [...] und befindet sich im Alpha-Status."
+      sign_in: "Anmelden"
+      why_despora: "Warum Despora*?"
+      forgot_password: "Kennwort vergessen?"
+      remember_me: "Angemeldet bleiben"    
+  layouts:
+    header:
+      no_account: "Noch kein Konto?"
+      sign_up: "Registrieren"
