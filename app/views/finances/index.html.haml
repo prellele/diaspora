@@ -46,7 +46,8 @@
       %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GJM7KZZKZHPG"}
         %img{:alt => "", :border => "0", :src => "https://www.paypal.com/en_US/i/btn/x-click-but04.gif"}
 %p
-  = content_tag (:strong, t('application.donate.transaction'))
+  %strong
+    = t('application.donate.transaction')
   %br
   = t('application.donate.account_holder')
   Lennart Prelle
