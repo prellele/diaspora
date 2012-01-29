@@ -1,0 +1,114 @@
+%html
+  %head
+    %link{:href => "stylesheets/splashpage.css", :rel => "stylesheet", :type => "text/css"}
+      %script{:src => "javascripts/splashpage.js", :type => "text/javascript"}
+    :javascript
+      //
+        /*  */
+            (function() {
+                var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+                t.parentNode.insertBefore(s, t);
+            })();
+        /*  */
+      //
+      %body
+    #wrapper
+      .login
+        %h1
+          = t('home.show.sign_in')
+        %form#user_new.user_new{"accept-charset" => "UTF-8", :action => "/users/sign_in", :method => "post"}
+          %div{:style => "margin:0;padding:0;display:inline"}
+            %input{:name => "utf8", :type => "hidden", :value => "?"}
+              %input{:name => "authenticity_token", :type => "hidden"}/
+          %p
+            %input#user_username{:name => "user[username]", :placeholder => t('username'), :size => "30", :tabindex => "1", :type => "text"}
+              %span#remember_me
+                %input{:name => "user[remember_me]", :type => "hidden", :value => "0"}
+                  %input#user_remember_me{:name => "user[remember_me]", :tabindex => "3", :type => "checkbox", :value => "1"}
+                    %label{:for => "user_remember_me"}
+                      = t('home.show.remember_me')
+          %p
+            %input#user_password{:name => "user[password]", :placeholder => t('password'), :size => "30", :tabindex => "2", :type => "password", :value => ""}
+              %span
+                %a#forgot_password_link{:href => "http://despora.de/users/password/new", :tabindex => "5"}
+                  = t('home.show.forgot_password')
+          %p#controls
+            %input#user_submit{:name => "commit", :tabindex => "4", :type => "submit", :value => t('home.show.sign_in')}/
+      .dhtmlgoodies_question
+        %div
+          %h1 Diaspora*
+      .dhtmlgoodies_answer
+        %div
+          .row_left
+            %h3.first
+              = t('home.show.choice')
+            %p 
+              = t('home.show.choice_explanation')
+            %h3 
+              = t('home.show.ownership')
+            %p 
+              = t('home.show.ownership_explanation')
+            %h3
+              = t('home.show.simplicity')
+            %p 
+              = t('home.show.simplicity_explanation')  
+          .row_right
+            %h3.first 
+              = t('home.show.definition')
+            %p
+              = t('home.show.definition_explanation')
+            %p.small
+              Wikipedia, 02.11.2011 
+          %div{:style => "clear:both;"}
+      .dhtmlgoodies_question
+        %h1
+          = t('home.show.why_despora')
+      .dhtmlgoodies_answer
+        %div
+          %p
+            Despora ist ein Webserver des Diaspora*-Netzwerks, ein sogenannter Pod. Despora ist f&uuml;r jeden zug&auml;nglich und konzentriert sich auf Nutzer aus dem deutschsprachig Raum.
+            %br
+              Der Pod bietet allen die M&ouml;glichkeit die Einzigartigkeit von Diaspora kennenzulernen und diese auszukosten.
+              %br
+                Despora wird von einer privaten Person betrieben. Der Pod stellt Diaspora allen den zur Verf&uuml;gung, die nicht den M&ouml;glichkeit haben sich einen eigenen Pod zu installieren.
+          %h3 Finanziert durch Spenden
+          %p
+            Damit dieser Pod in Zukunft existieren kann und trotzdem Werbefrei bleit, finanziert sich dieser Pod durch Spenden
+          %h3 Immer aktuelle Diaspora-Software
+          %p
+            Aktuell installierter Commit:
+            %a{:href => "https://github.com/diaspora/diaspora/commit/16c732da209e10bc1342beeefe68579b0563b80c", :target => "_blank"} 16c732da209e10bc1342beeefe68579b0563b80c
+      .dhtmlgoodies_question
+        %h1 FAQ
+      .dhtmlgoodies_answer
+        %div
+          %p
+            Wiki / Spored (German)
+            %a{:href => "http://wiki.spored.de/w/Hauptseite", :target => "_blank"} http://wiki.spored.de/w/Hauptseite
+          %p
+            Wiki / Github (English)
+            %a{:href => "https://github.com/diaspora/diaspora/wiki/FAQ-for-Users", :target => "_blank"} https://github.com/diaspora/diaspora/wiki/FAQ-for-Users
+          %p
+            Diaspora / Wikipedia (English)
+            %a{:href => "http://en.wikipedia.org/wiki/Diaspora_(social_network)", :target => "_blank"} http://en.wikipedia.org/wiki/Diaspora_(social_network)
+          %p
+            Diaspora / Wikipedia (German)
+            %a{:href => "http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)", :target => "_blank"} http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)
+      .twitter_div
+        %h1 
+          %a{:href => "http://twitter.com/despora_de", :target => "_blank"} Twitter @despora_de
+      %br
+      %br
+      %br
+        = t('home.show.content') 
+        %a{:href => "http://creativecommons.org/licenses/by-nc-sa/3.0/", :rel => "license", :target => "_blank"}
+          = t('home.show.licence')
+      :javascript
+        //
+          //
+            initShowHideDivs();
+          //
+        //   
