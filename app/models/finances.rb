@@ -10,7 +10,4 @@ class Finances < ActiveRecord::Base.establish_connection(
                   :description,
                   :date,
                   :value
-                  
-  def getAllWithType(type)
-    
-  end
+end
