@@ -88,19 +88,19 @@
 }
 
 .paginate_disabled_previous {
-	background-image: url('http://despora.de/res-finances/back_disabled.jpg');
+	background-image: url('/custom/finances/back_disabled.jpg');
 }
 
 .paginate_enabled_previous {
-	background-image: url('http://despora.de/res-finances/back_enabled.jpg');
+	background-image: url('/custom/finances/back_enabled.jpg');
 }
 
 .paginate_disabled_next {
-	background-image: url('http://despora.de/res-finances/forward_disabled.jpg');
+	background-image: url('/custom/finances/forward_disabled.jpg');
 }
 
 .paginate_enabled_next {
-	background-image: url('http://despora.de/res-finances/forward_enabled.jpg');
+	background-image: url('/custom/finances/forward_enabled.jpg');
 }
 
 
@@ -160,23 +160,23 @@ table.display td.center {
  */
 
 .sorting_asc {
-	background: url('http://despora.de/res-finances/sort_asc.png') no-repeat center right;
+	background: url('/custom/finances/sort_asc.png') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('http://despora.de/res-finances/sort_desc.png') no-repeat center right;
+	background: url('/custom/finances/sort_desc.png') no-repeat center right;
 }
 
 .sorting {
-	background: url('http://despora.de/res-finances/sort_both.png') no-repeat center right;
+	background: url('/custom/finances/sort_both.png') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('http://despora.de/res-finances/sort_asc_disabled.png') no-repeat center right;
+	background: url('/custom/finances/sort_asc_disabled.png') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('http://despora.de/res-finances/sort_desc_disabled.png') no-repeat center right;
+	background: url('/custom/finances/sort_desc_disabled.png') no-repeat center right;
 }
 
 
