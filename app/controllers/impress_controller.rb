@@ -1,0 +1,2 @@
+class ImpressController < ApplicationController
+end
