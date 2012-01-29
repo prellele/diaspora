@@ -3,7 +3,7 @@ mysql: &mysql
   host: "localhost"
   port: 3306
   username: "root"
-  password: "qq"
+  password: ""
 #  socket: /tmp/mysql.sock
   charset: utf8
   collation: utf8_bin
@@ -25,11 +25,11 @@ common: &common
 
 development:
   <<: *common
-  database: diaspora
+  database: diaspora_development
 
 production:
   <<: *common
-  database: diaspora
+  database: diaspora_production
 
 test:
   <<: *common
