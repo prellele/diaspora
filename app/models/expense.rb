@@ -1,4 +1,4 @@
-class Expenses < FinancesBase
+class Expense < FinanceBase
 
   attr_accessible :id,
                   :description,

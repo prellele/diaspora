@@ -104,78 +104,9 @@
         %th
           = t('application.donate.name')
     %tbody
-      %tr.gradeA
-        %td 2012-01-28
-        %td 24,90
-        %td Server (Backup)  		
-      %tr.gradeA
-        %td 2012-01-15
-        %td 49,00
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-12-28
-        %td 24,90
-        %td Server (Backup)  	
-      %tr.gradeA
-        %td 2011-12-15
-        %td 49,00
-        %td Server (Despora.de)    
-      %tr.gradeA
-        %td 2011-11-28
-        %td 24,90
-        %td Server (Backup)    
-      %tr.gradeA
-        %td 2011-11-15
-        %td 49,00
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-10-28
-        %td 24,90
-        %td Server (Backup)
-      %tr.gradeA
-        %td 2011-10-15
-        %td 49,00
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-09-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-08-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-07-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-06-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-05-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-04-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-03-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-02-28
-        %td 24,90
-        %td Server (Despora.de)
-      %tr.gradeA
-        %td 2011-01-20
-        %td 12,00
-        %td Domain despora.de
-      %tr.gradeA
-        %td 2011-01-28
-        %td 24,90
-        %td Server (Despora.de)
+      = render :partial => "datatable", :collection => @expenses, :locals => {:expenses => @expenses}
+
+
 %br
 %br
 %br
