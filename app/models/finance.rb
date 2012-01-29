@@ -1,4 +1,6 @@
-class Finances < ActiveRecord::Base.establish_connection(
+class FinancesBase < ActiveRecord::Base
+
+  establish_connection(
 { :adapter  => "mysql",
   :host     => "localhost",
   :username => Diaspora::Application.config.database_configuration[Rails.env]["username"],
@@ -6,8 +8,4 @@ class Finances < ActiveRecord::Base.establish_connection(
   :database => "finances" }
   )
 
-  attr_accessible :id,
-                  :description,
-                  :date,
-                  :value
 end
