@@ -1,0 +1,63 @@
+/:focus{outline:0;}
+body{margin:30px auto 0px auto;line-height:1;color:#000;background:#FFF;}
+ol,ul{list-style:none;}
+table{border-collapse:separate;border-spacing:0;}
+caption,th,td{text-align:left;font-weight:400;}
+blockquote:before,blockquote:after,q:before,q:after{content:"";}
+blockquote,q{quotes:"" "";}
+/* Ende Reset  */
+html{overflow-y:scroll;}
+ul#twitter_update_list{width:560px;overflow:hidden;margin:0;padding:10px 20px;}
+ul#twitter_update_list li{width:560px;border-bottom:dotted 1px #E9E9E9;list-style:none;padding:5px 0;}
+#wrapper{width:724px;background:url(/custom/splashpage/bg_splashpage.gif) center top no-repeat;margin:0 auto;padding:203px 0 0;font-family:Arial,Helvetica,sans-serif;}
+#wrapper .login{text-shadow:0 1px 0 #ccc;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;color:#ababab;background:no-repeat top center;width:702px;display:block;margin-bottom:1px;height:70px;overflow:hidden;padding:10px;}
+#wrapper .login h1{font-weight:300;font-size:28px;width:150px;display:block;float:left;margin:2px 0 0 0;padding:0;}
+#wrapper .login div.regis{float:right;font-weight:400;font-size:16px;width:130px;display:block;margin:20px 0 0 0;padding:0;}
+#wrapper .login a,#wrapper .login a:link,#wrapper .login a:visited{color:#3F8FBA;text-decoration:none;}
+#wrapper .login a:hover,#wrapper .login a:active{text-decoration:underline;}
+#wrapper .login input#username, #wrapper .login input#password, #wrapper .login label {    display: inline;    font-size: 14px;    left: 12px;    margin: 20px 0 0;    text-shadow: none;    top: 10px;}
+#wrapper .login input[type='text']{-webkit-box-shadow:0 1px 0px white,0 -1px 0px #888888;-moz-box-shadow:0 1px 0px white,0 -1px 0px #888888;box-shadow:0 1px 0px white,0 -1px 0px #888888;width:130px;max-width:130px;}
+#wrapper .login input[type='password']{-webkit-box-shadow:0 1px 0px white,0 -1px 0px #888888;-moz-box-shadow:0 1px 0px white,0 -1px 0px #888888;box-shadow:0 1px 0px white,0 -1px 0px #888888;width:130px;max-width:130px;}
+#wrapper .login input[type='text']:hover{}
+#wrapper .login input#user_submit{margin:6px 0 0;height:28px;width:auto;}
+
+#wrapper .login p span a#forgot_password_link{padding:6px 0 0;display:block;text-shadow:none;}
+#wrapper .login p{display:inline-block;position:relative;width:150px;float:left;}
+#wrapper .login p span{display:inline-block;}
+#wrapper .login p.submit{width:auto;bottom:15px;}
+#wrapper .login p.submit input{width:auto;position:relative;height:40px;top:0px;color:#666666;margin-bottom:10px;}
+#wrapper .login p.submit input:hover{color:#444444;}
+
+#wrapper .twitter_div{text-shadow:0 1px 0 #ccc;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;color:#ababab;background:#f3f3f3 no-repeat top center;border:1px solid #999;border-radius:4px;width:702px;display:block;margin:5px 0 1px 0;height:30px;overflow:hidden;cursor:pointer;padding:10px;}
+#wrapper .twitter_div h1{font-weight:400;font-size:28px;width:300px;display:block;float:left;margin:0;padding:0;}
+#wrapper .twitter_div div.disc {padding:12px 0 0 0;}
+#wrapper .dhtmlgoodies_question{text-shadow:0 1px 0 #ccc;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;color:#ababab;background:#f3f3f3 no-repeat top center;border:1px solid #999;border-radius:4px;width:702px;display:block;margin:5px 0 1px 0;height:30px;overflow:hidden;cursor:pointer;padding:10px;}
+#wrapper .dhtmlgoodies_question h1{font-weight:400;font-size:28px;width:300px;display:block;float:left;margin:0;padding:0;}
+#wrapper .dhtmlgoodies_question div.disc {padding:12px 0 0 0;}
+/*#wrapper .dhtmlgoodies_question img.hover1{height:0;width:0;border-width:0;}
+#wrapper .dhtmlgoodies_question:hover img.hover1{position:absolute;top:0px;left:0px;height:50px;width:50px;}
+*/
+#wrapper .active{color:#000;}
+#wrapper .dhtmlgoodies_answer{-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;border-bottom-right-radius:4px;border-bottom-left-radius:4px;width:722px;margin:0px auto 20px auto;visibility:hidden;height:0;overflow:hidden;position:relative;}
+#wrapper .dhtmlgoodies_answer_content{font-size:13px;position:relative;margin:0;padding:18px;}
+#wrapper .dhtmlgoodies_answer_content div.row_left{width:330px;display:block;overflow:hidden;float:left;}
+#wrapper .dhtmlgoodies_answer_content div.row_right{width:330px;display:block;overflow:hidden;float:right;border-left:1px solid #E9E9E9;padding:0 0 0 13px;}
+#wrapper .dhtmlgoodies_answer_content h1{font-size:22px;padding:0 0 10px 0;}
+#wrapper .dhtmlgoodies_answer_content h2{font-size:20px;padding:0 0 10px 0;}
+#wrapper .dhtmlgoodies_answer_content h3{font-size:18px;padding:12px 0 8px 0;}
+#wrapper .dhtmlgoodies_answer_content h4{font-size:16px;padding:8px 0 6px 0;}
+#wrapper .dhtmlgoodies_answer_content a,#wrapper .dhtmlgoodies_answer_content a:link,#wrapper .dhtmlgoodies_answer_content a:visited{color:#3F8FBA;text-decoration:none;}
+#wrapper .dhtmlgoodies_answer_content a:hover,#wrapper .dhtmlgoodies_answer_content a:active{text-decoration:underline;}
+#wrapper .dhtmlgoodies_answer_content .small{font-size:12px;}
+#wrapper .dhtmlgoodies_answer_content strong{font-weight:bold;}
+#wrapper .dhtmlgoodies_answer_content h3.first{padding:0px 0 8px 0;}
+#wrapper .dhtmlgoodies_answer_content p{line-height:1.4;margin:8px 0 6px 0;}
+#wrapper .dhtmlgoodies_answer_content ol{list-style:decimal;}
+.site_1{background:url(10.png) no-repeat top left}
+html body div#wrapper div#dhtmlgoodies_a1.dhtmlgoodies_answer div#dhtmlgoodies_ac1.dhtmlgoodies_answer_content p.input{float:left;width:500px;display:block;overflow:hidden;}
+
+#wrapper .login,#wrapper .dhtmlgoodies_question{border:1px solid #eaeaea;border-bottom:0;border-radius:0px;border-top-right-radius:4px;border-top-left-radius:4px;margin-bottom:0;}
+#wrapper .dhtmlgoodies_answer{color:#231E1E;border:1px solid #e8e8e8;border-top:0;border-radius:0px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;}
+#wrapper .dhtmlgoodies_answer_content div.row.right{border-color:#e8e8e8;}
+#wrapper .login,#wrapper .dhtmlgoodies_question{background-color:#fbfbfb;color:#231E1E;}
+#wrapper .dhtmlgoodies_answer{background-color:#fbfbfb;color:#000;}
