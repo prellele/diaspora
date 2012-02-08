@@ -1,0 +1,39 @@
+en:
+  application:
+    donate:
+      donatehere: "More information about the finances and how you could help out"
+      donate_information: "Finances"
+      site_information: "On this site, I (Lennart Prelle) will give you an insight, which costs come up for me to run this pod and how much where donated to Despora."
+      transact: "When you choosed, that you're willing to support Despora.de, then you got three possibilities to do this: Flattr, Paypal and a money transfer."
+      transaction: "money transfer: "
+      account_holder: "Accout-Holder: "
+      ban: "account number: "
+      bank_code: "bank code number: "
+      decide: "As %{strong_purpose} please note, if you want to be mentioned as a supported of Despora, then note also the Name, Email or Diaspora-Handle."
+      strong_purpose: "purpose"
+      example: "For example: 'Yes, Lennart Prelle'" 
+      no_data: "If you don't make notes, it will be anonymised."
+      monthly_revenues: "monthly revenues"
+      one_time_revenues: "one time revenues"
+      revenues: "revenues"
+      today: "today"
+      period: "period"
+      expenses: "expenses"      
+      anonymous: "anonymously"
+      date: "date"
+      name: "name"
+      value: "amount in euro"
+  home: 
+    show:
+      licence: "Licence"
+      content: "This conent of Lennart Prelle is under this"
+      definition: "Definition"
+      definition_explanation: "Diaspora (styled DIASPORA*) is a non-profit, user-owned, distributed social network that is based upon the free Diaspora software. The project was founded in 2010 by four students at New York University.s Courant Institute of Mathematical Sciences."
+      sign_in: "Sign in"
+      why_despora: "Why Despora*?"
+      forgot_password: "Forgot your password?"
+      remember_me: "remember me"    
+  layouts:
+    header:
+      no_account: "Haven't an account yet?"
+      sign_up: "Sign Up"

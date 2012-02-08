@@ -4,6 +4,12 @@
 
 Diaspora::Application.routes.draw do
 
+  # Custom things
+  
+  resources :impress, :only => [:index]
+  
+  resources :finances, :only => [:index]
+
   # Posting and Reading
 
   resources :reshares
