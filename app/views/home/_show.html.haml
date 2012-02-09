@@ -2,18 +2,6 @@
   %head
     %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
       %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
-    :javascript
-      //
-        /*  */
-            (function() {
-                var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-                s.type = 'text/javascript';
-                s.async = true;
-                s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-                t.parentNode.insertBefore(s, t);
-            })();
-        /*  */
-      //
       %body
     #wrapper
       .login
@@ -69,18 +57,18 @@
       .dhtmlgoodies_answer
         %div
           %p
-            Despora ist ein Webserver des Diaspora*-Netzwerks, ein sogenannter Pod. Despora ist f&uuml;r jeden zug&auml;nglich und konzentriert sich auf Nutzer aus dem deutschsprachig Raum.
+            Despora ist ein Webserver des Diaspora*-Netzwerks, ein sogenannter Pod. Despora ist für jeden zugänglich und konzentriert sich auf Nutzer aus dem deutschsprachig Raum.
             %br
-              Der Pod bietet allen die M&ouml;glichkeit die Einzigartigkeit von Diaspora kennenzulernen und diese auszukosten.
+              Der Pod bietet allen die Möglichkeit die Einzigartigkeit von Diaspora kennenzulernen und diese auszukosten.
               %br
-                Despora wird von einer privaten Person betrieben. Der Pod stellt Diaspora allen den zur Verf&uuml;gung, die nicht den M&ouml;glichkeit haben sich einen eigenen Pod zu installieren.
+                Ich, Lennart Prelle, stelle diesen Pod allen den zur Verfügung, die nicht den Möglichkeit haben sich einen eigenen Pod zu installieren.
           %h3 Finanziert durch Spenden
           %p
-            Damit dieser Pod in Zukunft existieren kann und trotzdem Werbefrei bleit, finanziert sich dieser Pod durch Spenden
+            Damit dieser Pod in Zukunft existieren kann und trotzdem Werbefrei bleit, finanziert sich dieser Pod durch Spenden.
           %h3 Immer aktuelle Diaspora-Software
           %p
             Aktuell installierter Commit:
-            %a{:href => "https://github.com/diaspora/diaspora/commit/", :target => "_blank"} 
+            %a{:href => "https://github.com/lprelle/diaspora/commit/", :target => "_blank"} 
       .dhtmlgoodies_question
         %h1 FAQ
       .dhtmlgoodies_answer
