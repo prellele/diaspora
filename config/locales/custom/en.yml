@@ -9,7 +9,7 @@ en:
       account_holder: "Accout-Holder: "
       ban: "account number: "
       bank_code: "bank code number: "
-      decide: "As %{strong_purpose} please note, if you want to be mentioned as a supported of Despora, then note also the Name, Email or Diaspora-Handle."
+      decide: "If you want to tell something, you're welcome to do this in the %{strong_purpose}. Your Name or your Diaspora-ID suits for this perfect."
       strong_purpose: "purpose"
       example: "For example: 'Yes, Lennart Prelle'" 
       no_data: "If you don't make notes, it will be anonymised."
@@ -22,7 +22,7 @@ en:
       anonymous: "anonymously"
       date: "date"
       name: "name"
-      value: "amount in euro"
+      value: "amount"
   home: 
     show:
       licence: "Licence"
