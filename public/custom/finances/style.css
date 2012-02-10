@@ -3,6 +3,11 @@
 	color: rgb(64, 64, 64);
 }
 
+.content {
+	max-width: 600px;
+	margin-left:150px;
+}
+
 .content p{
 
 	font-size:15px;
@@ -33,4 +38,12 @@ ul.possibilitys li{
 .dataTables_filter label input {
     display: inline !important;
     width: 150px !important;
+}
+
+label:not(.bootstrapped) {
+	position: relative;
+}
+
+tr.even td {
+	background: #FFFFFF;
 }

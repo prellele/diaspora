@@ -23,6 +23,7 @@ de:
       date: "Datum"
       name: "Name"
       value: "Betrag"
+      type: "Spendenart"
   home:
     show:
       licence: "Lizenz"
