@@ -1,0 +1,36 @@
+*{
+	font-family: inherit;
+	color: rgb(64, 64, 64);
+}
+
+.content p{
+
+	font-size:15px;
+	font-weight:normal;
+}
+
+h1,h2,h3,h4,h5{
+	font-weight:bold;
+	color: inherit;
+	margin-bottom: 1em;
+}
+
+ul.possibilitys{
+	list-style-type: none;
+	padding: 0;
+}
+
+ul.possibilitys li{
+	display: inline;
+	float:left;
+	margin-right:50px;
+}
+
+.clearit{
+	clear:both;
+}
+
+.dataTables_filter label input {
+    display: inline !important;
+    width: 150px !important;
+}

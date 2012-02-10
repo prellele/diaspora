@@ -1,5 +1,5 @@
 :css
-  @import "/custom/finances/demo_page.css";
+  @import "/custom/finances/style.css";
   @import "/custom/finances/demo_tables.css";
 %script{:language => "javascript", :src => "javascripts/jquery.js", :type => "text/javascript"}
 %script{:language => "javascript", :src => "/custom/finances/jquery.dataTables.min.js", :type => "text/javascript"}
@@ -31,46 +31,40 @@
   } );
   } );
 .content
-  %h3 
+  %h1 
     = t('application.donate.donate_information')
   %p 
     = t('application.donate.site_information')
   %p
     = t('application.donate.transact')
   %br
-  %table{:border => "0", :style => "width:250px;", :width => "350"}
-    %tr
-      %th{:align => "left", :valign => "top", :width => "80"}
-        %strong Flattr:
-      %th{:align => "left", :valign => "top", :width => "80"}
-        %strong Paypal:
-    %tr
-      %th{:align => "left", :valign => "top", :width => "80"} 
-        %a.FlattrButton{:href => "https://despora.de", :style => "display:none;"}
-      %th
-        %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GJM7KZZKZHPG"}
-          %img{:alt => "", :border => "0", :src => "https://www.paypal.com/en_US/i/btn/x-click-but04.gif"}
+  %ul.possibilitys
+    %li
+      %h3
+        = t('application.donate.transaction')      
+      %p
+        = t('application.donate.account_holder')
+        Lennart Prelle
+        %br
+        = t('application.donate.ban')
+        3001116684
+        %br
+        = t('application.donate.bank_code')
+        24151005
+        %br
+        IBAN: DE27 2415 1005 1210 0556 44	
+        %br
+        BIC: NOLADE21STS 
+    %li
+      %h3 Flattr:
+      %a.FlattrButton{:href => "https://despora.de", :style => "display:none;"}
+    %li
+      %h3 Paypal:
+      %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GJM7KZZKZHPG"}
+        %img{:alt => "", :border => "0", :src => "https://www.paypal.com/en_US/i/btn/x-click-but04.gif"}
+  .clearit
   %p
-    %strong
-      = t('application.donate.transaction')
-    %br
-    = t('application.donate.account_holder')
-    Lennart Prelle
-    %br
-    = t('application.donate.ban')
-    3001116684
-    %br
-    = t('application.donate.bank_code')
-    24151005
-    %br
-    IBAN: DE27 2415 1005 1210 0556 44	
-    %br
-    BIC: NOLADE21STS
-    %br
-    %br
     = t('application.donate.decide', :strong_purpose => content_tag(:strong, t('application.donate.strong_purpose'))).html_safe
-    %br
-    %br
     = t('application.donate.no_data')
   %br
   %table{:border => "0", :style => "width:300px;"}
@@ -80,21 +74,15 @@
     %tr
       %td{:valign => "top"}
         %h2
-          %u
-            = t('application.donate.expenses')
+          = t('application.donate.expenses')
       %td{:valign => "top"}
-        %u
-          %h2= "#{number_with_precision(@sum_expenses, :precision => 2)}€";
+        %h2= "#{number_with_precision(@sum_expenses, :precision => 2)}€";
     %tr
       %td{:valign => "top"}
         %h2
-          %u
-            = t('application.donate.revenues')
+          = t('application.donate.revenues')
       %td{:valign => "top"}
-        %u
-          %h2= "#{number_with_precision(@sum_revenues, :precision => 2)}€";
-  %br
-  %br
+        %h2= "#{number_with_precision(@sum_revenues, :precision => 2)}€";
   %br
   %h3
     = t('application.donate.expenses')
