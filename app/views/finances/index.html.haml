@@ -79,8 +79,8 @@
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
         %col{:width => "600"}
-        %col{:width => "100"}
-        %col{:width => "100"}
+        %col{:width => "80"}     
+        %col{:width => "150"}  
       %thead
         %tr
           %th
@@ -102,6 +102,9 @@
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
         %col{:width => "600"}
+        %col{:width => "80"}
+        %col{:width => "80"}        
+        %col{:width => "150"}  
       %thead
         %tr
           %th
@@ -125,16 +128,19 @@
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
         %col{:width => "600"}
-        %col{:width => "100"}
-        %col{:width => "100"}    
+        %col{:width => "80"}
+        %col{:width => "80"}        
+        %col{:width => "150"}        
       %thead
         %tr
           %th
             = t('application.donate.name')
           %th
-            = t('application.donate.period')
+            = t('application.donate.since')
           %th
-            = t('application.donate.value')
+            = t('application.donate.quantity')
+          %th
+            = t('application.donate.totalamount')
       %tbody
-        = render :partial => "datatable", :collection => @monthly_revenues 
+        = render :partial => "monthlyrevenues", :collection => @monthly_revenues 
 

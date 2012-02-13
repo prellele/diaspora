@@ -23,6 +23,10 @@ en:
       date: "date"
       name: "name"
       value: "amount"
+      type: "type"
+      totalamount: "total amount"
+      since: "since"
+      quantity: "quantity"
   home: 
     show:
       licence: "Licence"
