@@ -6,7 +6,9 @@ class Revenue < FinanceBase
                   :description,
                   :date,
                   :value,
+                  :spender,
                   :type_id
+                  
 
 end
 

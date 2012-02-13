@@ -24,6 +24,9 @@ de:
       name: "Name"
       value: "Betrag"
       type: "Spendenart"
+      totalamount: "Gesamtbetrag"
+      since: "Seit"
+      quantity: "Anzahl"
   home:
     show:
       licence: "Lizenz"
