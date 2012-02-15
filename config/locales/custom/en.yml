@@ -1,10 +1,10 @@
 en:
-  application:
-    donate:
+  finances:
+    index:
       donatehere: "More information about the finances and how you could help out"
       donate_information: "Finances"
       site_information: "On this site, I (Lennart Prelle) will give you an insight, which costs come up for me to run this pod and how much where donated to Despora."
-      transact: "When you choosed, that you're willing to support Despora.de, then you got three possibilities to do this: Flattr, Paypal and a money transfer."
+      transact: "When you choosed, that you're willing to support Despora.de, then you got three possibilities to do this: Flattr, Paypal and a money transfer (Amazon affliate is only for german users)."
       transaction: "money transfer: "
       account_holder: "Accout-Holder: "
       ban: "account number: "
@@ -27,6 +27,12 @@ en:
       totalamount: "total amount"
       since: "since"
       quantity: "quantity"
+      amazon-affiliate: "Amazon affliate"
+      amazon-affiliate_desc: "We get 5% of your order value"
+      paypal_desc: "Paypal retains 1,9% + 0,35€ fees"
+      flattr_desc: "Flattr retains 10% fees of the amount."
+      transaction_desc: "We get 100% of your transaction, no fees :)"
+      amazon-affiliate_info: "Use the following link if you wanna buy something at Amazon.de."
   home: 
     show:
       licence: "Licence"

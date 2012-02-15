@@ -4,7 +4,7 @@
 }
 
 .content {
-	max-width: 600px;
+	max-width: 650px;
 	margin-left:150px;
 }
 
@@ -28,7 +28,14 @@ ul.possibilitys{
 ul.possibilitys li{
 	display: inline;
 	float:left;
-	margin-right:50px;
+	margin-right:25px;
+}
+
+ul.possibilitys li.amazon{
+	display: inline;
+	float:left;
+	margin-right:0px;
+	max-width:200px;
 }
 
 .clearit{
@@ -47,3 +54,7 @@ label:not(.bootstrapped) {
 tr.even td {
 	background: #FFFFFF;
 }
+
+h3.possibility { border-bottom: 1px dashed #c30; text-decoration:none; }
+  h3.possibility:hover { cursor:help; color:#c30; background:white; }
+  

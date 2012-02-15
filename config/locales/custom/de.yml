@@ -1,10 +1,10 @@
 de:
-  application:
-    donate:
+  finances:
+    index:
       donatehere: "Mehr Informationen über die Finanzen und wie man helfen kann"
       donate_information: "Die Finanzen"
       site_information: "Mit dieser Seite möchte ich Transparenz im Bereich der Finanzen dieses Pods schaffen."
-      transact: "Wenn du Dich entschieden hast Despora finanziell zu unterstützen, gibt es für Dich folgende drei Möglichkeiten dies zu tun: Überweisung, Paypal und Flattr. Hierbei handelt es sich nicht um Spenden, sondern um eine finanzielle Zuwendung."
+      transact: "Wenn du Dich entschieden hast Despora finanziell zu unterstützen, gibt es für Dich folgende vier Möglichkeiten dies zu tun: Überweisung, Paypal, Flattr und Amazon Affliate. Hierbei handelt es sich nicht um Spenden, sondern um eine finanzielle Zuwendung."
       transaction: "Überweisung: "
       account_holder: "Kontoinhaber: "
       ban: "Kontonummer: "
@@ -27,6 +27,12 @@ de:
       totalamount: "Gesamtbetrag"
       since: "Seit"
       quantity: "Anzahl"
+      amazon-affiliate: "Amazon Affliate"
+      amazon-affiliate_desc: "Wir erhalten 5% des Bestellwerts"
+      paypal_desc: "Paypal behält 1,9% + 0,35€ Gebühren"
+      flattr_desc: "Flattr behalt 10% der Spenden"
+      transaction_desc: "100% deiner Spende kommt an!"
+      amazon-affiliate_info: "Benutzte den folgenden Link, immer wenn du etwas bei Amazon.de bestellst."
   home:
     show:
       licence: "Lizenz"

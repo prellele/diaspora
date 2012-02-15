@@ -3,6 +3,7 @@
   @import "/custom/finances/demo_tables.css";
 %script{:language => "javascript", :src => "javascripts/jquery.js", :type => "text/javascript"}
 %script{:language => "javascript", :src => "/custom/finances/jquery.dataTables.min.js", :type => "text/javascript"}
+%script{:language => "javascript", :src => "/custom/finances/wz_tooltip.js", :type => "text/javascript"}
 :javascript
   /*  */
       (function() {
@@ -20,41 +21,44 @@
   } );
   } );
 .content
-  %h1 
-    = t('application.donate.donate_information')
+  %h1
+    = t('.donate_information')
   %p 
-    = t('application.donate.site_information')
+    = t('.site_information')
   %p
-    = t('application.donate.transact')
+    = t('.transact')
   %br
   %ul.possibilitys
     %li
-      %h3
-        = t('application.donate.transaction')      
+      %h3.possibility{:onmouseout => "UnTip()", :onmouseover => "Tip('#{t('.transaction_desc')}')"}
+        = t('.transaction')
       %p
-        = t('application.donate.account_holder')
+        = t('.account_holder')
         Lennart Prelle
         %br
-        = t('application.donate.ban')
+        = t('.ban')
         3001116684
         %br
-        = t('application.donate.bank_code')
+        = t('.bank_code')
         24151005
-        %br
-        IBAN: DE27 2415 1005 1210 0556 44	
-        %br
-        BIC: NOLADE21STS 
     %li
-      %h3 Flattr:
+      %h3.possibility{:onmouseout => "UnTip()", :onmouseover => "Tip('#{t('.flattr_desc')}')"}
+        Flattr:
       %a.FlattrButton{:href => "https://despora.de", :style => "display:none;"}
     %li
-      %h3 Paypal:
+      %h3.possibility{:onmouseout => "UnTip()", :onmouseover => "Tip('#{t('.paypal_desc')}')"}
+        Paypal:
       %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GJM7KZZKZHPG"}
         %img{:alt => "", :border => "0", :src => "https://www.paypal.com/en_US/i/btn/x-click-but04.gif"}
+    %li.amazon
+      %h3.possibility{:onmouseout => "UnTip()", :onmouseover => "Tip('#{t('.amazon-affiliate_desc')}')"}
+        = "#{t('.amazon-affiliate')}:";
+      = t('.amazon-affiliate_info')
+      %a{:href => "http://www.amazon.de/?_encoding=UTF8&site-redirect=de&tag=despora-21&linkCode=ur2&camp=1638&creative=19454", :target => "_blank"} http://amazon.de
   .clearit
   %p
-    = t('application.donate.decide', :strong_purpose => content_tag(:strong, t('application.donate.strong_purpose'))).html_safe
-    = t('application.donate.no_data')
+    = t('.decide', :strong_purpose => content_tag(:strong, t('.strong_purpose'))).html_safe
+    = t('.no_data')
   %br
   %table{:border => "0", :style => "width:300px;"}
     %tr
@@ -63,18 +67,18 @@
     %tr
       %td{:valign => "top"}
         %h2
-          = t('application.donate.expenses')
+          = t('.expenses')
       %td{:valign => "top"}
         %h2= "#{number_with_precision(@sum_expenses, :precision => 2)}€";
     %tr
       %td{:valign => "top"}
         %h2
-          = t('application.donate.revenues')
+          = t('.revenues')
       %td{:valign => "top"}
         %h2= "#{number_with_precision(@sum_revenues, :precision => 2)}€";
   %br
   %h3
-    = t('application.donate.expenses')
+    = t('.expenses')
   #container
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
@@ -84,11 +88,11 @@
       %thead
         %tr
           %th
-            = t('application.donate.name')
+            = t('.name')
           %th
-            = t('application.donate.date')
+            = t('.date')
           %th
-            = t('application.donate.value')
+            = t('.value')
       %tbody
         = render :partial => "datatable", :collection => @expenses
 
@@ -97,7 +101,7 @@
   %br
   %br
   %h3
-    = t('application.donate.one_time_revenues')
+    = t('.one_time_revenues')
   #container
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
@@ -108,13 +112,13 @@
       %thead
         %tr
           %th
-            = t('application.donate.name')          
+            = t('.name')          
           %th
-            = t('application.donate.date')
+            = t('.date')
           %th
-            = t('application.donate.type')           
+            = t('.type')           
           %th
-            = t('application.donate.value')
+            = t('.value')
       %tbody
         = render :partial => "onetimerevenues", :collection => @onetime_revenues
     
@@ -123,7 +127,7 @@
   %br
   %br
   %h3
-    = t('application.donate.monthly_revenues')
+    = t('.monthly_revenues')
   #container
     %table.display.dataTable{:border => "0", :cellspacing => "0"}
       %colgroup
@@ -134,13 +138,13 @@
       %thead
         %tr
           %th
-            = t('application.donate.name')
+            = t('.name')
           %th
-            = t('application.donate.since')
+            = t('.since')
           %th
-            = t('application.donate.quantity')
+            = t('.quantity')
           %th
-            = t('application.donate.totalamount')
+            = t('.totalamount')
       %tbody
         = render :partial => "monthlyrevenues", :collection => @monthly_revenues 
 
