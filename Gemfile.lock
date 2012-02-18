@@ -183,6 +183,7 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.7.4)
       json (>= 1.4.6)
+    god (0.12.1)
     haml (3.1.4)
     hashie (1.2.0)
     heroku (2.18.1)
@@ -458,6 +459,7 @@ DEPENDENCIES
   foreigner (~> 1.1.0)
   foreman (= 0.34.1)
   fuubar (= 0.0.6)
+  god
   haml
   heroku
   heroku_san

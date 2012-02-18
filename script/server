@@ -105,9 +105,10 @@ fi
 # Start Diaspora
 
 if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "true" ]; then
-    QUEUE=* bundle exec rake resque:work&
+    god -c script/diaspora.god&
 fi
 
 if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
-    bundle exec thin start $args
+    #bundle exec thin start $args
+    unicorn -c /var/www/diaspora/config/unicorn.rb $args 
 fi
