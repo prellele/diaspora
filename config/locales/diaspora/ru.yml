@@ -44,6 +44,7 @@ ru:
   all_aspects: "Все аспекты"
   application:
     helper:
+      diaspora_alpha: "ДИАСПОРА* АЛЬФА"
       unknown_person: "неизвестная персона"
       video_title:
         unknown: "Неизвестное название видеозаписи"
@@ -111,6 +112,9 @@ ru:
         have_a_question: "... хотите задать вопрос (%{link})?"
         here_to_help: "Сообщество Диаспоры всегда рядом!"
         need_help: "Нужна помощь?"
+        tag_bug: ошибка
+        tag_feature: функция
+        tag_question: вопрос
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
@@ -256,7 +260,9 @@ ru:
     formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: Удалить
+  email: E-mail
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
@@ -333,12 +339,12 @@ ru:
         two: "%{count} не понравилось"
         zero: "никому не понравилось"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        few: "Понравилось: %{count}"
+        many: "Понравилось: %{count}"
+        one: "Понравилось: %{count}"
+        other: "Понравилось: %{count}"
+        two: "Понравилось: %{count}"
+        zero: "Понравилось: 0"
       people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
@@ -459,7 +465,7 @@ ru:
     email_sent_by_diaspora: "Это письмо было послано Диаспорой. Если вы не хотите получать подобные письма,"
     hello: "Привет, %{name}!"
     liked:
-      liked: "%{name} понравилось ваше сообщение"
+      liked: "%{name} понравилась ваша запись"
       view_post: "Посмотреть запись >"
     mentioned:
       mentioned: "упомянул вас в сообщении:"
@@ -478,6 +484,7 @@ ru:
       view_profile: "%{name} - посмотреть профиль"
     thanks: "Спасибо,"
     to_change_your_notification_settings: "чтобы изменить ваши настройки уведомлений"
+  nsfw: 18+
   ok: Ок
   or: или
   password: Пароль
@@ -595,6 +602,8 @@ ru:
       first_name: Имя
       last_name: Фамилия
       update_profile: "Обновить профиль"
+      you_are_nsfw: "Вы отметили свой аккаунт как \"небезопасный для рабочего места\". Ваши записи будут недоступны людям, которые отключили показ потоков спорного содержания."
+      you_are_safe_for_work: "Вы отметили свой аккаунт как \"безопасный для рабочего места\". Это означает, что ваши записи соответствуют требованиям сообщества."
       your_bio: "Ваша биография"
       your_birthday: "Ваш день рождения"
       your_gender: "Ваш пол"
@@ -712,6 +721,7 @@ ru:
     add_contact:
       add_new_contact: "Добавить контакт"
       create_request: "Поиск по идентификатору в Диаспоре"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете их email адреса? Вы можете предложить им присоединиться к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
@@ -776,9 +786,11 @@ ru:
       hide_and_mute: "Скрыть и отключить уведомления"
       ignore_user: "Блокировать пользователя %{name}"
       ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
+      like: Нравится
       nsfw: "Автор пометил эту запись как \"только для взрослых\". %{link}"
       shared_with: "Для аспектов: %{aspect_names}"
       show: показать
+      unlike: "Не нравится"
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
@@ -807,8 +819,10 @@ ru:
       two: "Показать еще два комментария"
       zero: "Больше нет комментариев"
   streams:
+    activity:
+      title: "Моя активность"
     aspects:
-      title: Аспекты
+      title: "Мои аспекты"
     aspects_stream: Аспекты
     comment_stream:
       contacts_title: "Люди, чьи записи вы прокомментировали"
@@ -829,7 +843,7 @@ ru:
       title: "@Упоминания"
     multi:
       contacts_title: "В вашем потоке"
-      title: Исследуйте
+      title: Поток
     public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
@@ -866,6 +880,7 @@ ru:
       screenshot_explanation: "%{link1}.  Этот аккаунт cubbi связан с %{link2}."
       sign_up_today: "Зарегистрируйтесь прямо сейчас!"
       typical_userpage: "Типичная cubbi.es страница"
+      via: "(через %{link})"
       what_is_cubbies: "Cubbi.es - это первое в мире приложение для Диаспоры. Кроме того, это лучший способ создания коллекции фотографий в Интернете."
   undo: Отменить?
   username: "Имя пользователя"
@@ -904,7 +919,7 @@ ru:
       export_data: "Экспорт информации"
       following: "Настройки подписок"
       getting_started: "Новые пользовательские настройки"
-      liked: "...кому-то понравилось ваше сообщение."
+      liked: "...кому-то понравилась ваша запись."
       mentioned: "...вы были упомянуты в сообщении."
       new_password: "Новый пароль"
       photo_export_unavailable: "Экспорт фотографий сейчас недоступен"
