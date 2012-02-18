@@ -9,7 +9,7 @@ God.contact(:email) do |c|
   c.group = 'developers'
 end
 rails_env   = ENV['RAILS_ENV']  || "production"
-rails_root  = ENV['RAILS_ROOT'] || "/var/www/diaspora"
+rails_root  = ENV['RAILS_ROOT'] || "/home/lprelle/diaspora"
 num_resqueworkers = 6
 
 

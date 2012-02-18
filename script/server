@@ -110,5 +110,5 @@ fi
 
 if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
     #bundle exec thin start $args
-    unicorn -c /var/www/diaspora/config/unicorn.rb $args 
+    unicorn -c /home/lprelle/diaspora/config/unicorn.rb $args 
 fi
