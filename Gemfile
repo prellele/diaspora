@@ -22,6 +22,8 @@ gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
 
+gem 'unicorn', '~> 4.2.0'
+gem 'god'
 # mail
 
 gem 'messagebus_ruby_api', '1.0.3'
@@ -40,8 +42,6 @@ end
 
 group :heroku do
   gem 'pg'
-  gem 'unicorn', '~> 4.2.0'
-  gem 'god'
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
