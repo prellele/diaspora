@@ -12,7 +12,7 @@ preload_app true
 # How long to wait before killing an unresponsive worker
 timeout 30
 
-pid '/home/lprelle/diaspora/diaspora.pid'
+pid '/home/lprelle/diaspora/pids/unicorn.pid'
 listen '/home/lprelle/diaspora/diaspora.sock', :backlog => 2048
 
 # Ruby Enterprise Feature
@@ -30,7 +30,7 @@ before_fork do |server, worker|
     Resque.redis.client.disconnect
   end
 
-  old_pid = '/home/lprelle/diaspora/diaspora.pid.oldbin'
+  old_pid = '/home/lprelle/diaspora/pids/unicorn.pid.oldbin'
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
