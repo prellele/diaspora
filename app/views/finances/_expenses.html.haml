@@ -1,7 +1,12 @@
 %tr.gradeA
   %td
-    = datatable.date
+    = expenses.description 
   %td
-    = datatable.value
+    = expenses.date
   %td
-    = datatable.description  	
+    = expenses.anzahl  
+  %td.right
+    = number_with_precision(expenses.value, :precision => 2)
+    €
+ 
+ 	
