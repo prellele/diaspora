@@ -33,6 +33,7 @@ en:
       flattr_desc: "Flattr retains 10% fees of the amount."
       transaction_desc: "We get 100% of your transaction, no fees :)"
       amazon-affiliate_info: "Use the following link if you wanna buy something at Amazon.de."
+      interval: "interval"
   home: 
     show:
       licence: "Licence"
