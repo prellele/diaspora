@@ -1,6 +1,6 @@
 class FinancesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
     onetime = [1,3,4,5]
     @onetimee_revenues = Revenue.where(:type_id => [1,3,4,5])
@@ -12,6 +12,6 @@ class FinancesController < ApplicationController
     @monthly_revenues =  Revenue.where('t.id not in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,revenues.date,sum(revenues.value) as value,t.name,COUNT(spender) as anzahl").group('revenues.spender')
     @total= @sum_expenses - @sum_revenues
   end
-  
+
 end
 
