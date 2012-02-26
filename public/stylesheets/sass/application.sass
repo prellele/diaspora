@@ -343,12 +343,17 @@ ul.as-selections
       :bottom 1px solid #ddd
 
     p
-      :padding-bottom 0
-      :margin-bottom 0
+      &:last-child
+        :padding-bottom 0
+        :margin-bottom 0
 
     &:first-child
       :border
         :top none
+
+    ul
+      li
+        :list-style disc
 
     .youtube-player, .vimeo-player
       :border none
@@ -937,7 +942,11 @@ img.scaled_full
   :margin
     :right 10px
 
+  :position relative
+
   form
+    :position absolute
+    :right 0
     input
       @include box-shadow(0,1px,1px,#444)
       @include border-radius(15px)
@@ -1737,6 +1746,9 @@ ul#press_logos
     :top 14px
     :padding
       :bottom 5px
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
 
     a
       :color inherit
@@ -1905,8 +1917,8 @@ ul#press_logos
       :weight normal
 
   .timestamp
-    :position absolute
-    :right 10px
+    :position relative
+    :float right
     :font
       :weight normal
     :color $blue
@@ -2725,6 +2737,9 @@ a.toggle_selector
     :bottom 10px
   h1,h3
     :color #fff
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
   :background orange
   &:hover
     #gs-skip-x
