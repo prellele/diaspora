@@ -1,7 +1,7 @@
 module FinancesHelper
 
   def effective_expenses
-    @@effective_expenses ||= Expense.sum("value") - Revenue.sum("value")
+    @@effective_expenses ||= Revenue.sum("value") - Expense.sum("value")
     return @@effective_expenses
   end
 

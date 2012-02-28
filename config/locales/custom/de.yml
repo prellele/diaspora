@@ -2,6 +2,8 @@ de:
   finances:
     index:
       donatehere: "Mehr Informationen über die Finanzen und wie man helfen kann"
+      current_value: "aktueller Kontostand: "
+      help_out: "Hilf Despora aus!"
       donate_information: "Die Finanzen"
       site_information: "Mit dieser Seite möchte ich Transparenz im Bereich der Finanzen dieses Pods schaffen."
       transact: "Wenn du Dich entschieden hast Despora finanziell zu unterstützen, gibt es für Dich folgende vier Möglichkeiten dies zu tun: Überweisung, Paypal, Flattr und Amazon Affliate. Hierbei handelt es sich nicht um Spenden, sondern um eine finanzielle Zuwendung."

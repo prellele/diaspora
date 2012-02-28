@@ -2,6 +2,8 @@ en:
   finances:
     index:
       donatehere: "More information about the finances and how you could help out"
+      current_value: "current balance: "
+      help_out: "Help Despora out!"
       donate_information: "Finances"
       site_information: "On this site, I (Lennart Prelle) will give you an insight, which costs come up for me to run this pod and how much where donated to Despora."
       transact: "When you choosed, that you're willing to support Despora.de, then you got three possibilities to do this: Flattr, Paypal and a money transfer (Amazon affliate is only for german users)."
