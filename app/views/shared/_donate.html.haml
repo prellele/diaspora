@@ -1,11 +1,11 @@
+- if effective_expenses <= 0
+  %style{:type => "text/css"}
+    == h5 { color:red; } 
+- if effective_expenses > 0
+  %style{:type => "text/css"}
+    == h5 { color:green; }     
 = t('finances.index.current_value')
-- if effective_expenses <= 50
+%h5
   = number_with_precision(effective_expenses, :precision => 2)
   €
-  #{" :-["}
-  = link_to t('finances.index.help_out'), '/finances'
-- if effective_expenses > 50
-  = number_with_precision(effective_expenses, :precision => 2)
-  €
-  #{" :-]"}
-  = link_to t('finances.index.donatehere'), '/finances'
+= link_to t('finances.index.help_out'), '/finances'
