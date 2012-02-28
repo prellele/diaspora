@@ -126,11 +126,6 @@ describe LikesController do
 
           response.status.should == 403
         end
-
-        it 'returns the parent post presenter' do
-          delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
-          response.body.should include 'post' if class_const != Comment
-        end
       end
     end
   end

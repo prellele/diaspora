@@ -52,12 +52,12 @@ window.stubView = function stubView(text){
 }
 
 window.loginAs = function loginAs(attrs){
-  return app.currentUser = app.user(factory.userAttrs(attrs))
+  return window.current_user = app.user(factory.userAttrs(attrs))
 }
 
 window.logout = function logout(){
   this.app._user = undefined
-  return app.currentUser = new app.models.User()
+  return window.current_user = app.user()
 }
 
 spec.clearLiveEventBindings = function() {

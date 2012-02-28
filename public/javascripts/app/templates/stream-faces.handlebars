@@ -1,5 +1,5 @@
 {{#people}}
-  {{#linkToPerson this}}
-    {{{personImage this "small"}}}
-  {{/linkToPerson}}
+  <a href="/people/{{guid}}">
+    <img class="avatar" src="{{avatar.small}}" title="{{name}}"/>
+  </a>
 {{/people}}

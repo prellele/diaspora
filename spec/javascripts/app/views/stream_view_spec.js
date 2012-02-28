@@ -29,7 +29,9 @@ describe("app.views.Stream", function() {
   describe("#render", function() {
     beforeEach(function() {
       this.statusMessage = this.stream.posts.models[0];
-      this.statusElement = $(this.view.$(".stream_element")[0]);
+      this.reshare = this.stream.posts.models[1];
+      this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
+      this.reshareElement = $(this.view.$("#" + this.reshare.get("guid")));
     });
 
     context("when rendering a status message", function() {
@@ -44,7 +46,7 @@ describe("app.views.Stream", function() {
 
     beforeEach(function() {
       this.statusMessage = this.stream.posts.models[0];
-      this.statusElement = $(this.view.$(".stream_element")[0]);
+      this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
       readMoreLink = this.statusElement.find('.read-more a');
       readMoreLink.text("read more");
     });
@@ -89,7 +91,7 @@ describe("app.views.Stream", function() {
 
       it('collapses li elements on webkit/IE but leaves them alone on firefox', function() {
         this.statusMessage = this.stream.posts.models[3];
-        this.statusElement = $(this.view.$(".stream_element")[3]);
+        this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
         readMoreLink = this.statusElement.find('.read-more a');
         readMoreLink.text("read more");
 

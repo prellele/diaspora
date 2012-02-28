@@ -20,7 +20,7 @@
 
     = include_base_css_framework
     = include_stylesheets :login, :media => 'screen'
-    = include_stylesheets :application, :default, :media => 'all'
+    = include_stylesheets :default, :media => 'all'
 
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
@@ -46,12 +46,12 @@
   %body
     = flash_messages
 
-    %header
-      - unless current_user
+    - unless current_user
+      %header
         = render 'layouts/header'
 
     .container
-      - if @aspect == :getting_started || @page == :logged_out
+      - if @aspsect == :getting_started || @page == :logged_out
         = yield
       - else
         .span-24.last

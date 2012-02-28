@@ -1,8 +1,4 @@
-app.views.Base = Backbone.View.extend({
-
-  initialize : function(options) {
-    this.setupRenderEvents();
-  },
+app.views.Base =  Backbone.View.extend({
 
   presenter : function(){
     return this.defaultPresenter()
@@ -10,26 +6,18 @@ app.views.Base = Backbone.View.extend({
 
   setupRenderEvents : function(){
     this.model.bind('remove', this.remove, this);
-
-    // this line is too generic.  we usually only want to re-render on
-    // feedback changes as the post content, author, and time do not change.
-    //
-    // this.model.bind('change', this.render, this);
+    this.model.bind('change', this.render, this);
   },
 
   defaultPresenter : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
-    return _.extend(modelJson, {
-      current_user : app.currentUser.attributes,
-      loggedIn : app.currentUser.authenticated()
-    });
+    return _.extend(modelJson, {current_user: app.user().attributes});
   },
 
   render : function() {
     this.renderTemplate()
     this.renderSubviews()
     this.renderPluginWidgets()
-    this.removeTooltips()
 
     return this
   },
@@ -57,9 +45,5 @@ app.views.Base = Backbone.View.extend({
   renderPluginWidgets : function() {
     this.$(this.tooltipSelector).twipsy();
     this.$("time").timeago();
-  },
-
-  removeTooltips : function() {
-    $(".twipsy").remove();
   }
 })

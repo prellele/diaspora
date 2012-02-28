@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require Rails.root.join("app", "presenters", "post_presenter")
-
 class ParticipationsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
@@ -17,7 +15,7 @@ class ParticipationsController < ApplicationController
     if @participation
       respond_to do |format|
         format.mobile { redirect_to post_path(@participation.post_id) }
-        format.json { render :json => PostPresenter.new(@participation.parent, current_user).to_json, :status => 201 }
+        format.json { render :json => @participation.parent.as_api_response(:backbone), :status => 201 }
       end
     else
       render :nothing => true, :status => 422
@@ -30,7 +28,8 @@ class ParticipationsController < ApplicationController
     if @participation
       current_user.retract(@participation)
       respond_to do |format|
-        format.json { render :json => PostPresenter.new(@participation.parent, current_user).to_json, :status => 202 }
+        format.any { }
+        format.json{ render :json => @participation.parent.as_api_response(:backbone), :status => 202 }
       end
     else
       respond_to do |format|

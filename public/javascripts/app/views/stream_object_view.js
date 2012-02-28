@@ -1,4 +1,8 @@
 app.views.StreamObject = app.views.Base.extend({
+  
+  initialize: function(options) {
+    this.setupRenderEvents();
+  },
 
   postRenderTemplate : function() {
     // collapse long posts

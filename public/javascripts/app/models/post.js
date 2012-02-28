@@ -1,15 +1,9 @@
 app.models.Post = Backbone.Model.extend({
   urlRoot : "/posts",
-
   initialize : function() {
-    this.setupCollections();
-    this.bind("change", this.setupCollections, this)
-  },
-
-  setupCollections: function() {
-    this.comments = new app.collections.Comments(this.get("comments") || this.get("last_three_comments"), {post : this});
-    this.likes = this.likes || new app.collections.Likes([], {post : this}); // load in the user like initially
-    this.participations = this.participations || new app.collections.Participations([], {post : this}); // load in the user like initially
+    this.comments = new app.collections.Comments(this.get("last_three_comments"), {post : this});
+    this.likes = new app.collections.Likes([], {post : this}); // load in the user like initially
+    this.participations = new app.collections.Participations([], {post : this}); // load in the user like initially
   },
 
   createdAt : function() {
@@ -44,22 +38,15 @@ app.models.Post = Backbone.Model.extend({
   },
 
   follow : function() {
-    var self = this;
-    this.participations.create({}, {success : function(resp){
-      self.set(resp)
-      self.trigger('interacted', self)
-    }});
+    this.set({ user_participation : this.participations.create() });
   },
 
   unfollow : function() {
-    var self = this;
     var participationModel = new app.models.Participation(this.get("user_participation"));
     participationModel.url = this.participations.url + "/" + participationModel.id;
 
-    participationModel.destroy({success : function(model, resp){
-      self.set(resp);
-      self.trigger('interacted', this)
-    }});
+    participationModel.destroy();
+    this.set({ user_participation : null });
   },
 
   toggleLike : function() {
@@ -72,22 +59,14 @@ app.models.Post = Backbone.Model.extend({
   },
 
   like : function() {
-    var self = this;
-    this.likes.create({}, {success : function(resp){
-      self.set(resp)
-      self.trigger('interacted', self)
-    }});
-
+    this.set({ user_like : this.likes.create() });
   },
 
   unlike : function() {
-    var self = this;
     var likeModel = new app.models.Like(this.get("user_like"));
     likeModel.url = this.likes.url + "/" + likeModel.id;
 
-    likeModel.destroy({success : function(model, resp) {
-      self.set(resp);
-      self.trigger('interacted', this)
-    }});
+    likeModel.destroy();
+    this.set({ user_like : null });
   }
 });

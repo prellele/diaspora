@@ -118,11 +118,6 @@ describe ParticipationsController do
 
         response.status.should == 403
       end
-
-      it 'returns the parent post presenter' do
-        delete :destroy, :format => :json, id_field => @participation.target_id, :id => @participation.id
-        response.body.should include 'post'
-      end
     end
   end
 end
