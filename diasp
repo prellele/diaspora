@@ -1,0 +1,75 @@
+#!/bin/sh
+DIASPORA_HOME="/home/lprelle/diaspora"
+REDIS_CONFIG="/home/nobody/redis-2.4.2/redis.conf"
+RETVAL=0
+datum=`date`
+
+start() {
+#       logrotate -v /etc/diasp-logrotate.conf
+        cd $DIASPORA_HOME
+        echo starting server
+	./script/server 2>&1 >> error.log &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+}
+
+stop() {
+        echo `ps aux | grep resque | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
+        echo `killall ruby`
+        echo `killall ruby1.8`
+        echo `ps aux | grep script/server | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
+}
+
+bilder() {
+        echo `find /home/nobody/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /home/nobody/bilderbackup/ \;`
+}
+
+update() {
+        cd $DIASPORA_HOME
+        echo pulling from github
+        git pull origin despora
+        echo setting commit on splashpage
+        COMMIT=`git show | sed -n 1p  | awk {'print $2'}`
+#       OUTPUT=`git rev-list --parents -1 $COMMIT | awk {'print $3'}`
+        echo `sed -i "s#.*https://github.com/lprelle/diaspora/commit.*#            \%a{:href \=\> \"https://github.com/lprelle/diaspora/commit/$COMMIT\", \:target \=\> \"\_blank\"\} $COMMIT#g" /home/lprelle/diaspora/app/views/home/_show.html.haml`
+        echo installing gems
+        bundle install
+        echo migrating db
+        bundle exec rake db:migrate
+        echo running jammit
+        bundle exec jammit
+}
+
+case "$1" in
+   start)
+      start
+      ;;
+   stop)
+      stop
+      ;;
+   restart)
+      stop
+      start
+      ;;
+   update)
+      stop
+      update
+      start
+      ;;
+   justupdate)
+      update
+      ;;
+   bilder)
+      bilder
+      ;;
+   *)
+      echo $"Usage: diaspora {start|stop|restart|update|bilder}"
+      RETVAL=3
+esac
+
+exit $RETVAL
