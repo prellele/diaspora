@@ -57,17 +57,15 @@
       .dhtmlgoodies_answer
         %div
           %p
-            Despora ist ein Webserver des Diaspora*-Netzwerks, ein sogenannter Pod. Despora ist für jeden zugänglich und konzentriert sich auf Nutzer aus dem deutschsprachig Raum.
+            = t('home.show.despora_desc1')
             %br
-              Der Pod bietet allen die Möglichkeit die Einzigartigkeit von Diaspora kennenzulernen und diese auszukosten.
-              %br
-                Ich, Lennart Prelle, stelle diesen Pod allen den zur Verfügung, die nicht den Möglichkeit haben sich einen eigenen Pod zu installieren.
-          %h3 Finanziert durch Spenden
+            = t('home.show.despora_desc2')
+            %br
+            = t('home.show.despora_desc3')    
+          %h3 
+            = t('home.show.always_new')
           %p
-            Damit dieser Pod in Zukunft existieren kann und trotzdem Werbefrei bleit, finanziert sich dieser Pod durch Spenden.
-          %h3 Immer aktuelle Diaspora-Software
-          %p
-            Aktuell installierter Commit:
+            = t('home.show.current_commit')
             %a{:href => "https://github.com/lprelle/diaspora/commit/", :target => "_blank"} 
       .dhtmlgoodies_question
         %h1 FAQ
