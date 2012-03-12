@@ -67,7 +67,7 @@ case "$1" in
       bilderbackup
       ;;
    *)
-      echo $"Usage: diaspora {start|stop|restart|update|bilderbackup}"
+      echo $"Usage: diaspora { start | stop | restart | update | bilderbackup }"
       RETVAL=3
 esac
 
