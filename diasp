@@ -25,8 +25,8 @@ stop() {
         echo `ps aux | grep script/server | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
 }
 
-bilder() {
-        echo `find /home/nobody/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /home/nobody/bilderbackup/ \;`
+bilderbackup() {
+        echo `find /home/lprelle/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /lprelle/nobody/bilderbackup/ \;`
 }
 
 update() {
@@ -57,18 +57,17 @@ case "$1" in
       start
       ;;
    update)
-      stop
       update
-      start
+      stop
       ;;
    justupdate)
       update
       ;;
-   bilder)
-      bilder
+   bilderbackup)
+      bilderbackup
       ;;
    *)
-      echo $"Usage: diaspora {start|stop|restart|update|bilder}"
+      echo $"Usage: diaspora {start|stop|restart|update|bilderbackup}"
       RETVAL=3
 esac
 
