@@ -26,7 +26,7 @@ stop() {
 }
 
 bilderbackup() {
-        echo `find /home/lprelle/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /lprelle/nobody/bilderbackup/ \;`
+        echo `find /home/lprelle/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /home/lprelle/bilderbackup/ \;`
 }
 
 update() {
