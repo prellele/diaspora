@@ -32,7 +32,7 @@ de:
       amazon-affiliate: "Amazon Affliate"
       amazon-affiliate_desc: "Wir erhalten 5% des Bestellwerts"
       paypal_desc: "Paypal behält 1,9% + 0,35€ Gebühren"
-      flattr_desc: "Flattr behalt 10% der Spenden"
+      flattr_desc: "Flattr behält 10% der Spenden"
       transaction_desc: "100% deiner Spende kommt an!"
       amazon-affiliate_info: "Benutzte den folgenden Link, immer wenn du etwas bei Amazon.de bestellst."
       interval: "Intervall"

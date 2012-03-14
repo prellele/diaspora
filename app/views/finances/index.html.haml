@@ -50,12 +50,18 @@
         Paypal:
       %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7GJM7KZZKZHPG"}
         %img{:alt => "", :border => "0", :src => "https://www.paypal.com/en_US/i/btn/x-click-but04.gif"}
+  .clearit
+  %ul.possibilitys  
     %li.amazon
       %h3.possibility{:onmouseout => "UnTip()", :onmouseover => "Tip('#{t('.amazon-affiliate_desc')}')"}
         = "#{t('.amazon-affiliate')}:";
       = t('.amazon-affiliate_info')
       %a{:href => "http://www.amazon.de/?_encoding=UTF8&site-redirect=de&tag=despora-21&linkCode=ur2&camp=1638&creative=19454", :target => "_blank"} http://amazon.de
+    %li 
+      %h3 Bitcoin:
+      <code>17k7iYuXAtStptGmUUKCzmZaTvqm6DRMux</code>
   .clearit
+  %br
   %p
     = t('.decide', :strong_purpose => content_tag(:strong, t('.strong_purpose'))).html_safe
     = t('.no_data')
