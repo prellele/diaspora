@@ -1,4 +1,8 @@
 en:
+  right_section:
+    actual_commit: "latest code"
+    last_updated: "Last updated bevor "
+    show_commits: "Show Commits"
   finances:
     index:
       donatehere: "More information about the finances and how you could help out"

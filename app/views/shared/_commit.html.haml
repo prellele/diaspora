@@ -1,0 +1,4 @@
+= t('right_section.last_updated')
+= time_ago_in_words(Time.parse(AppConfig[:git_update]))
+%br
+= link_to t('right_section.show_commits'), 'https://github.com/lprelle/diaspora/commits/despora', :target => '_blank'
