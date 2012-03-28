@@ -1,10 +1,10 @@
 var Mentions = {
   initialize: function(mentionsInput) {
-    return mentionsInput.mentionsInput(Mentions.options);
+    mentionsInput.mentionsInput(Mentions.options);
   },
 
   fetchContacts : function(){
-    Mentions.contacts || $.getJSON("/contacts", function(data) {
+    Mentions.contacts || $.getJSON($(".selected_contacts_link").attr("href"), function(data) {
       Mentions.contacts = data;
     });
   },

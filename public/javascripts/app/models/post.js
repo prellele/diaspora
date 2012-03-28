@@ -90,19 +90,4 @@ app.models.Post = Backbone.Model.extend({
       self.trigger('interacted', this)
     }});
   }
-}, {
-
-  frameMoods : [
-    "Day"
-  ],
-
-  legacyTemplateNames : [
-    "status-with-photo-backdrop",
-    "note",
-    "rich-media",
-    "multi-photo",
-    "photo-backdrop",
-    "activity-streams-photo",
-    "status"
-  ]
 });

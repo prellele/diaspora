@@ -23,7 +23,7 @@ class PostPresenter
         :reshares => self.reshares,
         :comments => self.comments,
         :participations => self.participations,
-        :frame_name => self.post.frame_name || template_name,
+        :templateName => template_name,
         :title => title
       })
   end

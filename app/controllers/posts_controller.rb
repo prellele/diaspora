@@ -8,17 +8,10 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :set_format_if_malformed_from_status_net, :only => :show
 
-  layout 'post'
-
   respond_to :html,
              :mobile,
              :json,
              :xml
-
-  def new
-    redirect_to "/stream" and return unless FeatureFlags.new_publisher
-    render :text => "", :layout => true
-  end
 
   def show
     key = params[:id].to_s.length <= 8 ? :id : :guid
@@ -41,7 +34,7 @@ class PostsController < ApplicationController
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}
         format.json{ render :json => PostPresenter.new(@post, current_user).to_json }
-        format.any{render 'posts/show.html.haml'}
+        format.any{render 'posts/show.html.haml', :layout => 'layouts/post'}
       end
 
     else

@@ -33,10 +33,6 @@ factory = {
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
-  user : function(overrides) {
-    return new app.models.User(factory.userAttrs(overrides))
-  },
-
   userAttrs : function(overrides){
     var id = this.id.next()
     var defaultAttrs = {
@@ -52,8 +48,8 @@ factory = {
     return _.extend(defaultAttrs, overrides)
   },
 
-  postAttrs : function(){
-    return  {
+  post :  function(overrides) {
+    var defaultAttrs = {
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
@@ -61,6 +57,7 @@ factory = {
       "public" : false,
       "guid" : this.guid(),
       "image_url" : null,
+      "author" : this.author(),
       "o_embed_cache" : null,
       "photos" : [],
       "text" : "jasmine is bomb",
@@ -72,30 +69,8 @@ factory = {
       "likes_count" : 0,
       "comments_count" : 0
     }
-  },
 
-  photoAttrs : function(overrides){
-    return _.extend({
-      author: factory.userAttrs(),
-      created_at: "2012-03-27T20:11:52Z",
-      guid: "8b0db16a4c4307b2",
-      id: 117,
-      sizes: {
-          large: "http://localhost:3000/uploads/images/scaled_full_d85410bd19db1016894c.jpg",
-          medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
-          small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
-        }
-    }, overrides)
-  },
-
-  post :  function(overrides) {
-    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()})
     return new app.models.Post(_.extend(defaultAttrs, overrides))
-  },
-
-  statusMessage : function(overrides){
-    //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
-    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
   },
 
   comment: function(overrides) {

@@ -60,7 +60,6 @@ module Chubbies
   end
 
   class App < DiasporaClient::App
-    set :views, File.join(File.dirname(__FILE__), 'views')
     def current_user
       @user = User.first
     end
