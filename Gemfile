@@ -17,6 +17,7 @@ gem 'rack-cors', '~> 0.2.4', :require => 'rack/cors'
 gem 'devise', '1.5.3'
 gem 'jwt'
 gem 'oauth2-provider', '0.0.19'
+gem 'remotipart', '~> 1.0'
 
 gem 'omniauth', '1.0.1'
 gem 'omniauth-facebook'
@@ -86,7 +87,6 @@ gem 'ruby-oembed', '~> 0.8.7'
 # queue
 
 gem 'resque', '1.20.0'
-gem 'resque-ensure-connected', :git => 'git://github.com/socialcast/resque-ensure-connected.git'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
@@ -145,7 +145,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '1.3.0'
+  gem 'heroku_san'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
