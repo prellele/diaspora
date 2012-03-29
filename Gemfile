@@ -26,7 +26,7 @@ gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
 
-gem 'unicorn', '~> 4.2.0'
+gem 'unicorn', '~> 4.2.1'
 gem 'god'
 # mail
 
