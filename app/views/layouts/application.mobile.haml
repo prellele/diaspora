@@ -30,7 +30,7 @@
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
     / Stylesheets
-    = stylesheet_link_tag :mobile, :format => 'all'
+    = include_stylesheets :mobile, :format => 'all'
     = yield(:custom_css)
 
     %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
@@ -41,7 +41,7 @@
     = csrf_meta_tag
 
     - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
+      = include_stylesheets :rtl, :media => 'all'
 
     = yield(:head)
 
@@ -78,7 +78,7 @@
 
     / javascripts at the bottom
     = jquery_include_tag
-    = javascript_include_tag :mobile
+    = include_javascripts :mobile
 
     :javascript
       MBP.hideUrlBar();

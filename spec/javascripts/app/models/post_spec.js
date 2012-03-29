@@ -3,30 +3,15 @@ describe("app.models.Post", function() {
     this.post = new app.models.Post();
   })
 
-  describe("headline and body", function(){
-    describe("headline", function(){
-      beforeEach(function(){
-        this.post.set({text :"     yes    "})
-      })
-
-      it("the headline is the entirety of the post", function(){
-        expect(this.post.headline()).toBe("yes")
-      })
-
-      it("takes up until the new line", function(){
-        this.post.set({text : "love\nis avery powerful force"})
-        expect(this.post.headline()).toBe("love")
-      })
+  describe("url", function(){
+    it("should be /posts when it doesn't have an id", function(){
+      expect(new app.models.Post().url()).toBe("/posts")
     })
 
-    describe("body", function(){
-      it("takes after the new line", function(){
-        this.post.set({text : "Inflamatory Title\nwith text that substantiates a less absolutist view of the title."})
-        expect(this.post.body()).toBe("with text that substantiates a less absolutist view of the title.")
-      })
+    it("should be /posts/id when it doesn't have an id", function(){
+      expect(new app.models.Post({id: 5}).url()).toBe("/posts/5")
     })
   })
-
   describe("createdAt", function() {
     it("returns the post's created_at as an integer", function() {
       var date = new Date;
@@ -114,4 +99,6 @@ describe("app.models.Post", function() {
       expect(app.models.Participation.prototype.destroy).toHaveBeenCalled();
     })
   })
+
+
 });

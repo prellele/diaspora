@@ -66,7 +66,3 @@ dump.rdb
 
 #Rubinius's JIT
 *.rbc
-
-# Ignore precompiled assets
-# Heroku or Capistrano can and should regenerate them on every deploy
-public/assets

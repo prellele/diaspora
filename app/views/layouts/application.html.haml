@@ -19,20 +19,20 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework
-    = stylesheet_link_tag 'login', 'application', 'default'
+    = include_stylesheets :login, :media => 'screen'
+    = include_stylesheets :application, :default, :media => 'all'
 
     - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
+      = include_stylesheets :rtl, :media => 'all'
 
     = old_browser_js_support
     <!--[if IE]>
-    = javascript_include_tag :ie
+    = include_javascripts :ie
     <![endif]-->
 
     = jquery_include_tag
-
     - unless @landing_page
-      = javascript_include_tag :main, :templates
+      = include_javascripts :main, :templates
       = load_javascript_locales
 
     = set_asset_host

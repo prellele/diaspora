@@ -6,8 +6,7 @@ describe("Diaspora.Alert", function() {
   });
 
   afterEach(function() {
-    $("#facebox").remove();
-
+    $(".diaspora_alert").empty();
   });
 
 

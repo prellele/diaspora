@@ -1,5 +1,5 @@
 module ApplicationHelper
   def jquery_include_tag
-    javascript_include_tag :jquery
+    include_javascripts :jquery
   end
 end

@@ -4,7 +4,7 @@
 
 
 - content_for :head do
-  = javascript_include_tag :home
+  = include_javascripts :home
 
 - if current_user.getting_started?
   #welcome-to-diaspora

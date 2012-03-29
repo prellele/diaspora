@@ -65,6 +65,8 @@ gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
 gem 'rest-client', '1.6.7'
 
+gem 'jammit-s3'
+
 # JSON and API
 
 gem 'json'
@@ -106,16 +108,6 @@ gem 'sass'
 gem 'will_paginate'
 gem 'client_side_validations'
 
-# assets
-
-group :assets do
-  gem 'sass-rails', '3.1.4'
-  gem 'handlebars_assets'
-  gem 'uglifier'
-end
-
-gem 'jquery-rails'
-
 # web
 
 gem 'faraday'
@@ -124,8 +116,7 @@ gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 # jazzy jasmine
 
-# Use the latest Jasmine from github for asset pipeline compatibility
-gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
+gem 'jasmine', '~> 1.1.2'
 
 ### GROUPS ####
 
@@ -138,7 +129,7 @@ group :test do
 
   gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
-  gem 'factory_girl_rails', '1.7.0'
+  gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.1'
   gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
