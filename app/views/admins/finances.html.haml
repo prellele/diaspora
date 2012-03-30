@@ -1,0 +1,37 @@
+
+.span-24
+  = render :partial => 'admins/admin_bar.haml'
+%br
+%br
+
+.span-24.last
+  %h2
+    = "Finances Page"
+  type:
+  %br
+  = render :partial => "types", :collection => @types
+
+%h2
+  = "Expenses"
+%br
+Add
+%br
+= form_tag 'finances', :method => :get do
+  %div
+    Name
+    = text_field_tag 'expense[name]', params[:expense][:name]
+  %div
+    date
+    = text_field_tag :date
+  %div
+    type  
+    = text_field_tag :type_id
+  %div 
+    value
+    = text_field_tag :value  
+  = submit_tag 'Submit'
+  
+  
+%h2
+  = "Revenues"      
+

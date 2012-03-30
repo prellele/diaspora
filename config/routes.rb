@@ -119,6 +119,10 @@ Diaspora::Application.routes.draw do
     get   :weekly_user_stats
     get   :correlations
     get   :stats, :as => 'pod_stats'
+    match :finances do
+      match :expenses
+      match :revenues
+    end
     get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
   end
 
