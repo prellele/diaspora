@@ -78,20 +78,12 @@
 
 .section
   .title
-    = image_tag('/images/icons/coffee.png')
+    = image_tag('icons/coffee.png')
     %h5
       = t('aspects.index.donate')
   .content
     = render 'shared/donate'
 
-- if AppConfig[:paypal_hosted_button_id].present?
-  .section
-    .title
-      = image_tag('icons/coffee.png')
-      %h5
-        = t('aspects.index.donate')
-    .content
-      = render 'shared/donate'
       
 .section
   .title
