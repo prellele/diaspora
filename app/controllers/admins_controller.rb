@@ -81,16 +81,6 @@ class AdminsController < ApplicationController
   def correlations
     @correlations_hash = Statistics.new.generate_correlations
   end
-  
-  def finances
-    params[:expense] ||= {}
-    params[:expense].delete_if {|key, value| value.blank? }
-    @expense = params[:expense].empty? ? [] : Expense.where(params[:expense])
-    params[:revenue] ||= {}
-    params[:revenue].delete_if {|key, value| value.blank? }
-    @revenue = params[:revenue].empty? ? [] : Revenue.where(params[:revenue])
-    @types = Type.all
-  end
 
   private
   def percent_change(today, yesterday)

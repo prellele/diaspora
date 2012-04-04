@@ -12,10 +12,6 @@ class FinancesController < ApplicationController
     @monthly_revenues =  Revenue.where('t.id not in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,revenues.date,sum(revenues.value) as value,t.name,COUNT(spender) as anzahl").group('revenues.spender')
     @total= @sum_expenses - @sum_revenues
   end
-  
-  def add_expense
-    
-  end
 
 end
 
