@@ -9,7 +9,8 @@ app.forms.Post = app.forms.Base.extend({
    },
 
   formAttrs : {
-    "textarea#text_with_markup" : "text",
+//    "textarea#text_with_markup" : "text",  //fix mentions
+    "textarea.text" : "text",
     "input.aspect_ids" : "aspect_ids",
     "input.service:checked" : "services"
   },
@@ -45,7 +46,7 @@ app.forms.Post = app.forms.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.prepAndBindMentions()
+    //this.prepAndBindMentions()
   },
 
   prepAndBindMentions : function(){
