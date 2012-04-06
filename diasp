@@ -39,8 +39,8 @@ update() {
         bundle install
         echo migrating db
         bundle exec rake db:migrate
-        echo running jammit
-        bundle exec jammit
+        echo bundle exec rake assets:precompile
+        bundle exec rake assets:precompile
 }
 
 case "$1" in
