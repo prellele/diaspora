@@ -92,3 +92,11 @@
       = t('right_section.actual_commit')
   .content
     = render 'shared/commit'
+    - if AppConfig[:paypal_hosted_button_id].present?
+      = t('aspects.index.keep_pod_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+      %br
+      = render 'shared/donatepod'
+    - else
+      = t('aspects.index.keep_diaspora_running')
+      %br
+      = render 'shared/donatediaspora'
