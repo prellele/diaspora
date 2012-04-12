@@ -497,9 +497,8 @@ DEPENDENCIES
   fog
   foreigner (~> 1.1.0)
   foreman (= 0.41)
-  fuubar (= 0.0.6)
-  god
   fuubar (>= 1.0)
+  god
   guard-cucumber
   guard-rspec
   guard-spork
