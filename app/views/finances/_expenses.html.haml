@@ -2,11 +2,16 @@
   %td
     = expenses.description 
   %td
-    = expenses.date
+    = expenses.mindate
+  %td
+    = expenses.maxdate    
   %td
     = expenses.name  
-  %td.right
+  %td
     = number_with_precision(expenses.value, :precision => 2)
+    €
+  %td.right
+    = number_with_precision(expenses.totalvalue, :precision => 2)
     €
  
  	

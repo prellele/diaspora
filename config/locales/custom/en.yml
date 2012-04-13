@@ -23,6 +23,8 @@ en:
       one_time_revenues: "one time revenues"
       revenues: "revenues"
       today: "today"
+      first: "first payment"
+      last: "last payment"
       period: "period"
       expenses: "expenses"      
       anonymous: "anonymously"

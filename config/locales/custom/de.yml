@@ -22,6 +22,8 @@ de:
       monthly_revenues: "monatliche Einnahmen"
       one_time_revenues: "einmalige Einnahmen"
       today: "heute"
+      first: "erste Zahlung"
+      last: "letzte Zahlung"
       period: "Zeitraum"
       revenues: "Einnahmen"
       expenses: "Ausgaben"
