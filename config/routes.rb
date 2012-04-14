@@ -8,6 +8,8 @@ Diaspora::Application.routes.draw do
   resources :impress, :only => [:index]
   resources :finances, :only => [:index]
 
+  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+
   # Posting and Reading
   resources :reshares
 
