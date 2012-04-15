@@ -8,7 +8,6 @@ class Revenue < FinanceBase
                   :value,
                   :spender,
                   :type_id
-                  
 
 end
 
