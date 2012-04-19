@@ -34,7 +34,7 @@ update() {
         echo setting commit on splashpage
         COMMIT=`git show | sed -n 1p  | awk {'print $2'}`
 #       OUTPUT=`git rev-list --parents -1 $COMMIT | awk {'print $3'}`
-        echo `sed -i "s#.*https://github.com/lprelle/diaspora/commit.*#            \%a{:href \=\> \"https://github.com/lprelle/diaspora/commit/$COMMIT\", \:target \=\> \"\_blank\"\} $COMMIT#g" /home/lprelle/diaspora/app/views/home/_show.html.haml`
+        echo `sed -i "s#.*https://github.com/despora/diaspora/commit.*#            \%a{:href \=\> \"https://github.com/despora/diaspora/commit/$COMMIT\", \:target \=\> \"\_blank\"\} $COMMIT#g" /home/lprelle/diaspora/app/views/home/_show.html.haml`
         echo installing gems
         bundle install
         echo migrating db
