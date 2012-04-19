@@ -29,6 +29,8 @@
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
         var addr = parse_url(unicodeUrl);
+        if( !addr.host ) addr.host = ""; // must not be 'undefined'
+
         var asciiUrl = // rebuild the url
           (!addr.scheme ? '' : addr.scheme +
           ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
@@ -36,9 +38,9 @@
           (!addr.pass ? '' : ':'+addr.pass) + '@') +
          punycode.toASCII(addr.host) +
           (!addr.port ? '' : ':' + addr.port) +
-          (!addr.path ? '' : addr.path) +
-          (!addr.query ? '' : '?' + addr.query) +
-          (!addr.fragment ? '' : '#' + addr.fragment);
+          (!addr.path ? '' : encodeURI(addr.path) ) +
+          (!addr.query ? '' : '?' + encodeURI(addr.query) ) +
+          (!addr.fragment ? '' : '#' + encodeURI(addr.fragment) );
         if( !arguments[1] || arguments[1] == "") { // inline link
           if(arguments[2] == "<") return "["+unicodeUrl+"]("+asciiUrl+")"; // without link text
           else return arguments[2]+asciiUrl+arguments[5]; // with link text
