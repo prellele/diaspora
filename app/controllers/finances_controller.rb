@@ -9,7 +9,7 @@ class FinancesController < ApplicationController
     @sum_expenses = Expense.sum("value")
     @expenses = Expense.joins("left join `types` t ON t.id = type_id").select("expenses.description,min(expenses.date) as mindate,max(expenses.date) as maxdate,t.name,value,sum(expenses.value) as totalvalue, COUNT(value) as anzahl").group('expenses.value, expenses.description')
     @onetime_revenues =  Revenue.where('t.id in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,revenues.date,revenues.value,t.name")
-    @monthly_revenues =  Revenue.where('t.id not in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,revenues.date,sum(revenues.value) as value,t.name,COUNT(spender) as anzahl").group('revenues.spender')
+    @monthly_revenues =  Revenue.where('t.id not in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,max(revenues.date) as maxdate,min(revenues.date) as mindate,value,sum(revenues.value) as totalvalue,t.name,COUNT(spender) as anzahl").group('revenues.spender')
     @total= @sum_expenses - @sum_revenues
   end
 
