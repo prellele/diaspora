@@ -5,6 +5,7 @@ app.views.SmallFrame = app.views.Base.extend({
   templateName : "small-frame",
 
   events : {
+    "click .fav" : "favoritePost",
     "click .content" : "goToPost"
   },
 
@@ -15,70 +16,60 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.$el.addClass(this.dimensionsClass())
+    this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
   },
 
-  dimensionsClass : function() {
-    var firstPhoto = this.model.get("photos")[0]
-      , className = "photo ";
+  frameClass : function(){
+    var name = this.model.get("frame_name") || ""
+    return name.toLowerCase()
+  },
 
-    if(!firstPhoto ||
-      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return className }
+  colorClass : function() {
+    var text = this.model.get("text");
+    if(text == "" || this.model.get("photos").length > 0) { return "" }
+    var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
+    randomColor += " sticky-note"
+    
+    if(text.length > 240) {
+      return "blog-text x2 width"
+    } else if(text.length > 140) {
+      return randomColor
+    } else if(text.length > 50) {
+      return randomColor
+    } else {
+      return "big-text " + randomColor
+    }
+  },
+
+
+  dimensionsClass : function() {
+    /* by default, make it big if it's a fav */
+    if(this.model.get("favorite")) { return "x2 width height" }
 
     if(this.model.get("o_embed_cache")) {
       return("x2 width")
     }
+    return ''
 
-    return(className + ratio(firstPhoto.dimensions))
-
-    function ratio(dimensions) {
-      var ratio = (dimensions.width / dimensions.height)
-
-      if(ratio > 1.5) {
-        return "x2 width"
-      } else if(ratio < 0.75) {
-        return "x2 height"
-      } else {
-        if(ratio > 1) {
-          return "scale-vertical"
-        } else {
-          return "scale-horizontal"
-        }
-      }
-    }
   },
 
-//  textClass : function(){
-//    var textLength = this.model.get("text").length
-//      , baseClass = "text ";
-//
-//    if(textLength <= 20){
-//      return baseClass + "extra-small"
-//    } else if(textLength <= 140) {
-//      return baseClass + "small"
-//    } else if(textLength <= 500) {
-//      return baseClass + "medium"
-//    } else {
-//      return baseClass + "large"
-//    }
-//  },
-//
-//  photoClass : function(){
-//    var photoCount = this.model.get('photos').length
-//      , baseClass  = "photo ";
-//
-//    if(photoCount == 0 ) {
-//      return ""
-//    } else if(photoCount == 1){
-//      return baseClass + 'one'
-//    } else if(photoCount == 2 ) {
-//      return baseClass + 'two'
-//    } else {
-//      return baseClass + 'many'
-//    }
-//  },
+  favoritePost : function(evt) {
+    if(evt) { evt.stopImmediatePropagation(); evt.preventDefault() }
+
+    var prevDimension = this.dimensionsClass();
+    this.model.toggleFavorite();
+
+    this.$el.removeClass(prevDimension)
+    this.render()
+
+    app.page.stream.trigger("reLayout")
+    //trigger moar relayouts in the case of images WHOA GROSS HAX
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
+  },
 
   goToPost : function() {
+    if(app.page.editMode) { this.favoritePost(); return false; }
     app.router.navigate(this.model.url(), true)
   }
 });
