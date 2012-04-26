@@ -1,12 +1,25 @@
 <div id="edit-controls">
-    editing...
+    EDITING
 </div>
+
+<a href="/" id="home-button">
+    <span class="label label-inverse">
+        <i class="icon-home icon-white"></i>
+        <span>
+            HOME
+        </span>
+    </span>
+</a>
 
 <section id="profile-info"/>
 
+<div id="composer" style="display:none;">
+    <iframe src="/posts/new" height=400 width=700 style="border:none;"></iframe>
+</div>
+
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="/posts/new"  class="control">
+        <a href="#composer" class="control" rel="facebox">
             <img src='{{imageUrl "buttons/add_post.jpg"}}' />
         </a>
         <a href="#" id="edit-mode-toggle" class="control">
@@ -19,6 +32,6 @@
     {{/if}}
 </section>
 
-<section id="canvas"></section>
+<section id="canvas"/>
 
-<div id=paginate><span class="loader hidden"/></div>
+<div id="paginate"><span class="loader hidden"/></div>

@@ -43,6 +43,13 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.model.save()
+    //how do we make this work for the not
+    var parentDoc = parent;
+    this.model.save({}, {success : function(){ parentDoc.closeIFrame() }})
   }
-})
+});
+
+//crazy hack for model publisher.
+function closeIFrame(){
+  location.reload()
+};
