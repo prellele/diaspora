@@ -1,5 +1,5 @@
 <div id="edit-controls">
-    EDITING
+    CHANGE A POST'S SIZE BY CLICKING ON IT
 </div>
 
 <a href="/" id="home-button">
@@ -14,19 +14,19 @@
 <section id="profile-info"/>
 
 <div id="composer" style="display:none;">
-    <iframe src="/posts/new" height=400 width=700 style="border:none;"></iframe>
+    <iframe src="/posts/new" height=500 width=700 style="border:none;"></iframe>
 </div>
 
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="#composer" class="control" rel="facebox">
-            <img src='{{imageUrl "buttons/add_post.jpg"}}' />
+        <a href="#composer" title="New Post" class="control small" rel="facebox">
+            <img src='{{imageUrl "buttons/pub@2x.png"}}' />
         </a>
-        <a href="#" id="edit-mode-toggle" class="control">
-            <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
+        <a href="#" title="Edit Layout" id="edit-mode-toggle" class="control small">
+            <img src='{{imageUrl "buttons/edit@2x.png"}}' />
         </a>
     {{else}}
-        <a href="#"  class="control">
+        <a href="#" class="control">
             <img src='{{imageUrl "buttons/follow_hover.png"}}' />
         </a>
     {{/if}}
