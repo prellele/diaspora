@@ -12,17 +12,23 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   events : {
-    "click #edit-mode-toggle" : "toggleEdit"
+    "click #edit-mode-toggle" : "toggleEdit",
+    "click #logout-button" : "logOutConfirm"
   },
+
+  tooltipSelector : "*[rel=tooltip]",
 
   personGUID : null,
   editMode : false,
 
   presenter : function(){
     var bio =  this.model.get("bio") || ''
+
     return _.extend(this.defaultPresenter(),
       {text : this.model && app.helpers.textFormatter(bio, this.model),
-       isOwnProfile : this.isOwnProfile() })
+       isOwnProfile : this.isOwnProfile(),
+       showFollowButton : this.showFollowButton()
+      })
   },
 
   initialize : function(options) {
@@ -33,13 +39,29 @@ app.pages.Profile = app.views.Base.extend({
     this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
-    this.profileInfo = new app.views.ProfileInfo({ model : this.model })
+
+    // send in isOwnProfile data
+    this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
   },
 
   toggleEdit : function(evt) {
     if(evt) { evt.preventDefault() }
     this.editMode = !this.editMode
     this.$el.toggleClass("edit-mode")
+  },
+
+  logOutConfirm : function(evt) {
+    if(!confirm("Are you sure you want to log out?"))
+      evt.preventDefault();
+  },
+
+  followingEnabled : function() {
+    var user = app.currentUser
+    return user.get("following_count") != 0 && user.get("diaspora_id") !== undefined
+  },
+
+  showFollowButton : function() {
+    return this.followingEnabled() && !this.isOwnProfile()
   },
 
   isOwnProfile : function() {

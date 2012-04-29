@@ -10,8 +10,9 @@ app.views.SmallFrame = app.views.Post.extend({
   templateName : "small-frame",
 
   events : {
-    "click .content" : "goToOrEditPost",
-    "click .delete" : "killPost"
+    "click .content" : "favoritePost",
+    "click .delete" : "killPost",
+    "click .info" : "goToPost"
   },
 
   subviews : {
@@ -82,10 +83,16 @@ app.views.SmallFrame = app.views.Post.extend({
   },
 
   favoritePost : function(evt) {
-    if(evt) { evt.stopImmediatePropagation(); evt.preventDefault() }
+    if(evt) {
+      /* follow links instead of faving the targeted post */
+      if($(evt.target).is('a')) { return }
+
+      evt.stopImmediatePropagation(); evt.preventDefault();
+    }
 
     var prevDimension = this.dimensionsClass();
-    this.model.toggleFavorite();
+
+    this.model.toggleFavorite({save : this.model.get("author").diaspora_id == app.currentUser.get("diaspora_id")})
 
     this.$el.removeClass(prevDimension)
     this.render()
@@ -93,7 +100,6 @@ app.views.SmallFrame = app.views.Post.extend({
     app.page.stream.trigger("reLayout")
     //trigger moar relayouts in the case of images WHOA GROSS HAX
     _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
-    _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
   killPost : function(){
@@ -101,11 +107,8 @@ app.views.SmallFrame = app.views.Post.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
   },
 
-  goToOrEditPost : function() {
-    if(app.page.editMode) {
-      this.favoritePost();
-    } else {
-      app.router.navigate(this.model.url(), true)
-    }
+  goToPost : function(evt) {
+    if(evt) { evt.stopImmediatePropagation(); }
+    app.router.navigate(this.model.url(), true)
   }
 });

@@ -5,7 +5,6 @@ a { color : rgb(42,156,235)  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
-.icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
  @media (max-width: 770px) { //why is 770 a magic number?
@@ -401,7 +400,7 @@ div[data-template=flow] {
     a {
       display : block;
 
-      span {
+      span:not(.caret) {
         padding-left: 5px;
       }
     }
@@ -411,7 +410,6 @@ div[data-template=flow] {
     float: left;
     margin-left: 100px;
   }
-
 
   .dropdown-menu {
     bottom : 0;
@@ -445,11 +443,54 @@ div[data-template=flow] {
 .magic-service-selector {
   label { display : inline;}
 
+  img {
+    cursor : pointer;
+    height : 28px;
+    width : 28px;
+
+    &:hover {
+      @include opacity(0.6);
+    }
+  }
+
   input:not(:checked) + label {
     @include opacity(0.4);
   }
 
   input {
     display : none;
+  }
+}
+
+
+#top-right-nav {
+  z-index: 10;
+  position : absolute;
+  right : 10px;
+  top : 10px;
+
+
+  .label {
+    padding : 2px 5px;
+    padding-bottom : 3px;
+
+    span {
+      display : inline-block;
+      position : relative;
+      top : 1px;
+      font-family : Roboto-Bold;
+    }
+  }
+
+  & > a {
+    @include transition(opacity);
+    @include opacity(0.4);
+
+    margin-left : 5px;
+
+    &:hover {
+      @include opacity(0.75);
+      text-decoration : none;
+    }
   }
 }
