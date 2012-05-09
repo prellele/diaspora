@@ -9,6 +9,9 @@ Diaspora::Application.routes.draw do
   resources :finances, :only => [:index]
 
   mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  if Rails.env.production?
+    mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  end
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
