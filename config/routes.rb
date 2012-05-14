@@ -23,8 +23,10 @@ Diaspora::Application.routes.draw do
     member do
       get :next
       get :previous
+      get :interactions
     end
-    resources :likes, :only => [:create, :destroy, :index]
+
+    resources :likes, :only => [:create, :destroy, :index ]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
@@ -57,6 +59,7 @@ Diaspora::Application.routes.draw do
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
+  get 'new_bookmarklet' => 'status_messages#new_bookmarklet'
 
   resources :photos, :except => [:index] do
     put :make_profile_photo

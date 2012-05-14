@@ -1,8 +1,10 @@
 source 'http://rubygems.org'
 
+gem 'bundler', '> 1.1.0'
+ruby '1.9.3' if ENV['HEROKU']
+
 gem 'rails', '3.1.4'
 gem 'rails_autolink'
-gem 'bundler', '~> 1.1.0'
 gem 'foreman', '0.41'
 gem 'whenever'
 
@@ -37,7 +39,7 @@ gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin'
+  gem 'rails_admin', '~> 0.0.2'
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-piwik', :require => 'rack/piwik'
