@@ -71,13 +71,27 @@ app.views.Base = Backbone.View.extend({
 
   removeTooltips : function() {
     $(".tooltip").remove();
+  },
+
+  setFormAttrs : function(){
+    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}))
+    console.log("set from form", this.model.attributes)
+
+    function setValueFromField(memo, attribute, selector){
+      if(attribute.slice("-2") === "[]") {
+        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value")
+      } else {
+        memo[attribute] = this.$el.find(selector).val();
+      }
+      return memo
+    }
   }
 });
 
 // Mixin to render a collection that fetches more via infinite scroll, for a view that has no template.
 //  Requires:
-//    a stream model, bound as this.stream
-//    a stream's posts, bound as this.collection
+//    a stream model, assigned to this.stream
+//    a stream's posts, assigned to this.collection
 //    a postClass to be declared
 //    a #paginate div in the layout
 //    a call to setupInfiniteScroll
@@ -113,6 +127,17 @@ app.views.infiniteScrollMixin = {
 
   unbindInfScroll : function() {
     $(window).unbind("scroll");
+  },
+
+  renderTemplate : function(){
+    this.renderInitialPosts()
+  },
+
+  renderInitialPosts : function(){
+    this.$el.empty()
+    this.stream.items.each(_.bind(function(post){
+      this.$el.append(this.createPostView(post).render().el);
+    }, this))
   },
 
   fetchAndshowLoader : function(){

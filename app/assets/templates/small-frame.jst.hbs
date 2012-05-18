@@ -6,7 +6,7 @@
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
-                <img src="{{sizes.large}}" style="height:{{../adjustedImageHeight}}px;" />
+                <img src="{{sizes.large}}" {{#if ../adjustedImageHeight}}style="height:{{../adjustedImageHeight}}px;"{{/if}} />
             {{/each}}
         </div>
     {{/if}}
@@ -28,7 +28,7 @@
         <div class="background-color"></div>
     {{/if}}
 
-    <div class="info">
+    <div class="info permalink">
         {{#if root}}
             {{#linkToPerson root.author}}
                 {{{personImage this}}

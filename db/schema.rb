@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506053156) do
+ActiveRecord::Schema.define(:version => 20120517014034) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -206,51 +206,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
 
   add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
-  create_table "oauth_access_tokens", :force => true do |t|
-    t.integer  "authorization_id",                :null => false
-    t.string   "access_token",     :limit => 127, :null => false
-    t.string   "refresh_token",    :limit => 127
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "oauth_authorization_codes", :force => true do |t|
-    t.integer  "authorization_id",                :null => false
-    t.string   "code",             :limit => 127, :null => false
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "redirect_uri"
-  end
-
-  create_table "oauth_authorizations", :force => true do |t|
-    t.integer  "client_id",                         :null => false
-    t.integer  "resource_owner_id"
-    t.string   "resource_owner_type", :limit => 32
-    t.string   "scope"
-    t.datetime "expires_at"
-  end
-
-  add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :name => "index_oauth_authorizations_on_resource_owner_and_client_id", :unique => true
-
-  create_table "oauth_clients", :force => true do |t|
-    t.string "name",                 :limit => 127, :null => false
-    t.text   "description",                         :null => false
-    t.string "application_base_url", :limit => 127, :null => false
-    t.string "icon_url",             :limit => 127, :null => false
-    t.string "oauth_identifier",     :limit => 127, :null => false
-    t.string "oauth_secret",         :limit => 127, :null => false
-    t.string "nonce",                :limit => 127
-    t.text   "public_key",                          :null => false
-    t.text   "permissions_overview",                :null => false
-    t.string "oauth_redirect_uri"
-  end
-
-  add_index "oauth_clients", ["application_base_url"], :name => "index_oauth_clients_on_application_base_url", :unique => true
-  add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
-  add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
-
   create_table "participations", :force => true do |t|
     t.string   "guid"
     t.integer  "target_id"
@@ -395,23 +350,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "service_users", :force => true do |t|
-    t.string   "uid",                          :null => false
-    t.string   "name",                         :null => false
-    t.string   "photo_url",                    :null => false
-    t.integer  "service_id",                   :null => false
-    t.integer  "person_id"
-    t.integer  "contact_id"
-    t.integer  "request_id"
-    t.integer  "invitation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "username",      :limit => 127
-  end
-
-  add_index "service_users", ["service_id"], :name => "index_service_users_on_service_id"
-  add_index "service_users", ["uid", "service_id"], :name => "index_service_users_on_uid_and_service_id", :unique => true
 
   create_table "services", :force => true do |t|
     t.string   "type",          :limit => 127, :null => false
