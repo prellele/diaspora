@@ -25,32 +25,11 @@
                   = t('home.show.forgot_password')
           %p#controls
             %input#user_submit{:name => "commit", :tabindex => "4", :type => "submit", :value => t('home.show.sign_in')}/
-      .dhtmlgoodies_question
-        %div
-          %h1 Diaspora*
-      .dhtmlgoodies_answer
-        %div
-          .row_left
-            %h3.first
-              = t('home.show.choice')
-            %p 
-              = t('home.show.choice_explanation')
-            %h3 
-              = t('home.show.ownership')
-            %p 
-              = t('home.show.ownership_explanation')
-            %h3
-              = t('home.show.simplicity')
-            %p 
-              = t('home.show.simplicity_explanation')  
-          .row_right
-            %h3.first 
-              = t('home.show.definition')
-            %p
-              = t('home.show.definition_explanation')
-            %p.small
-              Wikipedia, 02.11.2011 
-          %div{:style => "clear:both;"}
+        %div#right_text
+          = t('home.show.no_account')
+          %h3
+            %a{:href => "/users/sign_up", :tabindex => "6"}
+              = t('home.show.sign_up')
       .dhtmlgoodies_question
         %h1
           = t('home.show.why_despora')
@@ -89,9 +68,7 @@
       %br
       %br
       %br
-        = t('home.show.content') 
-        %a{:href => "http://creativecommons.org/licenses/by-nc-sa/3.0/", :rel => "license", :target => "_blank"}
-          = t('home.show.licence')
+        CC BY-SA Lennart Prelle
       :javascript
         //
           //

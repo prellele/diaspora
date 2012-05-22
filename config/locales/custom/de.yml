@@ -44,8 +44,7 @@ de:
       interval: "Intervall"
   home:
     show:
-      licence: "Lizenz"
-      content: "Diese(s) Werk bzw. Inhalt von Lennart Prelle steht unter dieser"
+      licence: "CC BY-SA Lennart Prelle"
       definition: "Definition"
       definition_explanation: "Diaspora (auch: Diaspora*) ist ein Open-Source-Webserver, mit dem ein verteiltes soziales Netzwerk aufgebaut werden soll, das eine Alternative zu zentralisierten Diensten wie Facebook oder StudiVZ bietet [...] und befindet sich im Alpha-Status."
       sign_in: "Anmelden"
@@ -57,6 +56,8 @@ de:
       despora_desc3: "Ich, Lennart Prelle, stelle diesen Pod allen den zur Verfügung, die nicht den Möglichkeit haben sich einen eigenen Pod zu installieren."
       always_new: "Immer aktuelle Diaspora-Software"
       current_commit: "Aktuell installierter Commit:"
+      no_account: "Noch kein Konto?"
+      sign_up: "Registrieren"
   layouts:
     header:
       no_account: "Noch kein Konto?"

@@ -44,8 +44,6 @@ en:
       interval: "interval"
   home: 
     show:
-      licence: "Licence"
-      content: "This conent of Lennart Prelle is under this"
       definition: "Definition"
       definition_explanation: "Diaspora (styled DIASPORA*) is a non-profit, user-owned, distributed social network that is based upon the free Diaspora software. The project was founded in 2010 by four students at New York University.s Courant Institute of Mathematical Sciences."
       sign_in: "Sign in"
@@ -56,7 +54,9 @@ en:
       despora_desc2: "This Pod offers the possibility to discover and enjoy the uniqueness of Diaspora*."
       despora_desc3: "I, Lennart Prelle, allocate this pod for everyone how is not able to run his own pod."
       always_new: "Always the newest Diaspora-Code"
-      current_commit: "Currently installed Version:"      
+      current_commit: "Currently installed Version:"    
+      no_account: "Haven't an account yet?"
+      sign_up: "Sign Up"        
   layouts:
     header:
       no_account: "Haven't an account yet?"
