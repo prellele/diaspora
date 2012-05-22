@@ -18,6 +18,7 @@
                 <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_]+", :autocapitalize => "off", :autocorrect => "off" %>
               </div>
           </div>
+    
 
           <div class="control-group">
             <label class="control-label" for="user_password">
@@ -26,6 +27,12 @@
 
             <div class="controls">
                 <%= f.password_field :password, :placeholder => "••••••••", :required => true, :pattern => "......+" %>
+            </div>
+          </div>
+                 <div class="control-group">
+            <div class="remember">
+                <%= f.check_box :remember_me, :tabindex => 3 %>
+                <%= "#{t('devise.sessions.new.remember_me')}" %>
             </div>
           </div>
         </fieldset>
