@@ -1,24 +1,25 @@
-app.views.Post.StreamFrame = app.views.Post.SmallFrame.extend({
-  events :_.extend({
-    'click .content' : 'fetchInteractions'
+app.views.Post.StreamFrame = app.views.Base.extend({
+
+  className : "stream-frame",
+
+  templateName : "stream-frame",
+
+  subviews : {
+    ".small-frame" : "smallFrameView"
+  },
+
+  initialize : function() {
+    this.smallFrameView = new app.views.Post.SmallFrame({model : this.model})
+  },
+
+  events : _.extend({
+    'click .content' : 'triggerInteracted'
   }, app.views.Post.SmallFrame.prototype.events),
 
-  subviews :_.extend({
-    '.interactions' : 'interactionsView'
-  }, app.views.Post.SmallFrame.prototype.subviews),
-
-  initialize : function(){
-    this.interactionsView = new app.views.StreamInteractions({model : this.model})
+  triggerInteracted : function() {
+    app.page.trigger("frame:interacted", this.model)
   },
 
-  postRenderTemplate : function(){
-    this.addStylingClasses()
-    this.$el.append($("<div class='interactions'/>"))
-  },
-
-  fetchInteractions : function() {
-    this.model.interactions.fetch().done(_.bind(function(){
-      this.interactionsView.render()
-    }, this));
-  }
-})
+  // this is some gross shit.
+  goToPost : $.noop
+});

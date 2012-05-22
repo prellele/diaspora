@@ -308,3 +308,21 @@
   right: 8px;
   top: 8px;
 }
+
+
+/* stream specific wrapper */
+#stream-interactions {
+  position : fixed;
+  top : 0;
+  bottom : 0;
+  overflow-y : auto;
+
+  #post-info {
+    text-align : left;
+    margin-top : 10px;
+  }
+
+  #user-controls {
+    padding : 7px;
+  }
+}
