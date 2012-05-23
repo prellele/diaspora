@@ -1,25 +1,24 @@
 app.views.Post.StreamFrame = app.views.Base.extend({
-
   className : "stream-frame",
 
   templateName : "stream-frame",
 
   subviews : {
-    ".small-frame" : "smallFrameView"
+    ".small-frame" : "smallFrameView",
+    '.stream-frame-feedback' : 'feedbackView'
   },
 
-  initialize : function() {
+  initialize : function(options) {
+    this.stream = options.stream
     this.smallFrameView = new app.views.Post.SmallFrame({model : this.model})
+    this.feedbackView =  new app.views.FeedbackActions({ model: this.model })
   },
 
-  events : _.extend({
+  events : {
     'click .content' : 'triggerInteracted'
-  }, app.views.Post.SmallFrame.prototype.events),
+  },
 
   triggerInteracted : function() {
-    app.page.trigger("frame:interacted", this.model)
-  },
-
-  // this is some gross shit.
-  goToPost : $.noop
+    this.stream.trigger("frame:interacted", this.model)
+  }
 });
