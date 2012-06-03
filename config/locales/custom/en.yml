@@ -44,6 +44,9 @@ en:
       interval: "interval"
   home: 
     show:
+      title: ""
+      join: "JOIN THE MOVEMENT..."
+      and_register: "AND SIGN UP"
       definition: "Definition"
       definition_explanation: "Diaspora (styled DIASPORA*) is a non-profit, user-owned, distributed social network that is based upon the free Diaspora software. The project was founded in 2010 by four students at New York University.s Courant Institute of Mathematical Sciences."
       sign_in: "Sign in"

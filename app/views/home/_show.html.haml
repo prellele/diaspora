@@ -1,77 +1,50 @@
 %html
   %head
-    %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
-      %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
-      %body
-    #wrapper
-      .login
-        %h1
-          = t('home.show.sign_in')
-        %form#user_new.user_new{"accept-charset" => "UTF-8", :action => "/users/sign_in", :method => "post"}
-          %div{:style => "margin:0;padding:0;display:inline"}
-            %input{:name => "utf8", :type => "hidden", :value => "?"}
-              %input{:name => "authenticity_token", :type => "hidden"}/
-          %p
-            %input#user_username{:name => "user[username]", :placeholder => t('username'), :size => "30", :tabindex => "1", :type => "text"}
-              %span#remember_me
-                %input{:name => "user[remember_me]", :type => "hidden", :value => "0"}
-                  %input#user_remember_me{:name => "user[remember_me]", :tabindex => "3", :type => "checkbox", :value => "1"}
-                    %label{:for => "user_remember_me"}
-                      = t('home.show.remember_me')
-          %p
-            %input#user_password{:name => "user[password]", :placeholder => t('password'), :size => "30", :tabindex => "2", :type => "password", :value => ""}
-              %span
-                %a#forgot_password_link{:href => "http://despora.de/users/password/new", :tabindex => "5"}
-                  = t('home.show.forgot_password')
-          %p#controls
-            %input#user_submit{:name => "commit", :tabindex => "4", :type => "submit", :value => t('home.show.sign_in')}/
-        %div#right_text
-          = t('home.show.no_account')
-          %h3
-            %a{:href => "/users/sign_up", :tabindex => "6"}
-              = t('home.show.sign_up')
-      .dhtmlgoodies_question
-        %h1
-          = t('home.show.why_despora')
-      .dhtmlgoodies_answer
-        %div
-          %p
-            = t('home.show.despora_desc1')
-            %br
-            = t('home.show.despora_desc2')
-            %br
-            = t('home.show.despora_desc3')    
+  %body
+    #container
+    #landing
+      #banner.row{:role => "header"}
+        #controls
+          %a{:href => "https://github.com/despora/diaspora/tree/despora"}
+            %span.label.label-inverse{:title => "Visit our Repository"}
+              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_git@2x.png", :width => "20"}/
+          %a{:href => "https://twitter.com/despora_de"}
+            %span.label.label-inverse{:title => "Follow @despora_de on Twitter"}
+              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_twit@2x.png", :width => "20"}/
+          %a{:href => "users/sign_in"}
+            %span.label.label-inverse
+              = t('.sign_in')
+        .container
+          %h1 Despora*
           %h3 
-            = t('home.show.always_new')
-          %p
-            = t('home.show.current_commit')
-            %a{:href => "https://github.com/lprelle/diaspora/commit/", :target => "_blank"} 
-      .dhtmlgoodies_question
-        %h1 FAQ
-      .dhtmlgoodies_answer
-        %div
-          %p
-            Wiki / Spored (German)
-            %a{:href => "http://wiki.spored.de/w/Hauptseite", :target => "_blank"} http://wiki.spored.de/w/Hauptseite
-          %p
-            Wiki / Github (English)
-            %a{:href => "https://github.com/diaspora/diaspora/wiki/FAQ-for-Users", :target => "_blank"} https://github.com/diaspora/diaspora/wiki/FAQ-for-Users
-          %p
-            Diaspora / Wikipedia (English)
-            %a{:href => "http://en.wikipedia.org/wiki/Diaspora_(social_network)", :target => "_blank"} http://en.wikipedia.org/wiki/Diaspora_(social_network)
-          %p
-            Diaspora / Wikipedia (German)
-            %a{:href => "http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)", :target => "_blank"} http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)
-      .twitter_div
-        %h1 
-          %a{:href => "http://twitter.com/despora_de", :target => "_blank"} Twitter @despora_de
-      %br
-      %br
-      %br
-        CC BY-SA Lennart Prelle
-      :javascript
-        //
-          //
-            initShowHideDivs();
-          //
-        //   
+            = t('.title')
+      .container
+        #content.row
+          #screens.span7
+            #s_container
+              %img{:alt => "landing", :src => "/custom/splashpage/landing.png"}/
+          #sign_up.span5
+            %h4
+              = t('.join')
+            %h2
+              = t('.and_register')
+            %form#new_user.form-horizontal.block-form{"accept-charset" => "UTF-8", :action => "/users", :autocomplete => "off", "data-validate" => "true", :method => "post", :novalidate => "novalidate"}
+              %fieldset
+                .control-group
+                  %label.control-label{:for => "user_email"}
+                    = t('registrations.new.email')
+                  .controls
+                    %input#user_email{"data-validate" => "true", :name => "user[email]", :placeholder => "luke@hoth.net", :required => "required", :size => "30", :title => t('registrations.new.enter_email'), :type => "email", :value => ""}/
+                .control-group
+                  %label.control-label{:for => "user_username"}
+                    = t('registrations.new.username')
+                  .controls
+                    %input#user_username{"data-validate" => "true", :name => "user[username]", :pattern => "[A-Za-z0-9_]+", :placeholder => "jedi_guy", :required => "required", :size => "30", :title => t('registrations.new.enter_username'), :type => "text"}/
+                .control-group
+                  %label.control-label{:for => "user_password"}
+                    = t('registrations.new.password')
+                  .controls
+                    %input#user_password{"data-validate" => "true", :name => "user[password]", :pattern => "......+", :placeholder => "••••••••", :required => "required", :size => "30", :title => t('registrations.new.enter_password'), :type => "password"}/
+              %input.new-btn{:name => "commit", :type => "submit", :value => t('.sign_up')}/
+      #footer
+        ‌© DESPORA 2012.

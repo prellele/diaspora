@@ -44,6 +44,9 @@ de:
       interval: "Intervall"
   home:
     show:
+      title: ""
+      join: "TRITT DER BEWEGUNG BEI..."
+      and_register: "UND MELD DICH AN"
       licence: "CC BY-SA Lennart Prelle"
       definition: "Definition"
       definition_explanation: "Diaspora (auch: Diaspora*) ist ein Open-Source-Webserver, mit dem ein verteiltes soziales Netzwerk aufgebaut werden soll, das eine Alternative zu zentralisierten Diensten wie Facebook oder StudiVZ bietet [...] und befindet sich im Alpha-Status."
