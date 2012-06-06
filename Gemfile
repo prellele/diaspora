@@ -170,13 +170,13 @@ end
 
 group :test, :development do
   gem 'debugger', :platforms => :mri_19
-  gem "rspec-rails", "~> 2.9.0" 
+  gem "rspec-rails", "~> 2.10" 
   gem 'ruby-debug', :platforms => :mri_18
 end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '3.0.1', :platforms => :mri_19
+  gem 'heroku_san', '3.0.2', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false
