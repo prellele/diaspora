@@ -2,7 +2,19 @@
   %head
     %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
       %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
-      %body
+  %body
+    #container
+      #banner.row{:role => "header"}      
+        #controls{:style => "float:right;margin-right:20px;"}
+          %a{:style => "margin: 5px;", :href => "https://github.com/despora/diaspora/tree/despora"}
+            %span.label.label-inverse{:title => "Visit our Repository"}
+              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_git@2x.png", :width => "20"}/
+          %a{:style => "margin: 5px;", :href => "https://twitter.com/despora_de"}
+            %span.label.label-inverse{:title => "Follow @despora_de on Twitter"}
+              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_twit@2x.png", :width => "20"}/
+          %a{:style => "margin: 5px;", :href => "users/sign_in"}
+            %span.label.label-inverse
+              = t('.sign_up')
     #wrapper
       .login
         %h1
@@ -41,11 +53,6 @@
             = t('home.show.despora_desc2')
             %br
             = t('home.show.despora_desc3')    
-            %br
-            = t('home.show.always_new')
-          %p
-            = t('home.show.current_commit')
-            %a{:href => "https://github.com/lprelle/diaspora/commit/", :target => "_blank"} 
       .dhtmlgoodies_question
         %h1 FAQ
       .dhtmlgoodies_answer
@@ -62,17 +69,13 @@
           %p
             Diaspora / Wikipedia (German)
             %a{:href => "http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)", :target => "_blank"} http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)
-      .twitter_div
-        %h1 
-          %a{:href => "http://twitter.com/despora_de", :target => "_blank"} Twitter @despora_de
       %br
       %br
       %br
-        CC BY-SA Lennart Prelle
+        CC BY-SA Despora
       :javascript
         //
           //
             initShowHideDivs();
           //
-        //   
->>>>>>> parent of 12ed24d... new landing-page :)
+        //
