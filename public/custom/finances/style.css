@@ -61,3 +61,16 @@ tr.even td {
 h3.possibility { border-bottom: 1px dashed #c30; text-decoration:none; }
   h3.possibility:hover { cursor:help; color:#c30; background:white; }
   
+#status {
+	border-radius: 3px;
+	border: 1px solid grey;
+	height: 100px;
+	width: 100%;
+}
+.red{
+	
+}
+
+.green{
+	
+}
