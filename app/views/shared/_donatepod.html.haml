@@ -1,11 +1,11 @@
-- if effective_expenses <= 0
+- if totalfinances <= 0
   %style{:type => "text/css"}
     == h5 { color:red; } 
-- if effective_expenses > 0
+- if totalfinances > 0
   %style{:type => "text/css"}
     == h5 { color:green; }     
 = t('finances.index.current_value')
 %h5
-  = number_with_precision(effective_expenses, :precision => 2)
+  = number_with_precision(totalfinances, :precision => 2)
   €
 = link_to t('finances.index.help_out'), '/finances'

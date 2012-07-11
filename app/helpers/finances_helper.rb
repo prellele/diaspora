@@ -1,9 +1,7 @@
 module FinancesHelper
 
-  def effective_expenses
-    Revenue.sum("value") - Expense.sum("value")
+  def totalfinances
+    Revenue.all.map {|revenue| revenue.sumvalues}.inject(:+) - Expense.all.map {|expense| expense.sumvalues}.inject(:+)
   end
-  
-  
 
 end

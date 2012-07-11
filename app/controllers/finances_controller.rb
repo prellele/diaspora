@@ -8,7 +8,7 @@ class FinancesController < ApplicationController
     @monthly_revenues =  Revenue.where('t.id not in (?)', onetime).joins("left join `types` t ON t.id = type_id").select("revenues.description,till,date,value,t.name,type_id")
     @sum_revenues = Revenue.all.map {|revenue| revenue.sumvalues}.inject(:+)
     @sum_expenses = Expense.all.map {|expense| expense.sumvalues}.inject(:+)
-    @total = @sum_expenses - @sum_revenues
+    @total = @sum_revenues - @sum_expenses
   end
 
 end
