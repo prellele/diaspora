@@ -4,6 +4,11 @@
   %td
     = expenses.date
   %td
+    - if expenses.till.nil?
+      = t('finances.index.today')
+    - else
+      = expenses.till
+  %td
     = expenses.name  
   %td
     = number_with_precision(expenses.value, :precision => 2)

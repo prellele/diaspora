@@ -90,7 +90,8 @@
       %colgroup
         %col{:width => "600"}
         %col{:width => "80"}
-        %col{:width => "80"}          
+        %col{:width => "80"} 
+        %col{:width => "80"}         
         %col{:width => "80"}                
         %col{:width => "150"}  
       %thead
@@ -98,7 +99,9 @@
           %th
             = t('.name')
           %th
-            = t('.since')
+            = t('.from')
+          %th
+            = t('.to')
           %th
             = t('.interval')
           %th
@@ -145,14 +148,17 @@
       %colgroup
         %col{:width => "600"}
         %col{:width => "80"}
-        %col{:width => "80"}        
+        %col{:width => "80"}
+        %col{:width => "80"}
         %col{:width => "150"}        
       %thead
         %tr
           %th
             = t('.name')
           %th
-            = t('.since')
+            = t('.from')
+          %th
+            = t('.to')        
           %th
             = t('.value')
           %th

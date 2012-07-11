@@ -34,6 +34,8 @@ en:
       type: "type"
       totalamount: "total amount"
       since: "since"
+      from: "from"
+      to: "to"
       quantity: "quantity"
       amazon-affiliate: "Amazon affliate"
       amazon-affiliate_desc: "We get 5% of your order value"

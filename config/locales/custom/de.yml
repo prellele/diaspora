@@ -34,6 +34,8 @@ de:
       type: "Spendenart"
       totalamount: "Gesamtbetrag"
       since: "Seit"
+      from: "von"
+      to: "bis"
       quantity: "Anzahl"
       amazon-affiliate: "Amazon Affliate"
       amazon-affiliate_desc: "Wir erhalten 5% des Bestellwerts"
