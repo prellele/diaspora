@@ -2,12 +2,10 @@
   %td
     = monthlyrevenues.description  	  
   %td
-    = monthlyrevenues.mindate
+    = monthlyrevenues.date
   %td
     = number_with_precision(monthlyrevenues.value, :precision => 2)
     €
-  %td
-    = monthlyrevenues.anzahl
   %td.right
-    = number_with_precision(monthlyrevenues.totalvalue, :precision => 2)
+    = number_with_precision(monthlyrevenues.value * monthlyrevenues.months, :precision => 2)
     €
