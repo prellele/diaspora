@@ -1,9 +1,9 @@
 %tr.gradeA
   %td
-    - if onetimerevenues.description == "" || onetimerevenues.description.nil?
+    - if monthlyrevenues.description == "" || monthlyrevenues.description.nil?
       = t('finances.index.anonymous')
     - else
-      = onetimerevenues.description 	  
+      = monthlyrevenues.description 	  
   %td
     = monthlyrevenues.date
   %td
