@@ -1,6 +1,6 @@
 %tr.gradeA
   %td
-    - if onetimerevenues.description.nil?
+    - if onetimerevenues.description == ""
       = t('finances.index.anonymous')
     - else
       = onetimerevenues.description  	  
