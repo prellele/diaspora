@@ -1,6 +1,9 @@
 %tr.gradeA
   %td
-    = onetimerevenues.description  	  
+    - if onetimerevenues.description == "" || onetimerevenues.description.nil?
+      = t('finances.index.anonymous')
+    - else
+      = onetimerevenues.description  	  
   %td
     = onetimerevenues.date
   %td
