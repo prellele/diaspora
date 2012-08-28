@@ -4,7 +4,7 @@ rails_env = 'production'
 #user  = 'lennart'
 #group = 'lennart'
 
-worker_processes 2
+worker_processes 3
 
 ## Load the app before spawning workers
 preload_app true
@@ -14,6 +14,10 @@ timeout 30
 
 pid '/home/lprelle/diaspora/pids/unicorn.pid'
 listen '/home/lprelle/diaspora/diaspora.sock', :backlog => 2048
+
+# Set log file paths
+stderr_path "#{@dir}log/unicorn.stderr.log"
+stdout_path "#{@dir}log/unicorn.stdout.log" 
 
 # Ruby Enterprise Feature
 if GC.respond_to?(:copy_on_write_friendly=)

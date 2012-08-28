@@ -10,7 +10,7 @@ God.contact(:email) do |c|
 end
 rails_env   = ENV['RAILS_ENV']  || "production"
 rails_root  = ENV['RAILS_ROOT'] || "/home/lprelle/diaspora"
-num_resqueworkers = 5
+num_resqueworkers = 6
 
 
 num_resqueworkers.times do |num|
@@ -29,7 +29,7 @@ num_resqueworkers.times do |num|
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
-        c.above = 250.megabytes
+        c.above = 500.megabytes
         c.times = 2
         c.notify = 'lennart'        
       end
@@ -61,7 +61,6 @@ num_resqueworkers.times do |num|
     w.transition(:up, :start) do |on|
       on.condition(:process_running) do |c|
         c.running = false
-	c.notify = 'lennart'
       end
     end
   end
@@ -91,19 +90,20 @@ God.watch do |w|
     start.condition(:process_running) do |c|
       c.interval = 5.seconds
       c.running = false
-      c.notify = 'lennart'
     end
   end
 
   w.restart_if do |restart|
     restart.condition(:memory_usage) do |c|
-      c.above = 300.megabytes
+      c.above = 600.megabytes
       c.times = [3, 5] # 3 out of 5 intervals
+      c.notify = 'lennart'
     end
 
     restart.condition(:cpu_usage) do |c|
-      c.above = 50.percent
+      c.above = 80.percent
       c.times = 5
+      c.notify = 'lennart'
     end
   end
 

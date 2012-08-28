@@ -112,3 +112,5 @@ if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
     #bundle exec thin start $args
     unicorn -c /home/lprelle/diaspora/config/unicorn.rb $args 
 fi
+
+echo "died with exit status $?"
