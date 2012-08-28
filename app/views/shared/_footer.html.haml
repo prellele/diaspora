@@ -5,7 +5,7 @@
       %li= link_to 'github', "https://github.com/diaspora/diaspora"
       %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
       %li= link_to t('layouts.application.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
-      %li= link_to 'Impressum', '/impress'
+      %li= link_to 'Impress', '/impress'
       %li.separator= "|"
       %li= link_to(t('layouts.header.code'), "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
       %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
