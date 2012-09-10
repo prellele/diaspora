@@ -28,7 +28,6 @@ gem 'omniauth-twitter'
 gem 'twitter', '2.0.2'
 
 # modified 
-gem 'rails_admin', '~> 0.0.3'
 gem 'unicorn', '~> 4.3.0'
 gem 'god'
 
