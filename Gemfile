@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'bundler', '> 1.1.0'
 ruby '1.9.3' if ENV['HEROKU']
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 gem 'foreman', '0.46'
 
@@ -41,7 +41,7 @@ gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', '~> 0.0.3'
+  gem 'rails_admin', :git => 'git://github.com/halida/rails_admin.git'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
@@ -103,7 +103,7 @@ gem 'acts-as-taggable-on', :git => "https://github.com/mbleigh/acts-as-taggable-
 
 gem 'addressable', '~> 2.2', :require => 'addressable/uri'
 gem 'http_accept_language', '~> 1.0.2'
-gem 'typhoeus', '~> 0.4.2'
+gem 'typhoeus', '~> 0.3.3'
 
 # views
 
