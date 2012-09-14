@@ -1,5 +1,4 @@
 class FinancesController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
     onetime = [1,3,4,5]
