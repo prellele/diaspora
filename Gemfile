@@ -30,6 +30,7 @@ gem 'twitter', '2.0.2'
 # modified 
 gem 'unicorn', '~> 4.3.1'
 gem 'god'
+gem 'rails_admin', :git => 'git://github.com/halida/rails_admin.git'
 
 # mail
 
@@ -40,7 +41,6 @@ gem 'newrelic_rpm', '3.3.5'
 gem "rpm_contrib", '2.1.11'
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin', :git => 'git://github.com/halida/rails_admin.git'
   gem 'fastercsv', '1.5.5', :require => false
   gem 'rack-ssl', '1.3.2', :require => 'rack/ssl'
   gem 'rack-rewrite', '1.2.1', :require => false
