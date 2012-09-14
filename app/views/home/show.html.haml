@@ -9,6 +9,6 @@
 - begin
   = render :partial => 'home/show'
 
--#- rescue
--#  :erb
--#    <%= File.open(Rails.root.join('public', 'default.html')).read %>
+- rescue
+  :erb
+    <%= File.open(Rails.root.join('public', 'default.html')).read %>
