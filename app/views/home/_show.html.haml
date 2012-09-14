@@ -19,9 +19,29 @@
       .login
         %h1
           = t('home.show.sign_in')
+        %form#user_new.user_new{"accept-charset" => "UTF-8", :action => "/users/sign_in", :method => "post"}
+          %div{:style => "margin:0;padding:0;display:inline"}
+            %input{:name => "utf8", :type => "hidden", :value => "?"}
+              %input{:name => "authenticity_token", :type => "hidden"}/
+          %p
+            %input#user_username{:name => "user[username]", :placeholder => t('username'), :size => "30", :tabindex => "1", :type => "text"}
+              %span#remember_me
+                %input{:name => "user[remember_me]", :type => "hidden", :value => "0"}
+                  %input#user_remember_me{:name => "user[remember_me]", :tabindex => "3", :type => "checkbox", :value => "1"}
+                    %label{:for => "user_remember_me"}
+                      = t('home.show.remember_me')
+          %p
+            %input#user_password{:name => "user[password]", :placeholder => t('password'), :size => "30", :tabindex => "2", :type => "password", :value => ""}
+              %span
+                %a#forgot_password_link{:href => "http://despora.de/users/password/new", :tabindex => "5"}
+                  = t('home.show.forgot_password')
+          %p#controls
+            %input#user_submit{:name => "commit", :tabindex => "4", :type => "submit", :value => t('home.show.sign_in')}/
+        %div#right_text
+          = t('home.show.no_account')
           %h3
-            %a{:href => "/users/sign_in", :tabindex => "6"}
-              = t('home.show.sign_in')
+            %a{:href => "/users/sign_up", :tabindex => "6"}
+              = t('home.show.sign_up')
       .dhtmlgoodies_question
         %h1
           = t('home.show.why_despora')
