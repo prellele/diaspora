@@ -24,9 +24,7 @@ ul#twitter_update_list li{width:560px;border-bottom:dotted 1px #E9E9E9;list-styl
 #wrapper .login p span a#forgot_password_link{display:block;text-shadow:none;}
 #wrapper .login p{display:inline-block;position:relative;width:150px;float:left;}
 #wrapper .login p span{display:inline-block;}
-#wrapper .login p.submit{width:auto;bottom:15px;}
-#wrapper .login p.submit input{width:auto;position:relative;height:40px;top:0px;color:#666666;margin-bottom:10px;}
-#wrapper .login p.submit input:hover{color:#444444;}
+#wrapper .login p.submit {margin-top:17px;}
 
 #wrapper .twitter_div{text-shadow:0 1px 0 #ccc;-webkit-box-shadow:0 1px 3px #ccc;-moz-box-shadow:0 1px 3px #ccc;box-shadow:0 1px 3px #ccc;color:#ababab;background:#f3f3f3 no-repeat top center;border:1px solid #999;border-radius:4px;width:702px;display:block;margin:5px 0 1px 0;height:30px;overflow:hidden;cursor:pointer;padding:10px;}
 #wrapper .twitter_div h1{font-weight:400;font-size:28px;width:300px;display:block;float:left;margin:0;padding:0;}
