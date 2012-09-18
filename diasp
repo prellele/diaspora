@@ -7,14 +7,8 @@ datum=`date`
 start() {
 #       logrotate -v /etc/diasp-logrotate.conf
         cd $DIASPORA_HOME
-        echo starting server
-	./script/server 2>&1 >> error.log &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
-        RAILS_ENV=production QUEUE=* bundle exec rake resque:work &
+        echo starting god
+	echo `god --log-level error -D -c './script/*.god'  &`
 }
 
 stop() {
