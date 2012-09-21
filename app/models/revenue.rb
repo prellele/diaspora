@@ -24,5 +24,16 @@ class Revenue < FinanceBase
     end
   end
   
+  def value
+    case self.type_id
+    when 3
+      self[:value]-(self[:value]/10)
+    when 4
+      self[:value]-(self[:value]/100*1.9)-0.35
+    else
+      self[:value]
+    end
+  end 
+  
 end
 
