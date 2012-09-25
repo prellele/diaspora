@@ -6,7 +6,7 @@
     #container
       #banner.row{:role => "header"}      
         #controls{:style => "float:right;margin-right:20px;"}
-          %a{:style => "margin: 5px;", :href => "https://github.com/despora/diaspora/tree/despora"}
+          %a{:style => "margin: 5px;", :href => "https://github.com/diaspora/diaspora"}
             %span.label.label-inverse{:title => "Visit our Repository"}
               %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_git@2x.png", :width => "20"}/
           %a{:style => "margin: 5px;", :href => "https://twitter.com/despora_de"}
@@ -29,7 +29,7 @@
             = f.label :password , t('password')
             = f.password_field :password, :tabindex => 2, :placeholder => t('password')
 
-            = link_to t('home.show.forgot_password'), new_user_password_path(:user), :id => "forgot_password_link", :tabindex => 5
+            = link_to t('home.show.forgot_password'), new_user_password_path, :id => "forgot_password_link", :tabindex => 5
 
           %p.submit
             = f.submit t('home.show.sign_in'), :tabindex => 4
