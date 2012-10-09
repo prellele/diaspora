@@ -1,7 +1,7 @@
 branches:
   only:
     - 'master'
-    - 'develop'
+    - 'despora'
 
 language: ruby
 rvm:
