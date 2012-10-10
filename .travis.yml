@@ -14,6 +14,8 @@ env:
 notifications:
   email:
     - me@prellele.de
+    on_success: change
+    on_failure: change
 
 bundler_args: "--without development production heroku"
 before_install: "./script/ci/before_install.sh"
