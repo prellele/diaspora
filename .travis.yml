@@ -1,6 +1,5 @@
 branches:
   only:
-    - 'master'
     - 'despora'
 
 language: ruby
@@ -9,11 +8,14 @@ rvm:
 
 
 env:
-  - DB=postgres BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=other
-  - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
+notifications:
+  email:
+    - me@prellele.de
+    on_success: change
+    on_failure: change
 
 bundler_args: "--without development production heroku"
 before_install: "./script/ci/before_install.sh"
