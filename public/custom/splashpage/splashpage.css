@@ -59,3 +59,27 @@ html body div#wrapper div#dhtmlgoodies_a1.dhtmlgoodies_answer div#dhtmlgoodies_a
 #wrapper .dhtmlgoodies_answer_content div.row.right{border-color:#e8e8e8;}
 #wrapper .login,#wrapper .dhtmlgoodies_question{background-color:#fbfbfb;color:#231E1E;}
 #wrapper .dhtmlgoodies_answer{background-color:#fbfbfb;color:#000;}
+
+footer ul#footer_nav a {
+    color: rgb(119, 119, 119);
+}
+footer ul#footer_nav > li {
+    display: inline;
+    margin-right: 1em;
+}
+footer ul#footer_nav {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    float: right;
+}
+footer .container {
+	width: 702px;
+    margin-top: 4em;
+    padding: 0.5em 0px 0px;
+}
+footer {
+    left: 0px;
+    bottom: 0px;
+    color: rgb(153, 153, 153);
+}

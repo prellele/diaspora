@@ -1,8 +1,10 @@
 %html
   %head
     %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
-      %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
+    %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
   %body
+    :css
+      div.right {float:right;}
     #container
       #banner.row{:role => "header"}      
         #controls{:style => "float:right;margin-right:20px;"}
@@ -61,10 +63,18 @@
           %p
             Diaspora / Wikipedia (German)
             %a{:href => "http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)", :target => "_blank"} http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)
-      %br
-      %br
-      %br
-        CC BY-SA Despora
+      %footer
+        .container
+          CC BY-SA Despora
+          %ul#footer_nav
+            %li= link_to 'Impress', "/impress"
+            %li= link_to 'Team-Account', "https://despora.de/u/desporateam"
+            %li= link_to '@despora', "http://twitter.com/despora_de"
+            %li= link_to 'github', "https://github.com/prellele/diaspora"
+            %li.separator= "|"
+            %li= link_to(t('layouts.header.code'), "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
+             
+        
       :javascript
         //
           //
