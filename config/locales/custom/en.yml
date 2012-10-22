@@ -5,6 +5,7 @@ en:
     show_commits: "Show Commits"
   finances:
     index:
+      finances: "Finances"
       donatehere: "More information about the finances and how you could help out"
       current_value: "current balance: "
       help_out: "Help Despora out!"
@@ -44,6 +45,9 @@ en:
       transaction_desc: "We get 100% of your transaction, no fees :)"
       amazon-affiliate_info: "Use the following link if you wanna buy something at Amazon.de."
       interval: "interval"
+  impress:
+    index:
+      impress: "Terms of Service"
   home: 
     show:
       definition: "Definition"

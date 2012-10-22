@@ -5,6 +5,7 @@ de:
     show_commits: "Commits einsehen"
   finances:
     index:
+      finances: "Finanzen"
       donatehere: "Mehr Informationen über die Finanzen und wie man helfen kann"
       current_value: "aktueller Kontostand: "
       help_out: "Hilf Despora aus!"
@@ -44,6 +45,9 @@ de:
       transaction_desc: "100% deiner Spende kommt an!"
       amazon-affiliate_info: "Benutzte den folgenden Link, immer wenn du etwas bei Amazon.de bestellst."
       interval: "Intervall"
+  impress:
+    index:
+      impress: "Impressum"
   home:
     show:
       licence: "CC BY-SA Lennart Prelle"
