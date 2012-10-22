@@ -83,3 +83,8 @@ footer {
     bottom: 0px;
     color: rgb(153, 153, 153);
 }
+
+input[type="submit"] {
+    height: 28px;
+}
+
