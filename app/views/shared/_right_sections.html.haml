@@ -76,6 +76,7 @@
     - if AppConfig.settings.paypal_hosted_button_id.present?
       = t('aspects.index.keep_pod_running', :pod => AppConfig.pod_uri.host)
       %br
+      %br
       = render 'shared/donatepod'
     - else
       = t('aspects.index.keep_diaspora_running')
