@@ -1,7 +1,7 @@
 branches:
   only:
-    - 'master'
-    - 'despora'
+    - master
+    - despora
 
 language: ruby
 rvm:
@@ -16,12 +16,13 @@ env:
 
 
 bundler_args: "--without development production heroku"
-before_install: "./script/ci/before_install.sh"
-script: "./script/ci/build.sh"
+before_script: ./script/ci/before_install.sh
+script: ./script/ci/build.sh
 
 
 notifications:
   email:
-    - me@prellele.de
+    recipients:
+      - me@prellele.de
     on_success: change
     on_failure: change
