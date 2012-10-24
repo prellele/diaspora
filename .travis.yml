@@ -7,13 +7,18 @@ language: ruby
 rvm:
   - 1.9.3
 
+
 env:
+  - DB=postgres BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=other
+  - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
+
 
 bundler_args: "--without development production heroku"
 before_install: "./script/ci/before_install.sh"
 script: "./script/ci/build.sh"
+
 
 notifications:
   email:
