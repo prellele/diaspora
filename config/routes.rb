@@ -8,7 +8,6 @@ Diaspora::Application.routes.draw do
   resources :impress, :only => [:index]
   resources :finances, :only => [:index]
 
-  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   if Rails.env.production?
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
