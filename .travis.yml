@@ -1,6 +1,5 @@
 branches:
   only:
-    - master
     - despora
 
 language: ruby
@@ -9,9 +8,7 @@ rvm:
 
 
 env:
-  - DB=postgres BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=other
-  - DB=postgres BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
 
 
