@@ -2,7 +2,7 @@ Diaspora*
 
 Diaspora is a privacy-aware, personally-controlled, do-it-all open source social network. Check out our [project site](http://diasporaproject.org).
 
-* **master:** [![Build Status master](https://secure.travis-ci.org/prellele/diaspora.png?branch=master)](http://travis-ci.org/prellele/diaspora)
+* **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
 * **despora:** [![Build Status develop](https://secure.travis-ci.org/prellele/diaspora.png?branch=despora)](http://travis-ci.org/prellele/diaspora)
 * [![Dependency Status](https://gemnasium.com/prellele/diaspora.png?travis)](https://gemnasium.com/prellele/diaspora)
 * [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/prellele/diaspora)
