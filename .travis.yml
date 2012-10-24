@@ -1,22 +1,22 @@
 branches:
   only:
+    - 'master'
     - 'despora'
 
 language: ruby
 rvm:
   - 1.9.3
 
-
 env:
   - DB=mysql BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=cucumber
+
+bundler_args: "--without development production heroku"
+before_install: "./script/ci/before_install.sh"
+script: "./script/ci/build.sh"
 
 notifications:
   email:
     - me@prellele.de
     on_success: change
     on_failure: change
-
-bundler_args: "--without development production heroku"
-before_install: "./script/ci/before_install.sh"
-script: "./script/ci/build.sh"
