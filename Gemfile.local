@@ -1,0 +1,6 @@
+source 'http://rubygems.org# modified 
+
+gem 'unicorn', '4.3.1'
+gem 'god'
+
+gem 'therubyracer', :platform => :ruby

@@ -26,10 +26,6 @@ gem 'omniauth-twitter', '0.0.11'
 
 gem 'twitter', '2.0.2'
 
-# modified 
-gem 'unicorn', '4.3.1'
-gem 'god'
-
 # mail
 
 gem 'markerb', :git => 'https://github.com/plataformatec/markerb.git'
@@ -118,8 +114,8 @@ group :assets do
   # install Node.js or use 'therubyracer'.
   #
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  
-  gem 'therubyracer', :platform => :ruby
+
+  # gem 'therubyracer', :platform => :ruby
 
   gem 'handlebars_assets', '0.6.5'
   gem 'uglifier', '1.3.0'
