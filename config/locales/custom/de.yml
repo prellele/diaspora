@@ -59,7 +59,7 @@ de:
       remember_me: "Angemeldet bleiben"
       despora_desc1: "Despora ist ein Webserver des Diaspora*-Netzwerks, ein sogenannter Pod. Despora ist für jeden zugänglich und konzentriert sich auf Nutzer aus dem deutschsprachig Raum."
       despora_desc2: "Der Pod bietet allen die Möglichkeit die Einzigartigkeit von Diaspora kennenzulernen und diese auszukosten."
-      despora_desc3: "Ich, Lennart Prelle, stelle diesen Pod allen den zur Verfügung, die nicht den Möglichkeit haben sich einen eigenen Pod zu installieren."
+      despora_desc3: "Das Despora-Team stellt diesen Pod allen den zur Verfügung, die nicht den Möglichkeit haben sich einen eigenen Pod zu installieren."
       always_new: "Immer aktuelle Diaspora-Software"
       current_commit: "Aktuell installierter Commit:"
       no_account: "Noch kein Konto?"
