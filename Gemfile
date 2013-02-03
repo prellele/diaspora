@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 gem 'foreman', '0.60.2'
 
@@ -18,7 +18,7 @@ gem 'rack-protection', '1.2'
 
 # authentication
 
-gem 'devise', '2.1.2'
+gem 'devise', '2.1.3'
 
 gem 'remotipart', '1.0.2'
 
