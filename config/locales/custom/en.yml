@@ -58,7 +58,7 @@ en:
       remember_me: "remember me"    
       despora_desc1: "Despora is a server is the Diaspora-network, a so called pod. The pod can communitcate with every other pod of the Diaspora-Network and the Frendica-Network."
       despora_desc2: "This Pod offers the possibility to discover and enjoy the uniqueness of Diaspora*."
-      despora_desc3: "I, Lennart Prelle, allocate this pod for everyone how is not able to run his own pod."
+      despora_desc3: "The Despora-Team allocate this pod for everyone how is not able to run his own pod."
       always_new: "Always the newest Diaspora-Code"
       current_commit: "Currently installed Version:"    
       no_account: "Haven't an account yet?"
