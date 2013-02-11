@@ -13,10 +13,9 @@ env:
 
 
 bundler_args: "--without development production heroku"
-before_script: ./script/ci/before_install.sh
-before_install: mysql -e 'create database finances;'
-script: ./script/ci/build.sh
-
+before_script: "./script/ci/before_install.sh"
+before_install: "mysql -e 'create database finances;'"
+script: "./script/ci/build.sh"
 
 notifications:
   email:
