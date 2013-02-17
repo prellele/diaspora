@@ -7,11 +7,7 @@ require Pathname.new(__FILE__).expand_path.dirname.join('load_config')
 #user  = 'lennart'
 #group = 'lennart'
 
-<<<<<<< HEAD
-worker_processes 3
-=======
 worker_processes AppConfig.server.unicorn_worker.to_i
->>>>>>> master
 
 ## Load the app before spawning workers
 preload_app true
