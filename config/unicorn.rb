@@ -1,10 +1,17 @@
 rails_env = 'production'
 
+require 'pathname'
+require Pathname.new(__FILE__).expand_path.dirname.join('load_config')
+
 # Enable and set these to run the worker as a different user/group
 #user  = 'lennart'
 #group = 'lennart'
 
+<<<<<<< HEAD
 worker_processes 3
+=======
+worker_processes AppConfig.server.unicorn_worker.to_i
+>>>>>>> master
 
 ## Load the app before spawning workers
 preload_app true
@@ -20,11 +27,13 @@ stderr_path "#{@dir}log/unicorn.stderr.log"
 stdout_path "#{@dir}log/unicorn.stdout.log" 
 @resque_pid = nil
 
-# Ruby Enterprise Feature
-if GC.respond_to?(:copy_on_write_friendly=)
-  GC.copy_on_write_friendly = true
+if AppConfig.server.stderr_log.present?
+  stderr_path AppConfig.server.stderr_log
 end
 
+if AppConfig.server.stdout_log.present?
+  stdout_path AppConfig.server.stdout_log
+end
 
 before_fork do |server, worker|
   # If using preload_app, enable this line
