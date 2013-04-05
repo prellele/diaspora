@@ -1,7 +1,7 @@
 en:
   right_section:
     actual_commit: "latest code"
-    last_updated: "Last updated bevor "
+    last_updated: "Last updated before "
     show_commits: "Show Commits"
   finances:
     index:
