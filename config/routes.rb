@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require 'sidekiq/web'
+
 Diaspora::Application.routes.draw do
   
   # Custom things
@@ -12,6 +14,10 @@ Diaspora::Application.routes.draw do
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
 
+  constraints ->(req) { req.env["warden"].authenticate?(scope: :user) &&
+                        req.env['warden'].user.admin? } do
+    mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
+  end
 
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
@@ -210,11 +216,6 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
-
-  # Resque web
-  if AppConfig.admins.inline_resque_web?
-    mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
-  end
 
   # Startpage
   root :to => 'home#show'

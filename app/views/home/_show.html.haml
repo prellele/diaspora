@@ -3,20 +3,6 @@
     %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
     %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
   %body
-    :css
-      div.right {float:right;}
-    #container
-      #banner.row{:role => "header"}      
-        #controls{:style => "float:right;margin-right:20px;"}
-          %a{:style => "margin: 5px;", :href => "https://github.com/prellele/diaspora"}
-            %span.label.label-inverse{:title => "Visit our Repository"}
-              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_git@2x.png", :width => "20"}/
-          %a{:style => "margin: 5px;", :href => "https://twitter.com/despora_de"}
-            %span.label.label-inverse{:title => "Follow @despora_de on Twitter"}
-              %img.twitter-bird{:height => "20", :src => "https://d3mbmfe8268ud7.cloudfront.net/landing/home_twit@2x.png", :width => "20"}/
-          %a{:style => "margin: 5px;", :href => "users/sign_up"}
-            %span.label.label-inverse
-              = t('.sign_up')
     #wrapper
       .login
         %h1
@@ -63,18 +49,6 @@
           %p
             Diaspora / Wikipedia (German)
             %a{:href => "http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)", :target => "_blank"} http://de.wikipedia.org/wiki/Soziales_Netzwerk_(Internet)
-      %footer
-        .container
-          CC BY-SA Despora
-          %ul#footer_nav
-            %li= link_to t('impress.index.impress'), "/impress"
-            %li= link_to t('finances.index.finances'), "/finances"
-            %li= link_to 'Team', "https://despora.de/u/desporateam"
-            %li= link_to '@despora', "http://twitter.com/despora_de"
-            %li= link_to 'github', "https://github.com/prellele/diaspora"
-            %li.separator= "|"
-            %li= link_to(t('layouts.header.code'), "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
-             
         
       :javascript
         //

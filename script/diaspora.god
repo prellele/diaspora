@@ -10,17 +10,17 @@ God.contact(:email) do |c|
 end
 rails_env   = ENV['RAILS_ENV']  || "production"
 rails_root  = ENV['RAILS_ROOT'] || "/home/lprelle/diaspora"
-num_resqueworkers = 6
+num_sidekiqworkers = 2
 
 
-num_resqueworkers.times do |num|
+num_sidekiqworkers.times do |num|
   God.watch do |w|
     w.dir      = "#{rails_root}"
-    w.name     = "resque-#{num}"
-    w.group    = 'resque'
+    w.name     = "sidekiq-#{num}"
+    w.group    = 'sidekiq'
     w.interval = 190.seconds
     w.env      = {"QUEUE"=>"photos,receive_local,receive_salmon,receive,mail,socket_webfinger,delete_account,dispatch,http,http_service", "RAILS_ENV"=>rails_env}
-    w.start    = "bundle exec rake resque:work"
+    w.start    = "bundle exec sidekiq"
     w.log      = "#{rails_root}/log/god.log"
 
     #w.uid = 'lennart'
@@ -72,7 +72,7 @@ God.watch do |w|
   w.interval = 30.seconds # default
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && unicorn -c #{rails_root}/config/unicorn.rb -E #{rails_env} -D"
+  w.start = "cd #{rails_root} && unicorn -c #{rails_root}/config/unicorn.rb -e production -p 3000 -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{rails_root}/pids/unicorn.pid`"
