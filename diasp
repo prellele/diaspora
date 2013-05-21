@@ -12,7 +12,7 @@ start() {
 }
 
 stop() {
-        echo `ps aux | grep resque | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
+        echo `ps aux | grep sidekiq | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
         echo `ps aux | grep unicorn | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
 }
 
