@@ -5,13 +5,14 @@ RETVAL=0
 datum=`date`
 
 start() {
-#       logrotate -v /etc/diasp-logrotate.conf
         cd $DIASPORA_HOME
         echo starting god
-	echo `god --log-level error -D -c './script/*.god'  &`
+	echo `god --log-level error -D -c 'script/diaspora.god' &` &
 }
 
 stop() {
+
+        echo `ps aux | grep god | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
         echo `ps aux | grep sidekiq | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
         echo `ps aux | grep unicorn | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
 }

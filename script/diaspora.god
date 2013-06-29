@@ -10,7 +10,7 @@ God.contact(:email) do |c|
 end
 rails_env   = ENV['RAILS_ENV']  || "production"
 rails_root  = ENV['RAILS_ROOT'] || "/home/lprelle/diaspora"
-num_sidekiqworkers = 2
+num_sidekiqworkers = 5
 
 
 num_sidekiqworkers.times do |num|
@@ -29,7 +29,7 @@ num_sidekiqworkers.times do |num|
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
-        c.above = 500.megabytes
+        c.above = 1200.megabytes
         c.times = 2
         c.notify = 'lennart'        
       end
@@ -72,7 +72,7 @@ God.watch do |w|
   w.interval = 30.seconds # default
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && unicorn -c #{rails_root}/config/unicorn.rb -e production -p 3000 -D"
+  w.start = "cd #{rails_root} && unicorn -c #{rails_root}/config/unicorn.rb -E production -p 3000 -D"
 
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{rails_root}/pids/unicorn.pid`"
