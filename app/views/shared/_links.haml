@@ -1,4 +1,6 @@
+%li= link_to 'Team', "https://despora.de/u/desporateam"
 %li= link_to '@despora_de', "http://twitter.com/despora_de"
+%li= link_to 'Impress', "https://despora.de/impress"
 %li= link_to 'github', "https://github.com/prellele/diaspora"
 %li= link_to t('layouts.application.whats_new'), changelog_url
 %li= link_to(t('layouts.header.code') + " " + pod_version, "#{root_path.chomp('/')}/source.tar.gz", {:title => t('layouts.application.source_package')}) unless request.url.match(/joindiaspora.com/)
