@@ -10,13 +10,15 @@ start() {
 	echo `god --log-level error -D -c 'script/diaspora.god' &` &
 }
 
-stop() {
-
+killgod(){
         echo `ps aux | grep god | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
-        echo `ps aux | grep sidekiq | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
+}
+killunicorn(){
         echo `ps aux | grep unicorn | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
 }
-
+killsidekiq(){
+        echo `ps aux | grep sidekiq | grep -v grep | awk -F " "  '{ print $2}' | xargs kill`
+}
 bilderbackup() {
         echo `find /home/lprelle/diaspora/public/uploads/images ! -name 'scal*' -and ! -name 'thumb*' -exec cp {} /home/lprelle/bilderbackup/ \;`
 }
@@ -25,10 +27,6 @@ update() {
         cd $DIASPORA_HOME
         echo pulling from github
         git pull origin despora
-        echo setting commit on splashpage
-        COMMIT=`git show | sed -n 1p  | awk {'print $2'}`
-#       OUTPUT=`git rev-list --parents -1 $COMMIT | awk {'print $3'}`
-        echo `sed -i "s#.*https://github.com/despora/diaspora/commit.*#            \%a{:href \=\> \"https://github.com/despora/diaspora/commit/$COMMIT\", \:target \=\> \"\_blank\"\} $COMMIT#g" /home/lprelle/diaspora/app/views/home/_show.html.haml`
         echo installing gems
         bundle install
         echo migrating db
@@ -42,7 +40,9 @@ case "$1" in
       start
       ;;
    stop)
-      stop
+      killgod
+      killunicorn
+      killsidekiq
       ;;
    restart)
       stop
@@ -58,8 +58,17 @@ case "$1" in
    bilderbackup)
       bilderbackup
       ;;
+   killgod)
+      killgod
+      ;;
+   killunicorn)
+      killunicorn
+      ;;
+   killsidekiq)
+      killsidekiq
+      ;;
    *)
-      echo $"Usage: diaspora { start | stop | restart | update | bilderbackup }"
+      echo $"Usage: diaspora { start | stop | restart | update | bilderbackupi | killgod | killunicorn | killsidekiq }"
       RETVAL=3
 esac
 
