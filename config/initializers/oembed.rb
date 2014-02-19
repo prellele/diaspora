@@ -7,9 +7,6 @@ require 'uri'
 # note that 'trusted_endpoint_url' is the only information
 # in OEmbed that we can trust. anything else may be spoofed!
 
-# patch in support for new https soundcloud
-OEmbed::Providers::SoundCloud << "https://*.soundcloud.com/*"
-
 oembed_provider_list = [
   OEmbed::Providers::Youtube,
   OEmbed::Providers::Vimeo,
@@ -17,6 +14,8 @@ oembed_provider_list = [
   OEmbed::Providers::Instagram,
   OEmbed::Providers::Flickr
 ]
+
+OEmbed::Providers::Youtube.endpoint += "?scheme=https"
 
 oembed_providers = YAML.load_file(Rails.root.join("config", "oembed_providers.yml"))
 
