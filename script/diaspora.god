@@ -15,12 +15,14 @@ num_sidekiqworkers = 2
 
 num_sidekiqworkers.times do |num|
   God.watch do |w|
+    pid_file = File.join(rails_root, "pids/sidekiq#{num}.pid")
+
     w.dir      = "#{rails_root}"
     w.name     = "sidekiq-#{num}"
     w.group    = 'sidekiq'
     w.interval = 190.seconds
     w.env      = {"QUEUE"=>"photos,receive_local,receive_salmon,receive,mail,socket_webfinger,delete_account,dispatch,http,http_service", "RAILS_ENV"=>rails_env}
-    w.start    = "bundle exec sidekiq"
+    w.start    = "bundle exec sidekiq -P #{pid_file}"
     w.log      = "#{rails_root}/log/god.log"
 
     #w.uid = 'lennart'
