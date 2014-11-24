@@ -1,3 +1,5 @@
+God.pid_file_directory = '/home/lprelle/diaspora/pids'
+
 God::Contacts::Email.defaults do |d|
   d.from_email = 'mail@despora.de'
   d.to_email = 'mail@despora.de'
@@ -15,19 +17,16 @@ num_sidekiqworkers = 2
 
 num_sidekiqworkers.times do |num|
   God.watch do |w|
-    pid_file = File.join(rails_root, "pids/sidekiq#{num}.pid")
-
     w.dir      = "#{rails_root}"
     w.name     = "sidekiq-#{num}"
-    w.group    = 'sidekiq'
-    w.interval = 190.seconds
+    w.group    = 'diaspora'
+    w.interval = 300.seconds
     w.env      = {"QUEUE"=>"photos,receive_local,receive_salmon,receive,mail,socket_webfinger,delete_account,dispatch,http,http_service", "RAILS_ENV"=>rails_env}
-    w.start    = "bundle exec sidekiq -P #{pid_file}"
-    w.log      = "#{rails_root}/log/god.log"
+    w.start    = "bundle exec sidekiq"
+    w.log      = "#{rails_root}/log/sidekiq.log"
 
-    #w.uid = 'lennart'
-    #w.gid = 'lennart'
-
+    w.uid = 'lprelle'
+  
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
@@ -63,28 +62,33 @@ num_sidekiqworkers.times do |num|
     w.transition(:up, :start) do |on|
       on.condition(:process_running) do |c|
         c.running = false
+        c.notify = 'lennart'
       end
     end
   end
 end
 
-
 God.watch do |w|
+  pid_file = "#{rails_root}/pids/unicorn.pid"
+
   w.name = "unicorn"
-  w.interval = 30.seconds # default
+  w.interval = 60.seconds
+  w.group    = 'diaspora'
+  w.dir = "#{rails_root}"
+  w.uid = 'lprelle'
 
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && unicorn -c #{rails_root}/config/unicorn.rb -E production -p 3000 -D"
+  w.start = "unicorn -c #{rails_root}/config/unicorn.rb -E production -p 3000 -D"
 
   # QUIT gracefully shuts down workers
-  w.stop = "kill -QUIT `cat #{rails_root}/pids/unicorn.pid`"
+  w.stop = "kill -QUIT `cat #{pid_file}`"
 
   # USR2 causes the master to re-create itself and spawn a new worker pool
-  w.restart = "kill -USR2 `cat #{rails_root}/pids/unicorn.pid`"
+  w.restart = "kill -USR2 `cat #{pid_file}`"
 
-  w.start_grace = 10.seconds
-  w.restart_grace = 10.seconds
-  w.pid_file = "#{rails_root}/pids/unicorn.pid"
+  #w.start_grace = 10.seconds
+  #w.restart_grace = 10.seconds
+  #w.pid_file = pid_file
 
   w.behavior(:clean_pid_file)
 
