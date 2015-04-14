@@ -25,8 +25,6 @@ num_sidekiqworkers.times do |num|
     w.start    = "bundle exec sidekiq"
     w.log      = "#{rails_root}/log/sidekiq.log"
 
-    w.uid = 'lprelle'
-#    w.gid = 'lprelle' 
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
@@ -75,7 +73,6 @@ God.watch do |w|
   w.interval = 60.seconds
   w.group    = 'diaspora'
   w.dir = "#{rails_root}"
-  w.uid = 'lprelle'
 
   # unicorn needs to be run from the rails root
   w.start = "unicorn -c #{rails_root}/config/unicorn.rb -E production -p 3000 -D"
