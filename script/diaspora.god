@@ -26,13 +26,13 @@ num_sidekiqworkers.times do |num|
     w.log      = "#{rails_root}/log/sidekiq.log"
 
     w.uid = 'lprelle'
-  
+#    w.gid = 'lprelle' 
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
-        c.above = 1200.megabytes
+        c.above = 1500.megabytes
         c.times = 2
-        c.notify = 'lennart'        
+        c.notify = 'lennart'
       end
     end
 

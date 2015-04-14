@@ -14,7 +14,7 @@ timeout AppConfig.server.unicorn_timeout.to_i
 
 @sidekiq_pid = nil
 
-#pid '/var/run/diaspora/diaspora.pid'
+pid '/home/lprelle/diaspora/pids/unicorn.pid'
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
 
@@ -34,7 +34,7 @@ before_fork do |server, worker|
     @sidekiq_pid ||= spawn('bundle exec sidekiq')
   end
 
-  old_pid = '/var/run/diaspora/diaspora.pid.oldbin'
+  old_pid = '/home/lprelle/diaspora/pids/diaspora.pid.oldbin'
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
