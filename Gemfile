@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.19'
+gem 'rails', '3.2.20'
 
 # Appserver
 
@@ -68,7 +68,7 @@ gem 'messagebus_ruby_api', '1.0.3'
 
 gem 'nokogiri',         '1.6.1'
 gem 'rails_autolink',   '1.1.5'
-gem 'redcarpet',        '3.1.2'
+gem 'redcarpet',        '3.2.3'
 gem 'roxml',            '3.1.6'
 gem 'ruby-oembed',      '0.8.9'
 gem 'opengraph_parser', '0.2.3'
