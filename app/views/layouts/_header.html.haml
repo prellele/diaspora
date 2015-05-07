@@ -7,7 +7,7 @@
     .container{style: "position:relative;"}
       = link_to content_tag(:div, nil, class: 'diaspora_header_logo branding-header-logo'), root_path
       %ul#landing_nav
-        - unless current_page?(controller: :registrations, action: :new)
+        - if AppConfig.settings.enable_registrations? && !current_page?(controller: '/registrations', action: :new)
           %li= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'login'
         %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'
       #lightbox
