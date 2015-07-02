@@ -28,7 +28,7 @@ num_sidekiqworkers.times do |num|
     # restart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
-        c.above = 2500.megabytes
+        c.above = 2000.megabytes
         c.times = 2
         c.notify = 'lennart'
       end

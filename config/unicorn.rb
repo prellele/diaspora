@@ -12,13 +12,6 @@ stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log?
 preload_app true
 @sidekiq_pid = nil
 
-pid '/home/lprelle/diaspora/pids/unicorn.pid'
-#listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
-
-
-stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log.present?
-stdout_path AppConfig.server.stdout_log.get if AppConfig.server.stdout_log.present?
-
 before_fork do |_server, _worker|
   ActiveRecord::Base.connection.disconnect! # preloading app in master, so reconnect to DB
 
