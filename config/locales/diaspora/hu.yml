@@ -51,15 +51,12 @@ hu:
               taken: "már foglalt."
   admins:
     admin_bar:
-      correlations: "Korrelációk"
       pages: "Oldalak"
       pod_stats: "Kiszolgáló statisztika"
       report: "Jelentések"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Felhasználó keresés"
       weekly_user_stats: "Heti statisztika"
-    correlations:
-      correlations_count: "Belépések számával való korrelációk:"
     stats:
       2weeks: "2 hét"
       50_most: "50 legnépszerűbb címke"
@@ -195,7 +192,7 @@ hu:
       post_a_message: "üzenet küldése >>"
       services:
         content: "A következő szolgáltatásokhoz tudsz kapcsolódni:"
-        heading: "szolgáltatások összekapcsolása"
+        heading: "Szolgáltatások összekapcsolása"
       unfollow_tag: "Követés leállítása #%{tag}"
       welcome_to_diaspora: "Üdv a diaspora* közösségi oldalon, %{name}!"
     new:
@@ -939,9 +936,11 @@ hu:
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerősök"
     index:
+      connect: "Kapcsolódás"
       disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "- bejelentkeztél ezen a néven:"
+      not_logged_in: "Jelenleg nem vagy bejelentkezve."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
       services_explanation: "Ha kapcsolódsz más szolgáltatásokhoz, lehetőséged lesz bejegyzéseket küldeni a felületükre, amint azokat a diaspora* rendszerén belül megírod."
     inviter:

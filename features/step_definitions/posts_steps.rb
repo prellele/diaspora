@@ -27,6 +27,13 @@ Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
   user.post(:status_message, :text => text, :public => true, :to => user.aspect_ids)
 end
 
+Given /^there are (\d+) public posts from "([^"]*)"$/ do |n_posts, email|
+  user = User.find_by_email(email)
+  (1..n_posts.to_i).each do |n|
+    user.post(:status_message, text: "post nr. #{n}", public: true, to: user.aspect_ids)
+  end
+end
+
 Given /^"([^"]*)" has a non public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
   user.post(:status_message, :text => text, :public => false, :to => user.aspect_ids)
@@ -53,10 +60,6 @@ end
 
 When /^I expand the post$/ do
   expand_first_post
-end
-
-Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
-  first_post_text.should include(text)
 end
 
 When /^I click the publisher and post "([^"]*)"$/ do |text|

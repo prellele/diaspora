@@ -53,15 +53,12 @@ cs:
               taken: "je již obsazeno."
   admins:
     admin_bar:
-      correlations: "Korelace"
       pages: "Stránky"
       pod_stats: "Statistiky podu"
       report: "Nahlášení"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Hledat uživatele"
       weekly_user_stats: "Týdenní uživatelské statistiky"
-    correlations:
-      correlations_count: "Korelace s počtem přihlášených:"
     stats:
       2weeks: "Dvoutýdenní"
       50_most: "50 nejoblíbenějších štítků"
@@ -323,6 +320,7 @@ cs:
       send: "Poslat"
       sending: "Posílám..."
       subject: "předmět"
+      subject_default: "Žádný předmět"
       to: "pro"
     new_conversation:
       fail: "Neplatná zpráva"
@@ -612,6 +610,7 @@ cs:
       powered_by: "BĚŽÍ NA SÍTI diaspora*"
       public_feed: "Veřejný proud Diaspory pro %{name}"
       source_package: "Stáhnout balík se zdrojovým kódem"
+      statistics_link: "Statistiky podu"
       toggle: "Přepnout mobilní / plnou verzi"
       whats_new: "Co je nového?"
       your_aspects: "vaše aspekty"

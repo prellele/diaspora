@@ -18,6 +18,8 @@ Diaspora::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
   end
 
+  mount DiasporaFederation::Engine => "/"
+
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
@@ -28,16 +30,13 @@ Diaspora::Application.routes.draw do
 
   resources :posts do
     member do
-      get :next
-      get :previous
       get :interactions
     end
 
-    resources :poll_participations, :only => [:create]
-
-    resources :likes, :only => [:create, :destroy, :index ]
-    resource :participation, :only => [:create, :destroy]
-    resources :comments, :only => [:new, :create, :destroy, :index]
+    resource :participation, only: %i(create destroy)
+    resources :poll_participations, only: :create
+    resources :likes, only: %i(create destroy index)
+    resources :comments, only: %i(new create destroy index)
   end
 
 
@@ -143,7 +142,6 @@ Diaspora::Application.routes.draw do
     match :user_search, via: [:get, :post]
     get   :admin_inviter
     get   :weekly_user_stats
-    get   :correlations
     get   :stats, :as => 'pod_stats'
     get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
   end
@@ -191,9 +189,6 @@ Diaspora::Application.routes.draw do
   # Federation
 
   controller :publics do
-    get 'webfinger'             => :webfinger
-    get 'hcard/users/:guid'     => :hcard
-    get '.well-known/host-meta' => :host_meta
     post 'receive/users/:guid'  => :receive
     post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
@@ -229,6 +224,7 @@ Diaspora::Application.routes.draw do
   # Mobile site
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
+  get "/m", to: "home#force_mobile", as: "force_mobile"
 
   # Help
   get 'help' => 'help#faq', :as => 'help'
@@ -237,8 +233,10 @@ Diaspora::Application.routes.draw do
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
 
-  #Statistics
-  get :statistics, controller: :statistics
+  # NodeInfo
+  get ".well-known/nodeinfo", to: "node_info#jrd"
+  get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
+  get "statistics",           to: "node_info#statistics"
 
   # Terms
   if AppConfig.settings.terms.enable?

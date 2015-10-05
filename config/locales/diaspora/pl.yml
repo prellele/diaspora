@@ -53,15 +53,12 @@ pl:
               taken: "jest już zajęta."
   admins:
     admin_bar:
-      correlations: "Korelacje"
       pages: "Strony"
       pod_stats: "Statystyki Poda"
       report: "Zgłoszenia"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkowników"
-    correlations:
-      correlations_count: "Korelacje z liczbą logowań:"
     stats:
       2weeks: "2 tygodnie"
       50_most: "50 najpopularniejszych znaczników"
@@ -329,6 +326,7 @@ pl:
       send: "Wyślij"
       sending: "Wysyłanie..."
       subject: "Temat"
+      subject_default: "Bez tematu"
       to: "Do"
     new_conversation:
       fail: "Nieprawidłowa wiadomość"
@@ -617,6 +615,7 @@ pl:
       powered_by: "Działa na oprogramowaniu diaspora*"
       public_feed: "Publiczny kanał diaspory* użytkownika %{name}"
       source_package: "Pobierz archiwum z kodem źródłowym"
+      statistics_link: "Statystyki poda"
       toggle: "Przełącz widok mobilny"
       whats_new: "Co nowego?"
       your_aspects: "Twoje aspekty"
