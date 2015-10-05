@@ -905,11 +905,9 @@ describe User, :type => :model do
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
-          AppConfig.settings.autofollow_on_join_user = 'one'
+          AppConfig.settings.autofollow_on_join_user = "one"
 
-          wf_double = double
-          expect(wf_double).to receive(:fetch)
-          expect(Webfinger).to receive(:new).with('one').and_return(wf_double)
+          expect(Person).to receive(:find_or_fetch_by_identifier).with("one")
 
           user.seed_aspects
         end
@@ -919,10 +917,58 @@ describe User, :type => :model do
         it "should not start sharing with the diasporahq account" do
           AppConfig.settings.autofollow_on_join = false
 
-          expect(Webfinger).not_to receive(:new)
+          expect(Person).not_to receive(:find_or_fetch_by_identifier)
 
           user.seed_aspects
         end
+      end
+    end
+  end
+
+  describe "#send_welcome_message" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:podmin) { FactoryGirl.create(:user) }
+
+    context "with welcome message enabled" do
+      before do
+        AppConfig.settings.welcome_message.enabled = true
+      end
+
+      it "should send welcome message from podmin account" do
+        AppConfig.admins.account = podmin.username
+        expect {
+          user.send_welcome_message
+        }.to change(user.conversations, :count).by(1)
+        expect(user.conversations.first.author.owner.username).to eq podmin.username
+      end
+
+      it "should send welcome message text from config" do
+        AppConfig.admins.account = podmin.username
+        AppConfig.settings.welcome_message.text = "Hello %{username}, welcome!"
+        user.send_welcome_message
+        expect(user.conversations.first.messages.first.text).to eq "Hello #{user.username}, welcome!"
+      end
+
+      it "should use subject from config" do
+        AppConfig.settings.welcome_message.subject = "Welcome Message"
+        AppConfig.admins.account = podmin.username
+        user.send_welcome_message
+        expect(user.conversations.first.subject).to eq "Welcome Message"
+      end
+
+      it "should send no welcome message if no podmin is specified" do
+        AppConfig.admins.account = ""
+        user.send_welcome_message
+        expect(user.conversations.count).to eq 0
+      end
+    end
+
+    context "with welcome message disabled" do
+      it "shouldn't send a welcome message" do
+        AppConfig.settings.welcome_message.enabled = false
+        AppConfig.admins.account = podmin.username
+        user.send_welcome_message
+        expect(user.conversations.count).to eq 0
       end
     end
   end

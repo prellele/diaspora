@@ -14,7 +14,7 @@
 //= require_tree ./collections
 //= require_tree ./views
 
-//= require perfect-scrollbar
+//= require perfect-scrollbar/perfect-scrollbar.jquery
 
 var app = {
   collections: {},
@@ -115,6 +115,7 @@ var app = {
       new app.views.AspectMembership({el: this});
     });
     app.sidebar = new app.views.Sidebar();
+    app.backToTop = new app.views.BackToTop({el: $(document)});
   },
 
   /* mixpanel wrapper function */

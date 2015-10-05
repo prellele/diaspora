@@ -95,8 +95,21 @@ When /^I prepare the deletion of the first post$/ do
   end
 end
 
+When /^I prepare hiding the first post$/ do
+  within(find(".stream .stream_element", match: :first)) do
+    ctrl = find(".control-icons")
+    ctrl.hover
+    ctrl.find(".hide_post").click
+  end
+end
+
 When /^I click to delete the first post$/ do
   step "I prepare the deletion of the first post"
+  step "I confirm the alert"
+end
+
+When /^I click to hide the first post$/ do
+  step "I prepare hiding the first post"
   step "I confirm the alert"
 end
 
@@ -253,6 +266,10 @@ end
 
 Then /^I should see a flash message indicating failure$/ do
   flash_message_failure?.should be true
+end
+
+Then /^I should not see a flash message indicating failure$/ do
+  expect { flash_message_failure?.should }.to raise_error(Capybara::ElementNotFound)
 end
 
 Then /^I should see a flash message with a warning$/ do
