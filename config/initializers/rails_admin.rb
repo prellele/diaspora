@@ -12,6 +12,9 @@ if Rails.env.production?
       redirect_to main_app.root_path unless current_user.try(:admin?)
     end
 
+
+    #config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
+
     # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
     # require 'i18n'
     # I18n.default_locale = :de
@@ -40,16 +43,16 @@ if Rails.env.production?
 
     #  ==> Included models
     # Add all excluded models here:
-    #config.excluded_models = []
+    config.excluded_models = [Like,Post,Participation, Comment, ShareVisibility, StatusMessage,Reshare,Photo,NotificationActor,Notification,AspectVisibility]
 
     # Add models here if you want to go 'whitelist mode':
-    config.included_models = %w[
-        Expense
-        Revenue
-        Type
-        Pod
-        User
-    ]
+   # config.included_models = %w[
+   #     Expense
+   #     Revenue
+   #     Type
+   #     Pod
+   #     User
+   # ]
 
     # Application wide tried label methods for models' instances
     # config.label_methods << :description # Default is [:name, :title]

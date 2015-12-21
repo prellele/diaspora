@@ -67,7 +67,7 @@ num_sidekiqworkers.times do |num|
 end
 
 God.watch do |w|
-  pid_file = "#{rails_root}/pids/unicorn.pid"
+  #pid_file = "#{rails_root}/pids/unicorn.pid"
 
   w.name = "unicorn"
   w.interval = 60.seconds
@@ -78,10 +78,10 @@ God.watch do |w|
   w.start = "unicorn -c #{rails_root}/config/unicorn.rb -E production -p 3000 -D"
 
   # QUIT gracefully shuts down workers
-  w.stop = "kill -QUIT `cat #{pid_file}`"
+  #w.stop = "kill -QUIT `cat #{pid_file}`"
 
   # USR2 causes the master to re-create itself and spawn a new worker pool
-  w.restart = "kill -USR2 `cat #{pid_file}`"
+  #w.restart = "kill -USR2 `cat #{pid_file}`"
 
   #w.start_grace = 10.seconds
   #w.restart_grace = 10.seconds

@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 gem "rails", "4.2.4"
 
+gem 'newrelic_rpm'
+
 # Legacy Rails features, remove me!
 # responders (class level)
 gem "responders", "2.1.0"
