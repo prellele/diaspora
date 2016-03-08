@@ -43,16 +43,16 @@ if Rails.env.production?
 
     #  ==> Included models
     # Add all excluded models here:
-    config.excluded_models = [Like,Post,Participation, Comment, ShareVisibility, StatusMessage,Reshare,Photo,NotificationActor,Notification,AspectVisibility]
+   # config.excluded_models = [Like,Post,Participation, Comment, ShareVisibility, StatusMessage,Reshare,Photo,NotificationActor,Notification,AspectVisibility]
 
     # Add models here if you want to go 'whitelist mode':
-   # config.included_models = %w[
-   #     Expense
-   #     Revenue
-   #     Type
-   #     Pod
-   #     User
-   # ]
+    config.included_models = %w[
+        Expense
+        Revenue
+        Type
+        Pod
+        User
+    ]
 
     # Application wide tried label methods for models' instances
     # config.label_methods << :description # Default is [:name, :title]
