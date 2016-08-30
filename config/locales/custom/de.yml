@@ -1,4 +1,5 @@
 de:
+  password: "Passwort"
   right_section:
     actual_commit: "Aktueller Code"
     last_updated: "Zuletzt geupdated vor "
