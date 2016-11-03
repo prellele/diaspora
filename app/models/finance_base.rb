@@ -1,7 +1,7 @@
 class FinanceBase < ActiveRecord::Base
 
   establish_connection(
-{ :adapter  => "mysql2",
+{ :adapter  => Diaspora::Application.config.database_configuration[Rails.env]["adapter"],
   :host     => Diaspora::Application.config.database_configuration[Rails.env]["host"],
   :username => Diaspora::Application.config.database_configuration[Rails.env]["username"],
   :password => Diaspora::Application.config.database_configuration[Rails.env]["password"],
