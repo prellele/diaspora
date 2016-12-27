@@ -1,27 +1,27 @@
-%html
-  %head
-    %link{:href => "custom/splashpage/splashpage.css", :rel => "stylesheet", :type => "text/css"}
-    %script{:src => "custom/splashpage/splashpage.js", :type => "text/javascript"}
-  %body
-    #wrapper
-      .login
-        %h1
-          = t('home.show.sign_in')
-        = form_for(User.new, :as => :user, :url => session_path(:user)) do |f|
+.dandelion-background
+  .jumbotron
+    .container-fluid.home-user
+      .row
+        .col-md-8.text-center
+          %h1
+            Willkommen bei Despora
+        .col-md-4.login-form
+          = render partial: "sessions/form", locals: {mobile: false, resource: User.new, resource_name: :user}
 
-          %p
-            = f.label :username , t('username')
-            = f.text_field :username, :tabindex => 1, :value => prefilled_username, :placeholder => t('username'), :autofocus => true
-
-          %p
-            = f.label :password , t('password')
-            = f.password_field :password, :tabindex => 2, :placeholder => t('password')
-
-            = link_to t('home.show.forgot_password'), new_user_password_path, :id => "forgot_password_link", :tabindex => 5
-
-          %p.submit
-            = f.submit t('home.show.sign_in'), :tabindex => 4
-        %div#right_text
-          = t('home.show.no_account')
-          %a{:href => "/users/sign_up", :tabindex => "6"}
-            = t('home.show.sign_up')
+.container-fluid
+  .row
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          Deine Freiheit
+        diaspora* lässt dich deine Kontakte in Gruppen einordnen. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind &ndash; einzigartig bei diaspora*.
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          Dein Eigentum
+        Deine Bilder gehören dir. Um sie zu teilen, musst du darauf nicht verzichten: Alles, was du auf diaspora* teilst, bleibt dein Eigentum – mit voller Kontrolle über die Verbreitung.
+    .col-md-4
+      .landing-info-card
+        %h3.text-center
+          Ganz einfach
+        diaspora* macht das Teilen von Inhalten klar und einfach – dasselbe gilt für den Schutz deiner Privatsphäre. diaspora* ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig.
