@@ -18,7 +18,7 @@
 //= require jquery-ui/sortable
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fileuploader-custom
+//= require fine-uploader/fine-uploader.core
 //= require handlebars.runtime
 //= require posix-bracket-expressions
 //= require markdown-it

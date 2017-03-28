@@ -102,7 +102,7 @@
         padding-left: 10px;
         margin-bottom: 0;
         color: lighten($text-grey,20%);
-        a { color: lighten($blue,20%); }
+        a { color: lighten($link-color, 20%); }
       }
 
       &.with_attachments #photodropzone_container {
@@ -274,11 +274,6 @@
     padding: 4px 2px;
     text-decoration: none;
     i { color: $text-grey; }
-
-    [type='file'],
-    [type='file']::-webkit-file-upload-button {
-      cursor: pointer;
-    }
   }
 
   .btn.btn-link:hover {
