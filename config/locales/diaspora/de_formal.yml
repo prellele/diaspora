@@ -70,9 +70,9 @@ de_formal:
         one: "%{count} Kommentar"
         other: "%{count} Kommentare"
         zero: "%{count} Kommentare"
-      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit dem <b>%{post_day}</b>"
+      current_segment: "Das aktuelle Segment hat durchschnittlich %{post_yest} Beiträge pro Benutzer seit dem %{post_day}"
       daily: "täglich"
-      display_results: "Zeige Ergebnisse aus dem Segment <b>%{segment}</b>"
+      display_results: "Zeige Ergebnisse aus dem Segment %{segment}"
       go: "Los"
       month: "Monat"
       posts:
@@ -83,7 +83,7 @@ de_formal:
         one: "%{count} mal geteilt"
         other: "%{count} mal geteilt"
         zero: "%{count} mal geteilt"
-      tag_name: "Tag-Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
+      tag_name: "Tag-Name: %{name_tag} Anzahl: %{count_tag}"
       usage_statistic: "Nutzungsstatistik"
       users:
         one: "%{count} Benutzer"
@@ -222,6 +222,7 @@ de_formal:
       updating: "Ändere…"
     index:
       donate: "Spenden"
+      donate_liberapay: "An liberapay spenden"
       help:
         any_problem: "Gibt es ein Problem?"
         contact_podmin: "Kontaktieren Sie den Administrator Ihres Pods!"
@@ -626,6 +627,8 @@ de_formal:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+    destroy:
+      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -662,8 +665,7 @@ de_formal:
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
-      mentioned: "In Beitrag erwähnt"
-      mentioned_in_comment: "In Kommentar erwähnt"
+      mentioned: "Erwähnt"
       no_notifications: "Sie haben noch keine Benachrichtigungen."
       notifications: "Benachrichtigungen"
       reshared: "Weitergesagt"
@@ -684,20 +686,11 @@ de_formal:
     mentioned:
       one: "%{actors} hat Sie in dem Beitrag %{post_link} erwähnt."
       other: "%{actors} haben Sie in dem Beitrag %{post_link} erwähnt."
-      zero: "Niemand hat Sie in dem Beitrag %{post_link} erwähnt."
+      zero: "%{actors} haben Sie in dem Beitrag %{post_link} erwähnt."
     mentioned_deleted:
-      few: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
-      many: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
       one: "%{actors} hat Sie in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
-      two: "%{actors} hat Sie in einem bereits gelöschten Beitrag erwähnt."
-      zero: "Niemand hat Sie in einem gelöschten Beitrag erwähnt."
-    mentioned_in_comment:
-      one: "%{actors} hat Sie in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-      other: "%{actors} haben Sie in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-    mentioned_in_comment_deleted:
-      one: "%{actors} hat Sie in einem gelöschten Kommentar erwähnt."
-      other: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
+      zero: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
     post: "Beitrag"
     private_message:
       few: "%{actors} haben Ihnen eine Nachricht gesendet."
@@ -828,9 +821,6 @@ de_formal:
     mentioned:
       limited_post: "Sie wurden in einem begrenzten Beitrag erwähnt."
       subject: "%{name} hat Sie auf diaspora* erwähnt"
-    mentioned_in_comment:
-      limited_post: "Sie wurden in einem Kommentar zu einem begrenzten Beitrag erwähnt."
-      reply: "Auf diese Unterhaltung antworten oder sie ansehen >"
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
       subject: "Es gibt eine neue private Nachricht für Sie"
@@ -964,13 +954,6 @@ de_formal:
       failed: "Fehler beim Aktualisieren Ihres Profils"
       updated: "Profil aktualisiert"
   public: "Öffentlich"
-  reactions:
-    few: "%{count} Reaktionen"
-    many: "%{count} Reaktionen"
-    one: "Eine Reaktion"
-    other: "%{count} Reaktionen"
-    two: "%{count} Reaktionen"
-    zero: "Keine Reaktionen"
   registrations:
     closed: "Neuregistrierungen sind auf diesem Pod geschlossen."
     create:
@@ -990,12 +973,12 @@ de_formal:
       terms_link: "Nutzungsbedingungen"
       username: "Benutzername"
   report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    comment_label: "<b>Kommentar</b>: %{data}"
     confirm_deletion: "Sind Sie sich sicher, dass Sie das Objekt löschen wollen?"
     delete_link: "Lösche Objekt"
-    not_found: "<u>Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!</u>"
-    post_label: "<b>Beitrag</b>: %{title}"
-    reason_label: "Grund: %{text}"
+    not_found: "Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!"
+    post_label: "<b>Beitrag</b>: %{content}"
+    reason_label: "Grund:"
     reported_label: "<b>Gemeldet von</b> %{person}"
     reported_user_details: "Details des gemeldeten Benutzers"
     review_link: "Als überprüft markieren"
@@ -1119,6 +1102,7 @@ de_formal:
     activity:
       title: "Ihre Aktivitäten"
     aspects:
+      all: "Alle Aspekte"
       title: "Ihre Aspekte"
     aspects_stream: "Aspekte"
     comment_stream:
@@ -1126,6 +1110,7 @@ de_formal:
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Fügen Sie einen Tag hinzu"
+      all: "Alle Tags"
       follow: "Folgen"
       title: "#Tags, denen Sie folgen"
     followed_tags_stream: "#Tags, denen Sie folgen"
@@ -1197,7 +1182,6 @@ de_formal:
       last_exported_at: "(Zuletzt aktualisiert um %{timestamp})"
       liked: "wenn jemandem Ihr Beitrag gefällt"
       mentioned: "Sie in einem Beitrag erwähnt werden"
-      mentioned_in_comment: "Sie sind in einem Kommentar erwähnt"
       new_password: "Neues Passwort"
       private_message: "Sie eine private Nachricht erhalten"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
@@ -1209,7 +1193,7 @@ de_formal:
       show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
       show_getting_started: "„Erste Schritte”-Hinweise anzeigen"
       someone_reported: "jemand eine Meldung sendet"
-      started_sharing: "jemand mit Ihnen zu teilen anfängt"
+      started_sharing: "jemand anfängt, mit Ihnen zu teilen"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Ihre E-Mail-Adresse"
       your_email_private: "Ihre E-Mail-Adresse wird niemals von anderen Nutzern gesehen werden"

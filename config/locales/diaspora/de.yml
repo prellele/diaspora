@@ -70,9 +70,9 @@ de:
         one: "%{count} Kommentar"
         other: "%{count} Kommentare"
         zero: "%{count} Kommentare"
-      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Benutzer, seit dem <b>%{post_day}</b>"
+      current_segment: "Das aktuelle Segment hat durchschnittlich %{post_yest} Beiträge pro Benutzer seit dem %{post_day}"
       daily: "täglich"
-      display_results: "Zeige Ergebnisse aus dem Segment <b>%{segment}</b>"
+      display_results: "Zeige Ergebnisse aus dem Segment %{segment}"
       go: "Los"
       month: "Monat"
       posts:
@@ -83,7 +83,7 @@ de:
         one: "Ein mal geteilt."
         other: "%{count} mal geteilt."
         zero: "Noch nicht geteilt."
-      tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
+      tag_name: "Tag-Name: %{name_tag} Anzahl: %{count_tag}"
       usage_statistic: "Nutzungsstatistik"
       users:
         one: "%{count} Benutzer"
@@ -222,6 +222,7 @@ de:
       updating: "Wird geändert …"
     index:
       donate: "Spenden"
+      donate_liberapay: "An liberapay spenden"
       help:
         any_problem: "Gibt's ein Problem?"
         contact_podmin: "Kontaktiere den Administrator deines Pods!"
@@ -367,7 +368,7 @@ de:
       post_multiple_aspects_q: "Kann ich einen Beitrag in mehreren Aspekten gleichzeitig erstellen?"
       remove_notification_a: "Nein. Sie werden auch nicht benachrichtigt, wenn du sie zu mehr Aspekten hinzufügst, während du schon mit ihnen teilst."
       remove_notification_q: "Wird ein Kontakt informiert, wenn ich ihn aus einem oder mehreren Aspekten entferne?"
-      rename_aspect_a: "Klick in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte” und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder geh zu deiner „Kontakte”-Seite und wähl den entsprechenden Aspekt aus. Klick dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, änder den Namen und klick auf „Ändern”."
+      rename_aspect_a: "Klicke in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte” und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder gehe zu deiner „Kontakte”-Seite und wähle den entsprechenden Aspekt aus. Klicke dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, ändere den Namen und klicke auf „Ändern”."
       rename_aspect_q: "Wie benenne ich einen Aspekt um?"
       restrict_posts_i_see_a: "Ja. Klicke dazu in der Seitenleiste erst auf „Meine Aspekte“ und anschließend auf einzelne Aspekte, um diese aus- oder abzuwählen. Anschließend werden nur noch Beiträge von Personen aus den ausgewählten Aspekten im Stream angezeigt werden."
       restrict_posts_i_see_q: "Kann ich angezeigte Beiträge in meinem Stream auf bestimmte Aspekte beschränken?"
@@ -411,7 +412,7 @@ de:
       title: "Tastenkürzel"
     markdown: "Markdown"
     mentions:
-      how_to_mention_a: "Tippe das \"@\"-Zeichen und beginne seinen Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachte, dass du nur Leute erwähnen kannst, die du zu einem deiner Aspekte hinzugefügt hast."
+      how_to_mention_a: "Tippe das \"@\"-Zeichen und beginne, den zu erwähnenden Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachte, dass du nur Leute erwähnen kannst, die du zu einem deiner Aspekte hinzugefügt hast."
       how_to_mention_q: "Wie erwähne ich jemand in einem Beitrag?"
       mention_in_comment_a: "Nein, momentan nicht."
       mention_in_comment_q: "Kann ich in den Kommentaren jemanden erwähnen?"
@@ -626,6 +627,8 @@ de:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+    destroy:
+      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -662,8 +665,7 @@ de:
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
-      mentioned: "In Beitrag erwähnt"
-      mentioned_in_comment: "In Kommentar erwähnt"
+      mentioned: "Erwähnt"
       no_notifications: "Du hast noch keine Benachrichtigungen."
       notifications: "Benachrichtigungen"
       reshared: "Weitergesagt"
@@ -684,20 +686,11 @@ de:
     mentioned:
       one: "%{actors} hat dich im Beitrag %{post_link} erwähnt."
       other: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
-      zero: "%{actors} hat dich in dem Beitrag %{post_link} erwähnt."
+      zero: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
     mentioned_deleted:
-      few: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      many: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       one: "%{actors} hat dich in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
-      zero: "Niemand hat dich in einem gelöschten Beitrag erwähnt."
-    mentioned_in_comment:
-      one: "%{actors} hat dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-      other: "%{actors} haben dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-    mentioned_in_comment_deleted:
-      one: "%{actors} hat dich in einem gelöschten Kommentar erwähnt."
-      other: "%{actors} haben dich in einem gelöschten Kommentar erwähnt."
+      zero: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
     post: "Beitrag"
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
@@ -807,9 +800,9 @@ de:
       message: |-
           Hallo!
 
-          Du wurdest von %{diaspora_id} eingeladen diaspora* beizutreten!
+          Du wurdest von %{diaspora_id} eingeladen, diaspora* beizutreten!
 
-          Klick auf diesen Link um loszulegen
+          Klicke auf diesen Link, um loszulegen
 
           [%{invite_url}][1]
 
@@ -819,7 +812,7 @@ de:
 
           der diaspora* E-Mail Roboter!
 
-          PS: Nur für den Fall das du (bisher) nicht weißt was diaspora* ist, [hier][2] gibt es die Antwort.
+          PS: Nur für den Fall, dass du (noch) nicht weißt, was diaspora* ist, [hier][2] gibt es die Antwort.
 
           [1]: %{invite_url}
           [2]%{diasporafoundation_url}
@@ -831,9 +824,6 @@ de:
     mentioned:
       limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       subject: "%{name} hat dich auf diaspora* erwähnt"
-    mentioned_in_comment:
-      limited_post: "Du wurdest in einem Kommentar zu einem begrenzten Beitrag erwähnt."
-      reply: "Auf diese Unterhaltung antworten oder sie ansehen >"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
       subject: "Es gibt eine neue private Nachricht für dich"
@@ -971,13 +961,6 @@ de:
       failed: "Fehler beim Aktualisieren deines Profils"
       updated: "Profil aktualisiert"
   public: "Öffentlich"
-  reactions:
-    few: "%{count} Reaktionen"
-    many: "%{count} Reaktionen"
-    one: "Eine Reaktion"
-    other: "%{count} Reaktionen"
-    two: "%{count} Reaktionen"
-    zero: "Keine Reaktionen"
   registrations:
     closed: "Neuregistrierungen sind auf diesem diaspora*-Pod geschlossen."
     create:
@@ -997,12 +980,12 @@ de:
       terms_link: "Nutzungsbedingungen"
       username: "Benutzername"
   report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    comment_label: "<b>Kommentar</b>: %{data}"
     confirm_deletion: "Bist du dir sicher, dass du das Objekt löschen willst?"
     delete_link: "Lösche Element"
-    not_found: "<u>Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!</u>"
-    post_label: "<b>Beitrag</b>: %{title}"
-    reason_label: "Grund: %{text}"
+    not_found: "Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!"
+    post_label: "<b>Beitrag</b>: %{content}"
+    reason_label: "Grund:"
     reported_label: "<b>Gemeldet von</b> %{person}"
     reported_user_details: "Details des gemeldeten Benutzers"
     review_link: "Als überprüft markieren"
@@ -1127,6 +1110,7 @@ de:
     activity:
       title: "Meine Aktivitäten"
     aspects:
+      all: "Alle Aspekte"
       title: "Meine Aspekte"
     aspects_stream: "Aspekte"
     comment_stream:
@@ -1134,6 +1118,7 @@ de:
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
+      all: "Alle Tags"
       follow: "Folgen"
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
@@ -1193,7 +1178,7 @@ de:
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
       current_password_expl: "das mit dem Du dich anmeldest..."
-      default_post_visibility: "Zum Teilen vorausgewählte Aspekte"
+      default_post_visibility: "Vorausgewählte Aspekte beim Erstellen von Beiträgen"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
       edit_account: "Konto bearbeiten"
@@ -1205,7 +1190,6 @@ de:
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
       liked: "jemandem dein Beitrag gefällt"
       mentioned: "du in einem Beitrag erwähnt wirst"
-      mentioned_in_comment: "du bist in einem Kommentar erwähnt"
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
@@ -1217,7 +1201,7 @@ de:
       show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       someone_reported: "jemand einen Beitrag meldet"
-      started_sharing: "jemand anfägt mit dir zu teilen"
+      started_sharing: "jemand anfängt, mit dir zu teilen"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Deine E-Mail-Adresse"
       your_email_private: "Deine E-Mail wird niemals von anderen Nutzern gesehen werden."

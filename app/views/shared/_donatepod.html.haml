@@ -1,9 +1,9 @@
 - if totalfinances <= 0
   %style{:type => "text/css"}
-    == h5 { color:red; } 
+    == h5 { color:red; }
 - if totalfinances > 0
   %style{:type => "text/css"}
-    == h5 { color:green; }     
+    == h5 { color:green; }
 = t('finances.index.current_value')
 %h5
   = number_with_precision(totalfinances, :precision => 2)
