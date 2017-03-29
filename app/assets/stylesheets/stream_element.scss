@@ -90,13 +90,22 @@
       font-weight: bold;
       margin-bottom: 4px;
     }
-    a.author-name { color: $blue; }
     .feedback {
       margin-top: 5px;
       font-size: $font-size-small;
       line-height: $font-size-small;
     }
-    .post-content p:last-of-type { margin-bottom: 0; }
+
+    .post-content {
+      .markdown-content {
+        padding: .8em 0 .4em;
+      }
+
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
     .nsfw-shield {
       color: $text-grey;
       padding: 5px 10px;

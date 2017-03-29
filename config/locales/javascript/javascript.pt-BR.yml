@@ -82,7 +82,7 @@ pt-BR:
         add_a_new_aspect: "Adicionar novo aspecto"
         failure: "A criação do aspecto falhou."
         success: "Seu novo aspecto <%= name %> foi criado"
-      make_aspect_list_visible: "Deseja tornar os contatos deste aspecto visíveis entre si?"
+      make_aspect_list_visible: "Tornar os contatos deste aspecto visíveis entre si?"
       name: "Nome"
     bookmarklet:
       post_something: "Publicar em diaspora*"
@@ -138,7 +138,7 @@ pt-BR:
       recent_notifications: "Notificações recentes"
       search: "Encontrar pessoas ou #tags"
       settings: "Configurações"
-      toggle_mobile: "Versão para celular"
+      toggle_mobile: "Versão móvel"
       toggle_navigation: "Alternar navegação"
       view_all: "Ver todas"
     hide_post: "Esconder esta publicação?"
@@ -246,6 +246,10 @@ pt-BR:
     show_more: "Mostrar mais"
     stream:
       comment: "Comentar"
+      comments:
+        one: "<%= count %> comentário"
+        other: "<%= count %> comentários"
+        zero: "<%= count %> comentário"
       disable_post_notifications: "Desativar notificações para esta publicação"
       enable_post_notifications: "Ativar notificações para esta publicação"
       follow: "Seguir"
@@ -269,10 +273,6 @@ pt-BR:
       original_post_deleted: "A publicação original foi apagada pelo autor."
       permalink: "Link permanente"
       public: "Público"
-      reactions:
-        one: "Uma reação"
-        other: "<%= count%> reações"
-        zero: "Nenhuma reação"
       reshare: "Recompartilhar"
       reshares:
         one: "<%= count %> recompartilhamento"
