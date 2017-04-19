@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe NotificationsController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#update' do
@@ -31,6 +29,19 @@ describe NotificationsController, :type => :controller do
       get :update, "id" => note.id, :set_unread => "true", :format => :json
     end
 
+    it "marks a notification as unread without timestamping" do
+      note = Timecop.travel(1.hour.ago) do
+        FactoryGirl.create(:notification, recipient: alice, unread: false)
+      end
+
+      get :update, "id" => note.id, :set_unread => "true", :format => :json
+      expect(response).to be_success
+
+      updated_note = Notification.find(note.id)
+      expect(updated_note.unread).to eq(true)
+      expect(updated_note.updated_at.iso8601).to eq(note.updated_at.iso8601)
+    end
+
     it 'only lets you read your own notifications' do
       user2 = bob
 
@@ -46,7 +57,7 @@ describe NotificationsController, :type => :controller do
   describe '#index' do
     before do
       @post = FactoryGirl.create(:status_message)
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      @notification = FactoryGirl.create(:notification, recipient: alice, target: @post)
     end
 
     it 'succeeds' do
@@ -55,9 +66,25 @@ describe NotificationsController, :type => :controller do
       expect(assigns[:notifications].count).to eq(1)
     end
 
-    it 'succeeds for notification dropdown' do
-      get :index, :format => :json
+    it "succeeds for notification dropdown" do
+      Timecop.travel(6.seconds.ago) do
+        @notification.touch
+      end
+      get :index, format: :json
       expect(response).to be_success
+      response_json = JSON.parse(response.body)
+      note_html = Nokogiri::HTML(response_json["notification_list"][0]["also_commented"]["note_html"])
+      timeago_content = note_html.css("time")[0]["data-time-ago"]
+      expect(response_json["unread_count"]).to be(1)
+      expect(response_json["unread_count_by_type"]).to eq(
+        "also_commented"  => 1,
+        "comment_on_post" => 0,
+        "liked"           => 0,
+        "mentioned"       => 0,
+        "reshared"        => 0,
+        "started_sharing" => 0
+      )
+      expect(timeago_content).to include(@notification.updated_at.iso8601)
       expect(response.body).to match(/note_html/)
     end
 
@@ -84,7 +111,6 @@ describe NotificationsController, :type => :controller do
       it "should not provide a contacts menu for standard notifications" do
         FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :index, "per_page" => 5
-
         expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
 
@@ -92,7 +118,7 @@ describe NotificationsController, :type => :controller do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
-        expect(Nokogiri(response.body).css('.aspect_membership')).not_to be_empty
+        expect(Nokogiri(response.body).css(".aspect_membership_dropdown")).not_to be_empty
       end
 
       it 'succeeds on mobile' do
