@@ -12,7 +12,7 @@ en:
       help_out: "Help Despora out!"
       donate_information: "Finances"
       site_information: "On this site, we want to give you an insight, which costs come up for us to run this pod and how much where donated to Despora."
-      transact: "If you choose to support Despora.de, you got the following possibilities to do this: Flattr, Paypal, Bitcoins and a money transfer (Amazon affliate is only for german users)."
+      transact: "If you choose to support Despora.de, you got the following possibilities to do this: (Amazon affliate is only for german users)."
       transaction: "money transfer: "
       account_holder: "Accout-Holder: "
       decide: "If you want to tell something, you're welcome to do this in the %{strong_purpose}. Your Name or your Diaspora-ID suits for this perfect."
