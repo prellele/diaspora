@@ -1,4 +1,4 @@
-God.pid_file_directory = '/home/lprelle/diaspora/pids'
+God.pid_file_directory = '/home/diaspora/diaspora/pids'
 
 God::Contacts::Email.defaults do |d|
   d.from_email = 'mail@despora.de'
@@ -11,7 +11,7 @@ God.contact(:email) do |c|
   c.group = 'developers'
 end
 rails_env   = ENV['RAILS_ENV']  || "production"
-rails_root  = ENV['RAILS_ROOT'] || "/home/lprelle/diaspora"
+rails_root  = ENV['RAILS_ROOT'] || "/home/diaspora/diaspora"
 num_sidekiqworkers = 2
 
 
