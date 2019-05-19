@@ -20,6 +20,7 @@ en:
   email: "Email"
   are_you_sure: "Are you sure?"
   are_you_sure_delete_account: "Are you sure you want to close your account? This can’t be undone!"
+  are_you_sure_ignore_user: "You are going to ignore that user. Are you sure?"
   fill_me_out: "Fill me out"
   public: "Public"
   limited: "Limited"
@@ -117,6 +118,21 @@ en:
       account_closing_scheduled: "The account of %{name} is scheduled to be closed. It will be processed in a few moments..."
       account_locking_scheduled: "The account of %{name} is scheduled to be locked. It will be processed in a few moments..."
       account_unlocking_scheduled: "The account of %{name} is scheduled to be unlocked. It will be processed in a few moments..."
+      make_admin: "Make admin"
+      remove_admin: "Remove as admin"
+      make_moderator: "Make moderator"
+      remove_moderator: "Remove as moderator"
+      make_spotlight: "Add to community spotlight"
+      remove_spotlight: "Remove from community spotlight"
+      add_admin: "%{name} has been made an admin."
+      delete_admin: "%{name} has been removed from the list of admins."
+      add_moderator: "%{name} has been made a moderator."
+      delete_moderator: "%{name} has been removed from the list of moderators."
+      add_spotlight: "%{name} has been added to community spotlight."
+      delete_spotlight: "%{name} has been removed from community spotlight."
+      does_not_exist: "User does not exist!"
+      role_implemented: "%{name} has already been given this role!"
+      role_removal_implemented: "%{name} has already been removed from this role!"
       email_to: "Email to invite"
       invite: "Invite"
       under_13: "Show users that are under 13 (COPPA)"
@@ -132,6 +148,9 @@ en:
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
+      admin: "Admin"
+      moderator: "Moderator"
+      spotlight: "Spotlight"
       unknown: "Unknown"
       invite_token: "Invite token"
       'yes': "Yes"
@@ -597,7 +616,8 @@ en:
       whats_new: "What’s new?"
       statistics_link: "Pod statistics"
       discourse: "Project discussions and support"
-      toggle: "Toggle mobile"
+      switch_to_touch_optimized_mode: "Switch to touch-optimized mode"
+      switch_to_standard_mode: "Switch to standard mode"
       public_feed: "Public diaspora* feed for %{name}"
       back_to_top: "Back to top"
       source_package: "Download the source code package"
@@ -1243,8 +1263,9 @@ en:
 
       protocol_handler:
         title: "web+diaspora:// protocol handler"
-        description: "Clicking this button will ask your browser to install a handler that allows us to open web+diaspora:// URLs on your home pod. This is currently experimental and interactions will depend on your browser."
-        register: "Register"
+        description: "web+diaspora:// is a new web protocol that we have introduced. Any link to a diaspora* page on an external website that uses this protocol can be opened in the pod on which your diaspora* account is registered. Click the button below to set your browser to use %{pod_url} to recognise external web+diaspora:// links."
+        browser: "This protocol is currently in the experimental stage and the success of interactions using it will depend on your browser. If you want to manage or remove this handler, you will do this via your browser settings. The button below will always be enabled, and you need to set the handler separately in each browser you use."
+        register: "Register web+diaspora:// handler on this browser"
 
     privacy_settings:
       title: "Privacy settings"
@@ -1289,6 +1310,42 @@ en:
     confirm_email:
       email_confirmed: "Email %{email} activated"
       email_not_confirmed: "Email could not be activated. Wrong link?"
+
+  two_factor_auth:
+    title: "Two-factor authentication"
+    explanation: "Two-factor authentication is a powerful way to ensure you are the only one able to sign in to your account. When signing in, you will enter a 6-digit code along with your password to prove your identity. Be careful though: if you lose your phone and the recovery codes created when you activate this feature, access to your diaspora* account will be blocked forever."
+    activated:
+      status: "Two-factor authentication activated"
+      change_label: "Deactivate two-factor authentication by entering your password"
+      change_button: "Deactivate"
+    deactivated:
+      status: "Two-factor authentication not activated"
+      change_label: "Activate two-factor authentication"
+      change_button: "Activate"
+    confirm:
+      title: "Confirm activation"
+      status: "Two-factor authentication is not fully activated yet, you need to confirm activation with a TOTP token"
+      scan_title: "Scan the QR code"
+      scan_explanation: "Please scan the QR code with a TOTP capable app, such as andOTP (Android), FreeOTP (iOS), SailOTP (SailfishOS)."
+      manual_explanation: "In case you can’t scan the QR code automatically you can manually enter the secret in your app."
+      manual_explanation_cont: "We are using time-based one-time passwords (TOTP) with six-digit tokens. In case your app prompts you for a time interval and algorithm enter 30 seconds and sha1 respectively. <br /> The spaces are just for readability, please enter the code without them."
+      input_title: "Confim with TOTP token"
+      input_explanation: "After scanning or entering the secret, enter the six-digit code you see and confirm the setup."
+      activate_button: "Confirm and activate"
+    input_token:
+      label: "Two-factor token"
+      placeholder: "six-digit two-factor token"
+    recovery:
+      title: "Recovery codes"
+      reminder: "Alternatively, you can use one of the recovery codes."
+      explanation: "If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. Keep the recovery codes safe. For example, you may print them and store them with other important documents."
+      explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone. Note that you can use each recovery code only once."
+      invalidation_notice: "If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated."
+      button: "Generate new recovery codes"
+    flash:
+      success_activation: "Successfully activated two-factor authentication"
+      success_deactivation: "Successfully deactivated two-factor authentication"
+      error_token: "Token was incorrect or invalid"
 
   will_paginate:
     previous_label: "&laquo; previous"
